@@ -1,21 +1,10 @@
-# webtech_midterm
+- ชื่อกลุ่ม  ปันกัน
+    - ชื่อระบบ
+    - ชื่อและรหัสนิสิตสมาชิกในกลุ่ม รวมถึงชื่อ github user 
+            วิวิธ ลีฬหาล้ำเลิศ 6010450705 username: PeaVivit
 
-> A Vue.js project
+    - ฟังก์ชันการทำงานของระบบ 
 
-## Build Setup
+    - วิธีการติดตั้งสำหรับการพัฒนา
 
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+    - เงื่อนไขอื่นที่ผู้ร่วมพัฒนาหรือผู้ติดตั้งระบบจำเป็นต้องทราบ
