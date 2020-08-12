@@ -1,34 +1,71 @@
 <template>
   <div id="app">
-    <router-view />
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <ul class="navbar-nav">
+        <router-link to="/">
+          <li class="nav-item">
+            <a class="nav-link">หน้าแรก</a>
+          </li>
+        </router-link>
+        <router-link to="/about-view">
+          <li class="nav-item">
+            <a class="nav-link">เกี่ยวกับเรา</a>
+          </li>
+        </router-link>
+        <router-link to="/shareInfo-view">
+          <li>
+            <a class="nav-link">บริจาคอะไรได้บ้าง</a>
+          </li>
+        </router-link>
+        <router-link to="/share-view">
+          <li>
+            <a class="nav-link">บริจาคที่นี่</a>
+          </li>
+        </router-link>
+        <router-link to="/reference-view">
+          <li class="nav-item">
+            <a class="nav-link">ติดต่อเรา</a>
+          </li>
+        </router-link>
+        <router-link to="/reference-view">
+          <li class="nav-item">
+            <a class="nav-link">เอกสารการอ้างอิง</a>
+          </li>
+        </router-link>
+      </ul>
+    </nav>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
   name: "App",
+  data() {
+    return {};
+  }
 };
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0%;
+  height: 100%;
 }
 
-#main-menu {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  z-index: 100;
-  transition-duration: 0.2s;
-  -webkit-transition-timing-function: linear;
-  transition-timing-function: linear;
-  background-color: none;
-  padding: 0 40px;
+.bg-light {
+  padding: 1rem;
+  background-color: #b0c4de !important;
+  overflow: auto;
+}
+
+.navbar-nav {
+  margin: 0 auto;
+}
+
+.navbar-nav .nav-link {
+  font-size: 25px;
+  margin-left: 40px;
+  color: black !important;
 }
 </style>
