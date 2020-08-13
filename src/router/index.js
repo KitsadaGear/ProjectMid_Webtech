@@ -17,32 +17,32 @@ const routes = [
     component: Home
   },
   {
-    path: "/about",
+    path: "/about-view",
     name: "About",
     component: About
   },
   {
-    path: "/contact",
+    path: "/contact-view",
     name: "Contact",
     component: Contact
   },
   {
-    path: "/detail",
+    path: "/detail-view",
     name: "Detail",
     component: Detail
   },
   {
-    path: "/loginPage",
+    path: "/login-view",
     name: "LoginPage",
     component: LoginPage
   },
   {
-    path: "/registerPage",
+    path: "/register-view",
     name: "RegisterPage",
     component: RegisterPage
   },
   {
-    path: "/reference",
+    path: "/reference-view",
     name: "Reference",
     component: Reference
   }

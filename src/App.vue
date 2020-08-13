@@ -12,17 +12,17 @@
             <a class="nav-link">เกี่ยวกับเรา</a>
           </li>
         </router-link>
-        <router-link to="/shareInfo-view">
+        <router-link to="/detail-view">
           <li>
             <a class="nav-link">บริจาคอะไรได้บ้าง</a>
           </li>
         </router-link>
-        <router-link to="/share-view">
+        <router-link to="/login-view">
           <li>
             <a class="nav-link">บริจาคที่นี่</a>
           </li>
         </router-link>
-        <router-link to="/reference-view">
+        <router-link to="/contact-view">
           <li class="nav-item">
             <a class="nav-link">ติดต่อเรา</a>
           </li>
@@ -43,7 +43,7 @@ export default {
   name: "App",
   data() {
     return {};
-  }
+  },
 };
 </script>
 
