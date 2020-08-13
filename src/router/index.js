@@ -7,6 +7,7 @@ import Detail from "@/components/Detail.vue";
 import LoginPage from "@/components/LoginPage.vue";
 import RegisterPage from "@/components/RegisterPage.vue";
 import Reference from "@/components/Reference.vue";
+import Share from "@/components/Share.vue";
 
 Vue.use(Router);
 
@@ -45,6 +46,11 @@ const routes = [
     path: "/reference-view",
     name: "Reference",
     component: Reference
+  },
+  {
+    path: "/share-view",
+    name: "Share",
+    component: Share
   }
 ];
 export default new Router({ mode: "history", routes });

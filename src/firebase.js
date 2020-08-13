@@ -14,4 +14,4 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const db = app.firestore();
-export const dataCollection = db.collection("data");
+export const departmentsCollection = db.collection("departments");
