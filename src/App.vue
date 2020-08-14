@@ -1,75 +1,77 @@
 <template>
   <div id="app">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <!-- For Icon or Programname -->
+      <i class="mdi mdi-home-modern" aria-hidden="true"></i>
+      <a class="navbar-brand">ศูนย์กลางการจัดการสิ่งของรับบริจาค</a>
 
+      <!-- /For Icon or Programname -->
+
+      <!-- Navbar item -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <router-link to="/">
-            <li class="nav-item">
-              <a class="nav-link">หน้าแรก</a>
-            </li>
-          </router-link>
-          <router-link to="/about-view">
-            <li class="nav-item">
-              <a class="nav-link">เกี่ยวกับเรา</a>
-            </li>
-          </router-link>
-          <router-link to="/detail-view">
-            <li>
-              <a class="nav-link">บริจาคอะไรได้บ้าง</a>
-            </li>
-          </router-link>
-          <router-link to="/login-view">
-            <li>
-              <a class="nav-link">บริจาคที่นี่</a>
-            </li>
-          </router-link>
-          <router-link to="/contact-view">
-            <li class="nav-item">
-              <a class="nav-link">ติดต่อเรา</a>
-            </li>
-          </router-link>
-          <router-link to="/reference-view">
-            <li class="nav-item">
-              <a class="nav-link">เอกสารการอ้างอิง</a>
-            </li>
-          </router-link>
-          <!-- Only Fast Pass -->
-          <router-link to="/share-view">
-            <li class="nav-item">
-              <a class="nav-link">Fast pass</a>
-            </li>
+          <router-link to="/" tag="li">
+            <b-button variant="outline-primary">
+              <b-icon icon="house-fill" style="margin-right: 6px"></b-icon
+              >หน้าแรก
+            </b-button>
           </router-link>
 
+          <router-link to="/about-view" tag="li">
+            <b-button variant="outline-primary">
+              <b-icon icon="person-fill" style="margin-right: 6px"></b-icon
+              >เกี่ยวกับเรา
+            </b-button>
+          </router-link>
+
+          <router-link to="/detail-view" tag="li">
+            <b-button variant="outline-primary">
+              <b-icon icon="info-square-fill" style="margin-right: 8px"></b-icon
+              >บริจาคอะไรได้บ้าง
+            </b-button>
+          </router-link>
+
+          <router-link to="/login-view" tag="li">
+            <b-button variant="outline-primary">
+              <b-icon icon="heart-fill" style="margin-right: 8px"></b-icon
+              >บริจาคที่นี่
+            </b-button>
+          </router-link>
+          <router-link to="/contact-view" tag="li">
+            <b-button variant="outline-primary">
+              <b-icon
+                icon="chat-left-dots-fill"
+                style="margin-right: 8px"
+              ></b-icon
+              >ติดต่อเรา
+            </b-button>
+          </router-link>
+          <router-link to="/reference-view" tag="li">
+            <b-button variant="outline-primary">
+              <b-icon icon="file-text-fill" style="margin-right: 6px"></b-icon
+              >เอกสารการอ้างอิง
+            </b-button>
+          </router-link>
           <!-- Only Fast Pass -->
+          <router-link to="/share-view" tag="li">
+            <b-button variant="outline-primary">
+              <b-icon icon="person-fill"></b-icon>หน้าบริจาค
+            </b-button>
+          </router-link>
+
+          <!-- /Only Fast Pass -->
+
+          <!-- /Only Fast Pass -->
         </ul>
       </div>
+      <!-- /Navbar item -->
     </nav>
+
     <router-view></router-view>
   </div>
 </template>
 
-<script>
-export default {
-  name: "App",
-  data() {
-    return {};
-  },
-};
-</script>
-
+<script></script>
 <style>
 #app {
   margin: 0%;
@@ -77,17 +79,24 @@ export default {
 }
 
 .bg-light {
-  padding: 1rem;
+  padding: 0.7rem;
   background-color: #b0c4de !important;
-  overflow: auto;
-}
-
-.navbar-nav {
-  margin: 0 auto;
 }
 
 .navbar-nav .nav-link {
-  font-size: 25px;
+  font-size: 20px;
   color: black !important;
+  margin-left: 20px;
+}
+
+li a {
+  text-decoration: none;
+}
+
+.btn-outline-primary {
+  margin-left: 10px;
+  color: black;
+  border-color: #007bff;
+  padding: 10px 15px;
 }
 </style>
