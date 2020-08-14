@@ -182,7 +182,7 @@
             <button>อ่านต่อเลย</button>
           </div>
 
-          <div class="col-lg-4">
+          <div class="col-lg-4" style="margin-bottom: 30px;">
             <img
               src="../assets/img/โปรโมชั่นเครื่องใช้ไฟฟ้าใน-ShopAt24.jpg"
               width="473px"
