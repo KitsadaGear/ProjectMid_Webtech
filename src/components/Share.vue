@@ -1,132 +1,136 @@
 <template>
   <div>
-    <!-- Carousel class -->
-    <div class="shadow-none p-3 mb-5 bg-light rounded">
-      <div
-        id="carouselExampleIndicators"
-        class="carousel slide"
-        data-ride="carousel"
-      >
-        <b-carousel
-          id="carousel-1"
-          v-model="slide"
-          :interval="4000"
-          controls
-          indicators
-          img-width="800"
-          img-height="600"
-          style="text-shadow: 1px 1px 2px #333;"
-          @sliding-start="onSlideStart"
-          @sliding-end="onSlideEnd"
-        >
-          <!-- Picture Slider Here -->
-          <b-carousel-slide>
-            <template v-slot:img>
-              <img
-                class="d-block w-100 rounded"
-                width="800"
-                height="600"
-                src="https://picsum.photos/1024/480/?image=58"
-                alt="image slot"
-              />
-            </template>
-          </b-carousel-slide>
+    <div class="Homepage">
+      <!-- Carousel class -->
+      <div class="shadow-none p-3 mb-5 bg-light rounded">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <b-carousel
+            id="carousel-1"
+            v-model="slide"
+            :interval="4000"
+            controls
+            indicators
+            img-width="800"
+            img-height="600"
+            style="text-shadow: 1px 1px 2px #333;"
+            @sliding-start="onSlideStart"
+            @sliding-end="onSlideEnd"
+          >
+            <!-- Picture Slider Here -->
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block w-100 rounded"
+                  width="800"
+                  height="600"
+                  src="../assets/img/shutterstock_180809027-696x367.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
 
-          <b-carousel-slide>
-            <template v-slot:img>
-              <img
-                class="d-block rounded w-100"
-                width="800"
-                height="600"
-                src="https://picsum.photos/1024/480/?image=55"
-                alt="image slot"
-              />
-            </template>
-          </b-carousel-slide>
-        </b-carousel>
-        <!-- /Picture Slider Here -->
-      </div>
-    </div>
-
-    <!-- /Carousel class -->
-    <div role="main" class="container">
-      <div class="row">
-        <div class="col-md-8 blog-main">
-          <label class="pb-4 mb-4">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
-          <select name="department_list" id="department_list">
-            <option value disabled selected hidden></option>
-            <option v-for="department in departments" :key="department.id">
-              {{ department.name }}
-            </option>
-          </select>
-          <button @click="getData()">Select</button>
-
-          <h1 class="depart_header">{{ depart_name }}</h1>
-
-          <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col" style="text-align:center">
-                  ชื่อสิ่งที่ท่านต้องการบริจาค
-                </th>
-                <th scope="col" style="text-align:center">
-                  จำนวนที่ต้องการการบริจาค
-                </th>
-                <th scope="col" style="text-align:center">
-                  จำนวนที่ท่านต้องการบริจาค
-                </th>
-              </tr>
-              <tr>
-                <td style="text-align:center">Test</td>
-                <td style="text-align:center">Otto</td>
-                <td style="text-align:center">
-                  <input type="text" />
-                  <button type="button" class="btn btn-outline-primary">
-                    ยืนยัน
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td style="text-align:center">Test</td>
-                <td style="text-align:center">Otto</td>
-                <td style="text-align:center">
-                  <input type="text" />
-                  <button type="button" class="btn btn-outline-primary">
-                    ยืนยัน
-                  </button>
-                </td>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+            <b-carousel-slide>
+              <template v-slot:img>
+                <img
+                  class="d-block rounded w-100"
+                  width="800"
+                  height="600"
+                  src="../assets/img/download.jpg"
+                  alt="image slot"
+                />
+              </template>
+            </b-carousel-slide>
+          </b-carousel>
+          <!-- /Picture Slider Here -->
         </div>
+      </div>
 
-        <aside class="col-md-4 blog-sidebar">
-          <div class="p-4 mb-3 bg-light rounded">
-            <h4 style="text-align:center;font-size: 30px;">บริจาคเพิ่มเติม</h4>
-            <p class="paragraph_info">ชื่อสิ่งที่ท่านต้องการบริจาค</p>
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                aria-describedby="button-addon2"
-              />
-            </div>
-            <p class="paragraph_info">จำนวนของสิ่งที่ท่านต้องการบริจาค</p>
-            <div class="input-group mb-3">
-              <input
-                type="text"
-                class="form-control"
-                aria-describedby="button-addon2"
-              />
-            </div>
-            <div style="text-align:center;">
-              <button type="button" class="btn btn-outline-primary">
-                ยืนยันรายการบริจาคของท่าน
-              </button>
-            </div>
+      <!-- /Carousel class -->
+      <div role="main" class="container">
+        <div class="row">
+          <div class="col-md-8 blog-main">
+            <label class="pb-4 mb-4">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
+            <select name="department_list" id="department_list">
+              <option value disabled selected hidden></option>
+              <option v-for="department in departments" :key="department.id">{{ department.name }}</option>
+            </select>
+            <button @click="getData()">Select</button>
+
+            <h1 class="depart_header">{{ depart_name }}</h1>
+
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col" style="text-align:center">ชื่อสิ่งที่ท่านต้องการบริจาค</th>
+                  <th scope="col" style="text-align:center">จำนวนที่ต้องการการบริจาค</th>
+                  <th scope="col" style="text-align:center">จำนวนที่ท่านต้องการบริจาค</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td style="text-align:center">Test</td>
+                  <td style="text-align:center">Otto</td>
+                  <td style="text-align:center">
+                    <input type="text" />
+                    <button type="button" class="btn btn-outline-primary">ยืนยัน</button>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="text-align:center">Test</td>
+                  <td style="text-align:center">Otto</td>
+                  <td style="text-align:center">
+                    <input type="text" />
+                    <button type="button" class="btn btn-outline-primary">ยืนยัน</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-        </aside>
+
+          <aside class="col-md-4 blog-sidebar">
+            <div class="p-4 mb-3 bg-light rounded">
+              <h4 style="text-align:center;font-size: 30px;">บริจาคเพิ่มเติม</h4>
+              <p class="paragraph_info">ชื่อสิ่งที่ท่านต้องการบริจาค</p>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-describedby="button-addon2" />
+              </div>
+              <p class="paragraph_info">จำนวนของสิ่งที่ท่านต้องการบริจาค</p>
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" aria-describedby="button-addon2" />
+              </div>
+              <div style="text-align:center;">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                >ยืนยันรายการบริจาคเพิ่มเติมของท่าน</button>
+              </div>
+            </div>
+
+            <div class="p-4 mb-3 bg-light rounded">
+              <h4 style="text-align:center;font-size: 30px;">สรุปรายการบริจาคของท่าน</h4>
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col" style="text-align:center">ชื่อสิ่งที่ท่านบริจาค</th>
+                    <th scope="col" style="text-align:center">จำนวนที่ท่านบริจาค</th>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center">N/A</td>
+                    <td style="text-align:center">N/A</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center">N/A</td>
+                    <td style="text-align:center">N/A</td>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <div style="text-align:center;">
+                <button type="button" class="btn btn-outline-primary">ยืนยันรายการบริจาคของท่าน</button>
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
     </div>
   </div>
@@ -142,12 +146,12 @@ export default {
       departments: [],
       depart_name: this.depart,
       slide: 0,
-      sliding: null
+      sliding: null,
     };
   },
   firestore() {
     return {
-      departments: departmentsCollection
+      departments: departmentsCollection,
     };
   },
   props: ["depart"],
@@ -167,8 +171,8 @@ export default {
         .doc(selectedValue)
         .collection("Requirement");
       this.depart_name = selectedValue;
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -177,10 +181,17 @@ aside .bg-light {
   background-color: #f0f8ff !important;
 }
 
+.Homepage {
+  background-color: #fffff0;
+  margin: 0;
+}
+
 .container {
   margin-top: 20px;
 }
-
+.table {
+  background-color: white;
+}
 .blog-post h2 {
   margin-bottom: 10px;
 }
