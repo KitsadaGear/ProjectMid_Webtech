@@ -43,6 +43,7 @@
               <b-icon icon="file-text-fill" style="margin-right: 6px"></b-icon>เอกสารอ้างอิง
             </b-button>
           </router-link>
+<<<<<<< HEAD
           <!-- Only Fast Pass -->
           <router-link to="/share-view" tag="li">
             <b-button variant="outline-primary" class="header_btn">
@@ -56,6 +57,8 @@
               <b-icon icon="person-fill"></b-icon>หน้าบริจาค
             </b-button>
           </router-link>
+=======
+>>>>>>> e161830091bd5f33da9e19621ddd4b9bc7cd09da
 
           <!-- /Only Fast Pass -->
         </ul>
