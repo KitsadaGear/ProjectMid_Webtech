@@ -55,7 +55,7 @@
           <!-- Only Fast Pass -->
           <router-link to="/share-view" tag="li">
             <b-button variant="outline-primary" class="header_btn">
-              <b-icon icon="person-fill"></b-icon><a>หน้าบริจาค</a>
+              <b-icon icon="person-fill"></b-icon>หน้าบริจาค
             </b-button>
           </router-link>
 
