@@ -3,11 +3,7 @@
     <div class="Homepage">
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
-        <div
-          id="carouselExampleIndicators"
-          class="carousel slide"
-          data-ride="carousel"
-        >
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <b-carousel
             id="carousel-1"
             v-model="slide"
@@ -52,10 +48,7 @@
       <!-- /Carousel class -->
 
       <!-- News class -->
-      <div
-        class="container shadow-lg p-3 mb-5 rounded"
-        style="background-color:#948E99"
-      >
+      <div class="container shadow-lg p-3 mb-5 rounded" style="background-color:#948E99">
         <div class="card-deck">
           <div class="card">
             <img
@@ -87,9 +80,7 @@
               height="400px"
             />
             <div class="card-body">
-              <h5 class="card-title">
-                เหตุระเบิดที่เบรุต ประเทศเลบานอน
-              </h5>
+              <h5 class="card-title">เหตุระเบิดที่เบรุต ประเทศเลบานอน</h5>
               <p class="card-text">
                 เกิดขึ้นเมื่อวันที่ 4 สิงหาคม พ.ศ. 2563
                 บริเวณท่าเรือเบรุตในเมืองเบรุต
@@ -105,26 +96,17 @@
           </div>
           <div class="card">
             <img
-              src=""
+              src="../assets/img/aHR0cHM6Ly9zLmlzYW5vb2suY29tL25zLzAvdWQvMTY0NS84MjI5NjYyL2ZpcmUoNCkuanBn.jpg"
               class="card-img-top"
               alt="..."
               width="600px"
               height="400px"
             />
             <div class="card-body">
-              <h5 class="card-title">
-                Beirut explosion: how you can help victims in Lebanon
-              </h5>
-              <p class="card-text">
-                The Lebanese Red Cross (LRC) is an independent organisation
-                focussed on disaster prevention and relief. It is the main
-                provider of ambulances in Lebanon, and relies on volunteers. The
-                LRC was central to treating people injured in the nationwide
-                protests that started in October last year and the coronavirus
-                pandemic this year, as well as treating and transporting people
-                following the explosion. Its services are provided for free to
-                those who need them.
-              </p>
+              <h5 class="card-title">ไฟไหม้บ้านซอยตากสิน 23</h5>
+              <p
+                class="card-text"
+              >คืนวานนี้ (12 ส.ค.63) เมื่อเวลา 19.52 น. เกิดเหตุเพลิงไหม้บ้านเรือนประชาชน ภายในซอยสมเด็จพระเจ้าตากสิน 23 มีการระดมกำลัง เจ้าหน้าที่ดับเพลิงและกู้ภัยจากพื้นที่ต่างๆ ไปที่เกิดเหตุ โดยที่เกิดเหตุเป็นลักษณะตึกแถว 2 ชั้น เป็นชุมชนในซอยย่อยห่างจากปากซอยประมาณ 200 เมตร ในชุมชนดังกล่าว แบ่งออกเป็น 4 ย่อย มีประชาชนอาศัยประมาณ 80 หลังคาเรือน มีบ้านเรือนถูกไฟไหม้ 76 หลังคาเรือน และหลายหลังมีการทรุดตัว</p>
             </div>
           </div>
         </div>
@@ -154,11 +136,7 @@
           </div>
 
           <div class="col-lg-4">
-            <img
-              src="../assets/img/medicine.jpg"
-              width="473px"
-              height="313px"
-            />
+            <img src="../assets/img/medicine.jpg" width="473px" height="313px" />
             <h2>ยารักษาโรค</h2>
             <p>
               ยา เป็นปัจจัยสำคัญอย่างหนึ่งในการรักษาความเจ็บป่วย การบำบัด
@@ -236,7 +214,7 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
     };
   },
   methods: {
@@ -245,8 +223,8 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
-    }
-  }
+    },
+  },
 };
 </script>
 
