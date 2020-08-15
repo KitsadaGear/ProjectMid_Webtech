@@ -12,44 +12,35 @@
         <ul class="navbar-nav mr-auto">
           <router-link to="/" tag="li">
             <b-button variant="outline-primary" class="header_btn">
-              <b-icon icon="house-fill" style="margin-right: 6px"></b-icon
-              >หน้าแรก
+              <b-icon icon="house-fill" style="margin-right: 6px"></b-icon>หน้าแรก
             </b-button>
           </router-link>
 
           <router-link to="/about-view" tag="li">
             <b-button variant="outline-primary" class="header_btn">
-              <b-icon icon="person-fill" style="margin-right: 6px"></b-icon
-              >เกี่ยวกับเรา
+              <b-icon icon="person-fill" style="margin-right: 6px"></b-icon>เกี่ยวกับเรา
             </b-button>
           </router-link>
 
           <router-link to="/detail-view" tag="li">
             <b-button variant="outline-primary" class="header_btn">
-              <b-icon icon="info-square-fill" style="margin-right: 6px"></b-icon
-              >บริจาคอะไรได้
+              <b-icon icon="info-square-fill" style="margin-right: 6px"></b-icon>บริจาคอะไรได้
             </b-button>
           </router-link>
 
           <router-link to="/login-view" tag="li">
             <b-button variant="outline-primary" class="header_btn">
-              <b-icon icon="heart-fill" style="margin-right: 8px"></b-icon
-              >บริจาคที่นี่
+              <b-icon icon="heart-fill" style="margin-right: 8px"></b-icon>บริจาคที่นี่
             </b-button>
           </router-link>
           <router-link to="/contact-view" tag="li">
             <b-button variant="outline-primary" class="header_btn">
-              <b-icon
-                icon="chat-left-dots-fill"
-                style="margin-right: 8px"
-              ></b-icon
-              >ติดต่อเรา
+              <b-icon icon="chat-left-dots-fill" style="margin-right: 8px"></b-icon>ติดต่อเรา
             </b-button>
           </router-link>
           <router-link to="/reference-view" tag="li">
             <b-button variant="outline-primary" class="header_btn">
-              <b-icon icon="file-text-fill" style="margin-right: 6px"></b-icon
-              >เอกสารอ้างอิง
+              <b-icon icon="file-text-fill" style="margin-right: 6px"></b-icon>เอกสารอ้างอิง
             </b-button>
           </router-link>
           <!-- Only Fast Pass -->
@@ -59,7 +50,12 @@
             </b-button>
           </router-link>
 
-          <!-- /Only Fast Pass -->
+          <!-- Only Fast Pass -->
+          <router-link to="/share-view" tag="li">
+            <b-button variant="outline-primary">
+              <b-icon icon="person-fill"></b-icon>หน้าบริจาค
+            </b-button>
+          </router-link>
 
           <!-- /Only Fast Pass -->
         </ul>
