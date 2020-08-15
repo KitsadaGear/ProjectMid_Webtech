@@ -66,7 +66,7 @@
               height="400px"
             />
             <div class="card-body">
-              <h5 class="card-title">น้ำท่วมที่จังหวัดเลย</h5>
+              <h5 class="card-title">น้ำท่วมที่จังหวัดเลย ประเทศไทย</h5>
               <p class="card-text">
                 จากกรณีเมื่อวานนี้ เกิดฝนตกหนักอิทธิพลของพายุซินลากู
                 ทำให้น้ำป่าไหลหลากเข้าท่วมบ้านเรือนประชาชนในพื้นที่ อ.เมือง
@@ -182,7 +182,7 @@
             <button>อ่านต่อเลย</button>
           </div>
 
-          <div class="col-lg-4" style="margin-bottom: 30px;">
+          <div class="col-lg-4">
             <img
               src="../assets/img/โปรโมชั่นเครื่องใช้ไฟฟ้าใน-ShopAt24.jpg"
               width="473px"
