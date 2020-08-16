@@ -50,10 +50,6 @@
               <b-icon icon="person-fill"></b-icon>หน้าบริจาค
             </b-button>
           </router-link>
-<<<<<<< HEAD
-=======
-
->>>>>>> gear
           <!-- /Only Fast Pass -->
         </ul>
       </div>
