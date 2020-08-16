@@ -139,12 +139,12 @@
 <script>
 import { departmentsCollection } from "../firebase.js";
 import { firestore } from "firebase";
-
+import { db } from "../firebase.js";
 export default {
   data() {
     return {
       departments: [],
-      depart_name: this.depart,
+      depart_name: "",
       slide: 0,
       sliding: null,
     };
@@ -154,7 +154,6 @@ export default {
       departments: departmentsCollection,
     };
   },
-  props: ["depart"],
 
   methods: {
     onSlideStart(slide) {
@@ -167,9 +166,6 @@ export default {
       var element = document.getElementById("department_list");
       var selectedValue = element.options[element.selectedIndex].text;
       console.log(selectedValue);
-      this.requirements = departmentsCollection
-        .doc(selectedValue)
-        .collection("Requirement");
       this.depart_name = selectedValue;
     },
   },
