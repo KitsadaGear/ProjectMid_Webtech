@@ -22,13 +22,19 @@
                         <label for="exampleInputPassword1">รหัสผ่าน</label>
                         <input type="password" class="form-control rounded-pill" id="exampleInputPassword1">
                     </div>
+
+                    <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox>
+
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary rounded-pill">เข้าสู่ระบบ</button>
-                        <button type="Register" class="btn btn-primary rounded-pill"> ลงทะเบียน
-                            <router-link to="/register-view">  </router-link>
-                        </button>
+
+                        <router-link to="/register-view">
+                            <button type="Register" class="btn btn-primary rounded-pill"> ลงทะเบียน</button>
+                        </router-link>
+                        <router-view></router-view>
                     </div>
-                    <router-view></router-view>
+                    
+                    
                     <p></p>
                 </form>
             </b-card-text>
