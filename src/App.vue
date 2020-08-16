@@ -50,14 +50,6 @@
               <b-icon icon="person-fill"></b-icon>หน้าบริจาค
             </b-button>
           </router-link>
-
-          <!-- Only Fast Pass -->
-          <router-link to="/share-view" tag="li">
-            <b-button variant="outline-primary">
-              <b-icon icon="person-fill"></b-icon>หน้าบริจาค
-            </b-button>
-          </router-link>
-
           <!-- /Only Fast Pass -->
         </ul>
       </div>
