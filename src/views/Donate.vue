@@ -1,5 +1,6 @@
 <template>
   <div>
+    <menu-bar></menu-bar>
     <div class="Homepage">
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
@@ -138,6 +139,7 @@
 
 <script>
 import { departmentsCollection } from "../firebase.js";
+import MenuBar from "../components/Menubar.vue";
 import { firestore } from "firebase";
 import { db } from "../firebase.js";
 export default {
@@ -168,6 +170,9 @@ export default {
       console.log(selectedValue);
       this.depart_name = selectedValue;
     },
+  },
+  components: {
+    MenuBar,
   },
 };
 </script>
