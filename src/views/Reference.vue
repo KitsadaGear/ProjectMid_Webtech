@@ -1,5 +1,6 @@
 <template>
   <div>
+    <menu-bar></menu-bar>
     <div class="Homepage">
       <div class="container shadow-lg p-3 mb-5 rounded" style="margin-top:70px">
         <table class="table">
@@ -23,7 +24,12 @@
 </template>
 
 <script>
-export default {};
+import MenuBar from "../components/Menubar.vue";
+export default {
+  components: {
+    MenuBar,
+  },
+};
 </script>
 
 <style></style>
