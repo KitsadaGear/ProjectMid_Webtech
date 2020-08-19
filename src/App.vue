@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <!-- For Icon or Programname -->
       <i class="mdi mdi-home-modern" aria-hidden="true"></i>
@@ -57,40 +58,20 @@
       <!-- /Navbar item -->
     </nav>
 
+=======
+>>>>>>> 66652116aa90bb7a9caa46ef03eadd7b45289a84
     <router-view></router-view>
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "app"
+};
+</script>
 <style>
 #app {
   margin: 0%;
   height: 100%;
-}
-
-.bg-light {
-  padding: 0.7rem;
-  background-color: #b0c4de !important;
-}
-
-.navbar-nav .nav-link {
-  font-size: 20px;
-  color: black !important;
-  margin-left: 20px;
-}
-
-li a {
-  text-decoration: none;
-}
-
-.btn-outline-primary {
-  margin-left: 10px;
-  color: black;
-  border-color: #007bff;
-  padding: 10px 15px;
-}
-
-.header_btn {
-  padding: 20.75px;
 }
 </style>

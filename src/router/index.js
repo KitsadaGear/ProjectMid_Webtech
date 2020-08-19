@@ -1,19 +1,25 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Home from "@/components/Home";
-import About from "@/components/About.vue";
-import Contact from "@/components/Contact.vue";
-import Detail from "@/components/Detail.vue";
-import LoginPage from "@/components/LoginPage.vue";
-import RegisterPage from "@/components/RegisterPage.vue";
-import Reference from "@/components/Reference.vue";
-import Share from "@/components/Share.vue";
+import Welcome from "@/views/Welcome";
+import Home from "@/views/Home";
+import About from "@/views/About.vue";
+import Contact from "@/views/Contact.vue";
+import Detail from "@/views/Detail.vue";
+import LoginPage from "@/views/LoginPage.vue";
+import RegisterPage from "@/views/RegisterPage.vue";
+import Reference from "@/views/Reference.vue";
+import Donate from "@/views/Donate.vue";
 
 Vue.use(Router);
 
 const routes = [
   {
     path: "/",
+    name: "Welcome",
+    component: Welcome
+  },
+  {
+    path: "/home-view",
     name: "Home",
     component: Home
   },
@@ -48,9 +54,9 @@ const routes = [
     component: Reference
   },
   {
-    path: "/share-view",
-    name: "Share",
-    component: Share
+    path: "/donate-view",
+    name: "Donate",
+    component: Donate
   }
 ];
 export default new Router({ mode: "history", routes });
