@@ -1,12 +1,12 @@
 import { userService } from '../services/user.service'
-// import { router } from '../routes'
+import { router }  from '../routes'
+
 
 const user = JSON.parse(localStorage.getItem('user'))
 
 const state = user 
     ? { status: { loggedIn: true }, user}
     : { status: {}, user: null }
-    
 const mutations = {
     registerRequest(state){
         state.status = { registering: true }
@@ -33,14 +33,17 @@ const mutations = {
         state.status = {}
         state.user = null
     }
+
 }
+
 const actions = {
     register ({ dispatch, commit } , user){
         commit('registerRequest')
+
         userService.register(user)
         .then(user => {
             commit('registerSuccess')
-            router.push({ name: 'Login'})
+            router.push({ name: 'LoginPage'})
             setTimeout(() => {
                 dispatch('alert/success', 'Registration successful', { root: true })
             }, 1000);
@@ -49,9 +52,12 @@ const actions = {
             commit('registerFailure')
             dispatch('alert/error', error.message, { root: true })
         })
+        
     },
+
     login({ dispatch,commit }, { email , password }) {
         commit ('loginRequest' , { email })
+
         userService.login( email,password )
         .then (user => {
             commit ('loginSuccess' , user)
@@ -65,9 +71,10 @@ const actions = {
     logout({ commit }){
         userService.logout()
         commit('logout')
-        router.push({ name : 'Login'})
+        router.push({ name : 'LoginPage'})
     }
 }
+
 export const account = {
     namespaced: true,
     state,

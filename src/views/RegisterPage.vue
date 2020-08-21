@@ -1,52 +1,58 @@
-<template> 
-
-<div class="shadow-lg p-3 mb-5 bg-white rounded ">
-    <h1 class="text-center">Register</h1>
-    <p></p>
-    <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text">First name</span>
+<template>
+<div class="container">
+    <h1>Register</h1>
+    <form @submit.prevent="handleSubmit()">
+        <div class="form-group">
+            <label for="" >Email Address *</label>
+            <input type ="text" class="form-control"
+                placeholder="You Email *" v-model="form.email">
         </div>
-        <input type="text" aria-label="First name" class="form-control">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Last name</span>
+        <div class= "form-group">
+            <label for =""> Password *</label>
+            <input type = "password" class="form-control"
+                placeholder="Your password *" v-model="form.password">
         </div>
-        <input type="text" aria-label="Last name" class="form-control">
+        <div class= "form-group">
+            <label for =""> Displat Name *</label>
+            <input type = "text" class="form-control"
+                placeholder="Your name *" v-model="form.displayName">
+        </div>
+        <div class="from-group">
+            <button class="btn btn-primary">
+                Register
+            </button>
+        </div>
+    </form>
 </div>
-<p></p>
-
-<form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-    </div>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-
-    <div class="form-group">
-        <label for="exampleInputPassword1">Recheck Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    
-    <button type="submit" class="btn btn-primary rounded-pill">ยืนยัน</button>
-
-    <button type="submit" class="btn btn-white bg-light rounded-pill text">
-        <router-link to="/login-view" class="text-secondary">
-            ย้อนกลับ
-        </router-link>
-    </button>
-</form>
-
-
-</div>
-
 </template>
 
 <script>
-export default {};
-</script>
 
-<style></style>
+import { mapState, mapActions } from 'vuex'
+
+export default {
+    data(){
+        return{
+            form: {
+                email: '',
+                password: '',
+                displayName: ''
+            }
+        }
+    },
+    methods: {
+        ...mapActions('account', ['register']),
+        ...mapActions('alert',['error']),
+        handleSubmit(){
+            if(this.form.email && this.form.password && this.form.displayName){
+                this.register(this.form)
+            }
+            else{
+                this.error("All fields are required")
+            }
+        } 
+    }
+}
+</script>
+<style>
+</style>

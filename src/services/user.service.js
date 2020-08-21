@@ -10,6 +10,9 @@ function login(email,password){
 
 }
 
+function logout(){
+    localStorage.removeItem('user')
+}
 
 function register(user){
     return firebase.auth()
@@ -25,6 +28,7 @@ function register(user){
 
 export const userService = {
     login,
+    logout,
     register
 }
 

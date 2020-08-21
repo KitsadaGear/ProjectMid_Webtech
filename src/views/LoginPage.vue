@@ -1,44 +1,39 @@
 <template>
-<div class="shadow-lg p-3 mb-5 rounded  text-center" id="one">
-    <h1 id="two"> เข้าสู่ระบบ </h1>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <form @submit.prevent="handelSubmit">
-            <div class="form-group " id="two">
-                <label for="Email1"> รหัสผู้ใช้งาน</label>
-                
-                <center>
-                    <input type="Your email" class="form-control rounded-pill col-5 text-center " 
-                    id="exampleInputEmail1 "  placeholder="อีเมล์" v-model="form.email" >
-                </center>
-            </div>
-            <div class="form-group " id="two">
-                <label for="exampleInputPassword1">รหัสผ่าน</label>
-                <center>
-                    <input type="password" class="form-control rounded-pill col-5  text-center"
-                    id="exampleInputPassword1" placeholder="รหัสผ่าน" v-model="form.password" >
-                </center>
-            </div>
-            <div class="text-center " id="two">
-                <button class="btn btn-white bg-light rounded-pill text">
-                    <router-link to="/home-view" class="text-secondary">
-                        เข้าสู่ระบบ
-                    </router-link>
-                </button>
-                <button type="submit" class="btn btn-white bg-light rounded-pill text" id="two">
-                    <router-link to="/register-view" class="text-secondary">
-                        ลงทะเบียน
-                    </router-link>
-                </button>
-            </div>
-        </form>
-    </div>
+<div class="container">
+    <div class="rounded text-center " style=" background-color: #fffff0;">
+        <figure class="figure">
+            <img src="../assets/img/sm.jpg" class="figure-img img-fluid rounded" alt="...">
+            <h4> Login </h4>
+            <form @submit.prevent ="handelSubmit">
+                <div class="form-group">
+                    <label for="" >Email Address </label>
+                    <input type ="text" class="form-control" placeholder="You Email " v-model="form.email" >
+                </div>
+                <div class= "form-group">
+                    <label for =""> Password </label>
+                    <input type = "password" class="form-control" placeholder="Your password " v-model="form.password">
+                </div>
+                <div class="from-group">
+                    <button class="btn btn-primary">
+                        Login
+                    </button>
+                </div>
+                <router-link :to="{ name: 'RegisterPage'}"
+                    class="btn btn-link">
+                    Register
+                </router-link>
+            </form>
+        <!-- <figcaption class="figure-caption text-right"></figcaption> -->
+            </figure>
+        </div>
 </div>
-
 </template>
+
 
 <script>
 
-import{mapState,mapActions} from 'vuex'
+import { mapState, mapActions } from 'vuex'
+
 
 export default {
     data(){
@@ -68,5 +63,7 @@ div#one{
 div#two{
     color: cadetblue;
 }
+
+
 
 </style>
