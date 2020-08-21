@@ -59,16 +59,9 @@ const routes = [
     component: Donate
   }
 ];
-<<<<<<< HEAD:src/router/index.js
-export default new VueRouter(
-  { mode: "history", 
-  routes 
-});
-=======
 export const router = new VueRouter({ 
   mode: "history", 
   routes 
 });
 
 
->>>>>>> 581a0b44c0ab7f528fefcffe11cb826ac9597715:src/routes/index.js
