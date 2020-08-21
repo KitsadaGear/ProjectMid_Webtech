@@ -2,13 +2,13 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
 import App from "./App";
-import router from "./router";
-import VueRouter from "vue-router";
+import { router } from "./routes";
 import VueMoment from "vue-moment";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import { firestorePlugin } from "vuefire";
+import { store } from "./stores";
 
 Vue.use(firestorePlugin);
 
@@ -19,7 +19,6 @@ Vue.use(BootstrapVue);
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin);
 
-Vue.use(VueRouter);
 Vue.use(VueMoment);
 
 /* eslint-disable no-new */
@@ -27,5 +26,6 @@ new Vue({
   el: "#app",
   router,
   components: { App },
-  template: "<App/>"
+  template: "<App/>",
+  store
 });

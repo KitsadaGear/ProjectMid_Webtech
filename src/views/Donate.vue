@@ -50,14 +50,14 @@
       <div role="main" class="container">
         <div class="row">
           <div class="col-md-8 blog-main">
-            <label class="pb-4 mb-4">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
+            <label class="pb-4 mb-4" style="font-size:20px">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
             <select name="department_list" id="department_list" v-model="depart.depart_name">
               <option value disabled selected hidden></option>
               <option v-for="department in departments" :key="department.id">{{ department.name }}</option>
             </select>
             <button @click="getData()">Select</button>
 
-            <h1 class="depart_header">{{ dept_name }}</h1>
+            <h1 class="depart_header" style="text-align:center">{{ dept_name }}</h1>
 
             <table class="table" v-if="dept_name">
               <thead class="thead-dark">
@@ -75,10 +75,20 @@
               </thead>
               <tbody>
                 <tr v-for="requirement in requirements" :key="requirement.id">
-                  <td style="text-align:center; font-size:25px">{{ requirement.name}}</td>
-                  <td style="text-align:center; font-size:25px">{{ requirement.amount}}</td>
-                  <td style="text-align:center" class="table-row">
-                    <input type="text" />
+                  <td
+                    style="text-align:center; font-size:25px"
+                    v-if="requirement.status != 'Complete'"
+                  >{{ requirement.name}}</td>
+                  <td
+                    style="text-align:center; font-size:25px"
+                    v-if="requirement.status != 'Complete'"
+                  >{{ requirement.amount}}</td>
+                  <td
+                    style="text-align:center"
+                    class="table-row"
+                    v-if="requirement.status != 'Complete'"
+                  >
+                    <input type="text" style="text-align:center;" />
                     <button type="button" class="btn btn-outline-primary">ยืนยัน</button>
                   </td>
                 </tr>
@@ -87,23 +97,57 @@
           </div>
 
           <aside class="col-md-4 blog-sidebar">
-            <div class="p-4 mb-3 bg-light rounded">
-              <h4 style="text-align:center;font-size: 30px;">บริจาคเพิ่มเติม</h4>
-              <p class="paragraph_info">ชื่อสิ่งที่ท่านต้องการบริจาค</p>
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-describedby="button-addon2" />
+            <form @submit.prevent="submitCustomDonate()">
+              <div class="p-4 mb-3 bg-light rounded">
+                <h4 style="text-align:center;font-size: 30px;">บริจาคเพิ่มเติม</h4>
+                <p class="paragraph_info">ชื่อสิ่งของที่ท่านต้องการบริจาค</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="text"
+                    class="form-control"
+                    aria-describedby="button-addon2"
+                    style="text-align:center;"
+                    placeholder="โปรดกรอกชื่อสิ่งของที่ต้องการบริจาค"
+                    id="donate_name"
+                    v-model="customDonate.name"
+                  />
+                </div>
+                <p class="paragraph_info">จำนวนของสิ่งที่ท่านต้องการบริจาค</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="number"
+                    class="form-control"
+                    aria-describedby="button-addon2"
+                    style="text-align:center;"
+                    placeholder="โปรดกรอกจำนวนของสิ่งของที่ต้องการบริจาค"
+                    id="donate_amount"
+                    v-model="customDonate.amount"
+                  />
+                </div>
+                <label style="font-size:20px">โปรดเลือกหน่วยงานที่คุณต้องการบริจาค</label>
+                <div class="custom" style="text-align:center">
+                  <select
+                    name="departmented_list"
+                    id="departmented_list"
+                    v-model="customDonate.depart_name"
+                  >
+                    <option value disabled selected hidden></option>
+                    <option
+                      v-for="departmented in departments"
+                      :key="departmented.id"
+                    >{{ departmented.name }}</option>
+                  </select>
+                </div>
+                <div style="text-align:center;">
+                  <button type="submit" class="btn btn-outline-primary">ยืนยันรายการบริจาคของท่าน</button>
+                </div>
+                <div
+                  v-if="alert.message"
+                  :class="`alert ${alert.type}`"
+                  style="margin-top:20px"
+                >{{ alert.message }}</div>
               </div>
-              <p class="paragraph_info">จำนวนของสิ่งที่ท่านต้องการบริจาค</p>
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" aria-describedby="button-addon2" />
-              </div>
-              <div style="text-align:center;">
-                <button
-                  type="button"
-                  class="btn btn-outline-primary"
-                >ยืนยันรายการบริจาคเพิ่มเติมของท่าน</button>
-              </div>
-            </div>
+            </form>
 
             <div class="p-4 mb-3 bg-light rounded">
               <h4 style="text-align:center;font-size: 30px;">สรุปรายการบริจาคของท่าน</h4>
@@ -124,9 +168,6 @@
                 </thead>
                 <tbody></tbody>
               </table>
-              <div style="text-align:center;">
-                <button type="button" class="btn btn-outline-primary">ยืนยันรายการบริจาคของท่าน</button>
-              </div>
             </div>
           </aside>
         </div>
@@ -139,7 +180,7 @@
 import { departmentsCollection } from "../firebase.js";
 import MenuBar from "../components/Menubar.vue";
 import { firestore } from "firebase";
-
+import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
@@ -150,11 +191,18 @@ export default {
         depart_name: "",
         new_require: {
           name: "",
-          amount: "",
+          amount: 0,
+          status: "",
         },
       },
       slide: 0,
       sliding: null,
+      customDonate: {
+        name: "",
+        amount: 0,
+        depart_name: "",
+        status: "",
+      },
     };
   },
   firestore() {
@@ -162,10 +210,36 @@ export default {
       departments: departmentsCollection,
     };
   },
+  computed: {
+    ...mapState({
+      alert: (state) => state.alert,
+    }),
+  },
+
   beforeMount() {
     this.getData();
   },
   methods: {
+    ...mapActions("alert", ["error"]),
+    submitCustomDonate() {
+      if (
+        !this.customDonate.name ||
+        !this.customDonate.amount ||
+        !this.customDonate.depart_name
+      ) {
+        this.error("โปรดกรอกข้อมูลให้ครบถ้วน");
+      } else {
+        departmentsCollection
+          .doc(this.customDonate.depart_name)
+          .collection("Requirement")
+          .add({
+            name: this.customDonate.name,
+            amount: parseInt(this.customDonate.amount),
+            donateDate: new Date(),
+            status: "Complete",
+          });
+      }
+    },
     onSlideStart(slide) {
       this.sliding = true;
     },
@@ -213,6 +287,7 @@ aside .bg-light {
 }
 .table {
   background-color: white;
+  margin: 0;
 }
 .blog-post h2 {
   margin-bottom: 10px;
@@ -220,6 +295,10 @@ aside .bg-light {
 
 .blog-form {
   margin-bottom: 20px;
+}
+
+.blog-sidebar {
+  text-align: center;
 }
 
 .form-row b {
@@ -241,12 +320,11 @@ aside .bg-light {
 }
 
 .depart_header {
-  text-align: center;
   margin-bottom: 20px;
 }
 .paragraph_info {
   margin-top: 30px;
-  text-align: center;
+
   font-size: 20px;
 }
 
@@ -267,5 +345,12 @@ input[type="text"] {
   content: "";
   display: table;
   clear: both;
+}
+
+.custom select {
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 20px;
 }
 </style>
