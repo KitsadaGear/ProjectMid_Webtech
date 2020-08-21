@@ -1,85 +1,63 @@
 <template>
-<div class="shadow-lg p-3 mb-5 bg-white rounded ">
-
-    <div class="shadow-lg p-3 mb-5 bg-white rounded ">
-        <b-card
-            overlay
-            img-src="https://picsum.photos/900/250/?image=3"
-            img-alt="Card Image"
-            text-variant="white">
-            <div class="text-center">
-                <h1>Log in</h1>
-            </div>
-            <p></p>
-            <b-card-text>
-                <form >
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">กรอกอีเมล์</label>
-                        <input type="email" class="form-control  rounded-pill" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted "></small>
-                    </div>
-                    <div class="form-group ">
-                        <label for="exampleInputPassword1">รหัสผ่าน</label>
-                        <input type="password" class="form-control rounded-pill" id="exampleInputPassword1">
-                    </div>
-
-                    <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox>
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary rounded-pill">เข้าสู่ระบบ</button>
-
-                        <router-link to="/register-view">
-                            <button type="Register" class="btn btn-primary rounded-pill"> ลงทะเบียน</button>
-                        </router-link>
-                        <router-view></router-view>
-                    </div>
-                    
-                    
-                    <p></p>
-                </form>
-            </b-card-text>
-        </b-card>
-    </div>
-
-    <div class="shadow-lg p-3 mb-5 bg-white rounded ">
-        <b-carousel
-            id="carousel-fade"
-            style="text-shadow: 0px 0px 2px #000"
-            fade
-            indicators
-            img-width="1000"
-            img-height="480">
-    
-            <b-carousel-slide
-            caption="First slide"
-            img-src="https://picsum.photos/1024/480/?image=10">
-            </b-carousel-slide>
-
-            <b-carousel-slide
-            caption="Second Slide"
-            img-src="https://picsum.photos/1024/480/?image=12">
-            </b-carousel-slide>
-
-            <b-carousel-slide
-            caption="Third Slide"
-            img-src="https://picsum.photos/1024/480/?image=22">
-            </b-carousel-slide>
-        </b-carousel>
-    </div>
-
-
-
+<div class="container">
+    <div class="rounded text-center " style=" background-color: #fffff0;">
+        <figure class="figure">
+            <img src="../assets/img/sm.jpg" class="figure-img img-fluid rounded" alt="...">
+            <h4> Login </h4>
+            <form @submit.prevent ="handelSubmit">
+                <div class="form-group">
+                    <label for="" >Email Address </label>
+                    <input type ="text" class="form-control" placeholder="You Email " v-model="form.email" >
+                </div>
+                <div class= "form-group">
+                    <label for =""> Password </label>
+                    <input type = "password" class="form-control" placeholder="Your password " v-model="form.password">
+                </div>
+                <div class="from-group">
+                    <button class="btn btn-primary">
+                        Login
+                    </button>
+                </div>
+                <router-link :to="{ name: 'RegisterPage'}"
+                    class="btn btn-link">
+                    Register
+                </router-link>
+            </form>
+        <!-- <figcaption class="figure-caption text-right"></figcaption> -->
+            </figure>
+        </div>
 </div>
-
-
 </template>
 
-<script>
-export default {
 
+<script>
+
+import { mapState, mapActions } from 'vuex'
+
+
+export default {
+    data(){
+        return{
+            form: {
+                email: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        ...mapActions('account',['login']),
+        ...mapActions('alert',['error']),
+        handelSubmit(e){
+            if(this.form.email && this.form.password){
+                this.login(this.form)
+            }
+        }
+    }
 }
 </script>
 
 <style>
+
+
 
 </style>

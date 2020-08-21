@@ -1,5 +1,5 @@
 import Vue from "vue";
-import Router from "vue-router";
+import VueRouter from "vue-router";
 import Welcome from "@/views/Welcome";
 import Home from "@/views/Home";
 import About from "@/views/About.vue";
@@ -10,7 +10,7 @@ import RegisterPage from "@/views/RegisterPage.vue";
 import Reference from "@/views/Reference.vue";
 import Donate from "@/views/Donate.vue";
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -59,4 +59,9 @@ const routes = [
     component: Donate
   }
 ];
-export default new Router({ mode: "history", routes });
+export const router = new VueRouter({ 
+  mode: "history", 
+  routes 
+});
+
+
