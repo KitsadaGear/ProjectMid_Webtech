@@ -1,31 +1,34 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
-import Vue from "vue";
-import App from "./App";
-import router from "./router";
-import VueRouter from "vue-router";
-import VueMoment from "vue-moment";
-import { BootstrapVue, IconsPlugin } from "bootstrap-vue";
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap-vue/dist/bootstrap-vue.css";
-import { firestorePlugin } from "vuefire";
+import Vue from "vue"
+import App from "./App"
+import { router } from "./router"
+import VueMoment from "vue-moment"
 
-Vue.use(firestorePlugin);
+import { firestorePlugin } from "vuefire"
+import { store } from './stores'
 
-Vue.config.productionTip = false;
+
+Vue.use(firestorePlugin)
+Vue.use(VueMoment)
+
+
+// bootstrap vue
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue"
+import "bootstrap/dist/css/bootstrap.css"
+import "bootstrap-vue/dist/bootstrap-vue.css"
 
 // Install BootstrapVue
-Vue.use(BootstrapVue);
+Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
-Vue.use(IconsPlugin);
+Vue.use(IconsPlugin)
 
-Vue.use(VueRouter);
-Vue.use(VueMoment);
+// Vue.config.productionTip = false;
 
 /* eslint-disable no-new */
 new Vue({
   el: "#app",
+  render: h => h(App),
   router,
-  components: { App },
-  template: "<App/>"
+  // components: { App },
+  // template: "<App/>",
+  store 
 });

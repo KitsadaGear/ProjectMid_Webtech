@@ -1,85 +1,72 @@
 <template>
-<div class="shadow-lg p-3 mb-5 bg-white rounded ">
-
-    <div class="shadow-lg p-3 mb-5 bg-white rounded ">
-        <b-card
-            overlay
-            img-src="https://picsum.photos/900/250/?image=3"
-            img-alt="Card Image"
-            text-variant="white">
-            <div class="text-center">
-                <h1>Log in</h1>
+<div class="shadow-lg p-3 mb-5 rounded  text-center" id="one">
+    <h1 id="two"> เข้าสู่ระบบ </h1>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <form @submit.prevent="handelSubmit">
+            <div class="form-group " id="two">
+                <label for="Email1"> รหัสผู้ใช้งาน</label>
+                
+                <center>
+                    <input type="Your email" class="form-control rounded-pill col-5 text-center " 
+                    id="exampleInputEmail1 "  placeholder="อีเมล์" v-model="form.email" >
+                </center>
             </div>
-            <p></p>
-            <b-card-text>
-                <form >
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">กรอกอีเมล์</label>
-                        <input type="email" class="form-control  rounded-pill" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <small id="emailHelp" class="form-text text-muted "></small>
-                    </div>
-                    <div class="form-group ">
-                        <label for="exampleInputPassword1">รหัสผ่าน</label>
-                        <input type="password" class="form-control rounded-pill" id="exampleInputPassword1">
-                    </div>
-
-                    <b-form-checkbox class="mb-2 mr-sm-2 mb-sm-0">Remember me</b-form-checkbox>
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary rounded-pill">เข้าสู่ระบบ</button>
-
-                        <router-link to="/register-view">
-                            <button type="Register" class="btn btn-primary rounded-pill"> ลงทะเบียน</button>
-                        </router-link>
-                        <router-view></router-view>
-                    </div>
-                    
-                    
-                    <p></p>
-                </form>
-            </b-card-text>
-        </b-card>
+            <div class="form-group " id="two">
+                <label for="exampleInputPassword1">รหัสผ่าน</label>
+                <center>
+                    <input type="password" class="form-control rounded-pill col-5  text-center"
+                    id="exampleInputPassword1" placeholder="รหัสผ่าน" v-model="form.password" >
+                </center>
+            </div>
+            <div class="text-center " id="two">
+                <button class="btn btn-white bg-light rounded-pill text">
+                    <router-link to="/home-view" class="text-secondary">
+                        เข้าสู่ระบบ
+                    </router-link>
+                </button>
+                <button type="submit" class="btn btn-white bg-light rounded-pill text" id="two">
+                    <router-link to="/register-view" class="text-secondary">
+                        ลงทะเบียน
+                    </router-link>
+                </button>
+            </div>
+        </form>
     </div>
-
-    <div class="shadow-lg p-3 mb-5 bg-white rounded ">
-        <b-carousel
-            id="carousel-fade"
-            style="text-shadow: 0px 0px 2px #000"
-            fade
-            indicators
-            img-width="1000"
-            img-height="480">
-    
-            <b-carousel-slide
-            caption="First slide"
-            img-src="https://picsum.photos/1024/480/?image=10">
-            </b-carousel-slide>
-
-            <b-carousel-slide
-            caption="Second Slide"
-            img-src="https://picsum.photos/1024/480/?image=12">
-            </b-carousel-slide>
-
-            <b-carousel-slide
-            caption="Third Slide"
-            img-src="https://picsum.photos/1024/480/?image=22">
-            </b-carousel-slide>
-        </b-carousel>
-    </div>
-
-
-
 </div>
-
 
 </template>
 
 <script>
-export default {
 
+import{mapState,mapActions} from 'vuex'
+
+export default {
+    data(){
+        return{
+            form: {
+                email: '',
+                password: ''
+            }
+        }
+    },
+    methods: {
+        ...mapActions('account',['login']),
+        ...mapActions('alert',['error']),
+        handelSubmit(e){
+            if(this.form.email && this.form.password){
+                this.login(this.form)
+            }
+        }
+    }
 }
 </script>
 
 <style>
+div#one{
+    background-color:  #fffff0;
+}
+div#two{
+    color: cadetblue;
+}
 
 </style>

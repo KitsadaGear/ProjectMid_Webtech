@@ -31,7 +31,13 @@
         <input type="password" class="form-control" id="exampleInputPassword1">
     </div>
     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary rounded-pill">ยืนยัน</button>
+
+    <button type="submit" class="btn btn-white bg-light rounded-pill text">
+        <router-link to="/login-view" class="text-secondary">
+            ย้อนกลับ
+        </router-link>
+    </button>
 </form>
 
 
