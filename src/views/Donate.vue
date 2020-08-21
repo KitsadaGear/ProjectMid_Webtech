@@ -51,35 +51,33 @@
         <div class="row">
           <div class="col-md-8 blog-main">
             <label class="pb-4 mb-4">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
-            <select name="department_list" id="department_list">
+            <select name="department_list" id="department_list" v-model="depart.depart_name">
               <option value disabled selected hidden></option>
               <option v-for="department in departments" :key="department.id">{{ department.name }}</option>
             </select>
             <button @click="getData()">Select</button>
 
-            <h1 class="depart_header">{{ depart_name }}</h1>
+            <h1 class="depart_header">{{ dept_name }}</h1>
 
-            <table class="table">
+            <table class="table" v-if="dept_name">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col" style="text-align:center">ชื่อสิ่งที่ท่านต้องการบริจาค</th>
-                  <th scope="col" style="text-align:center">จำนวนที่ต้องการการบริจาค</th>
-                  <th scope="col" style="text-align:center">จำนวนที่ท่านต้องการบริจาค</th>
+                  <th
+                    scope="col"
+                    style="text-align:center; font-size:20px"
+                  >ชื่อสิ่งที่ท่านต้องการบริจาค</th>
+                  <th scope="col" style="text-align:center; font-size:20px">จำนวนที่ต้องการการบริจาค</th>
+                  <th
+                    scope="col"
+                    style="text-align:center; font-size:20px"
+                  >จำนวนที่ท่านต้องการบริจาค</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td style="text-align:center">Test</td>
-                  <td style="text-align:center">Otto</td>
-                  <td style="text-align:center">
-                    <input type="text" />
-                    <button type="button" class="btn btn-outline-primary">ยืนยัน</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="text-align:center">Test</td>
-                  <td style="text-align:center">Otto</td>
-                  <td style="text-align:center">
+                <tr v-for="requirement in requirements" :key="requirement.id">
+                  <td style="text-align:center; font-size:25px">{{ requirement.name}}</td>
+                  <td style="text-align:center; font-size:25px">{{ requirement.amount}}</td>
+                  <td style="text-align:center" class="table-row">
                     <input type="text" />
                     <button type="button" class="btn btn-outline-primary">ยืนยัน</button>
                   </td>
@@ -141,12 +139,20 @@
 import { departmentsCollection } from "../firebase.js";
 import MenuBar from "../components/Menubar.vue";
 import { firestore } from "firebase";
-import { db } from "../firebase.js";
+
 export default {
   data() {
     return {
       departments: [],
-      depart_name: "",
+      requirements: [],
+      dept_name: "",
+      depart: {
+        depart_name: "",
+        new_require: {
+          name: "",
+          amount: "",
+        },
+      },
       slide: 0,
       sliding: null,
     };
@@ -156,7 +162,9 @@ export default {
       departments: departmentsCollection,
     };
   },
-
+  beforeMount() {
+    this.getData();
+  },
   methods: {
     onSlideStart(slide) {
       this.sliding = true;
@@ -164,11 +172,24 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
-    getData() {
-      var element = document.getElementById("department_list");
-      var selectedValue = element.options[element.selectedIndex].text;
-      console.log(selectedValue);
-      this.depart_name = selectedValue;
+    getData: function () {
+      if (this.depart.depart_name != "") {
+        var element = document.getElementById("department_list");
+        var selectedValue = element.options[element.selectedIndex].text;
+        this.dept_name = selectedValue;
+        departmentsCollection
+          .doc(this.depart.depart_name)
+          .collection("Requirement")
+          .onSnapshot((querySnapshot) => {
+            let dataArray = [];
+            querySnapshot.forEach((doc) => {
+              let requirements = doc.data();
+              requirements.id = doc.id;
+              dataArray.push(requirements);
+            });
+            this.requirements = dataArray;
+          });
+      }
     },
   },
   components: {
@@ -221,6 +242,7 @@ aside .bg-light {
 
 .depart_header {
   text-align: center;
+  margin-bottom: 20px;
 }
 .paragraph_info {
   margin-top: 30px;
@@ -232,5 +254,18 @@ input[type="text"] {
   padding: 9px 1px;
   margin: 8px 0;
   box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  input[type="text"] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+
+.table-row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 </style>

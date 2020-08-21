@@ -5,7 +5,7 @@
         <span class="border">ยินดีต้อนรับสู่ Punfun</span><br />
         <span>
           <router-link to="/home-view">
-            <b-button variant="btn btn-primary" class="header_btn">
+            <b-button variant="btn btn-primary" class="enter_btn">
               เข้าสู่เว็บไซต์
             </b-button>
           </router-link>
@@ -51,7 +51,7 @@ html {
   letter-spacing: 10px;
 }
 
-.header_btn {
+.enter_btn {
   margin-top: 50px;
 }
 </style>
