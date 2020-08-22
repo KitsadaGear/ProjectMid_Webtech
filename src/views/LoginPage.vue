@@ -18,14 +18,16 @@
                         Login
                     </button>
                 </div>
+                <p></p>
                 <router-link :to="{ name: 'RegisterPage'}"
-                    class="btn btn-link">
+                    class="btn btn-primary">
                     Register
                 </router-link>
             </form>
         <!-- <figcaption class="figure-caption text-right"></figcaption> -->
             </figure>
         </div>
+        
 </div>
 </template>
 
@@ -57,9 +59,7 @@ export default {
 </script>
 
 <style>
-div#one{
-    background-color:  #fffff0;
-}
+
 div#two{
     color: cadetblue;
 }

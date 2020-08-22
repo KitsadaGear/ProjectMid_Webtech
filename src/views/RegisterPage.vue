@@ -1,29 +1,39 @@
-<template>
-<div class="container">
-    <h1>Register</h1>
-    <form @submit.prevent="handleSubmit()">
-        <div class="form-group">
-            <label for="" >Email Address *</label>
-            <input type ="text" class="form-control"
-                placeholder="You Email *" v-model="form.email">
-        </div>
-        <div class= "form-group">
-            <label for =""> Password *</label>
-            <input type = "password" class="form-control"
-                placeholder="Your password *" v-model="form.password">
-        </div>
-        <div class= "form-group">
-            <label for =""> Displat Name *</label>
-            <input type = "text" class="form-control"
-                placeholder="Your name *" v-model="form.displayName">
-        </div>
-        <div class="from-group">
-            <button class="btn btn-primary">
-                Register
-            </button>
-        </div>
-    </form>
-</div>
+<template> 
+
+    <div class="register">
+        
+        <div class="card container">
+            <div class="card-body">            
+                <div class=" rounded">
+                <form @submit.prevent="handleSubmit()">
+                    <h1 class=" text-center"> Register</h1>
+                    <div class="form-group">
+                        <label for="" >Email Address *</label>
+                        <input type ="text" class="form-control"
+                            placeholder="You Email *" v-model="form.email">
+                    </div>
+                    <div class= "form-group">
+                        <label for =""> Password *</label>
+                        <input type = "password" class="form-control"
+                            placeholder="Your password *" v-model="form.password">
+                    </div>
+                    <div class= "form-group">
+                        <label for =""> Displat Name *</label>
+                        <input type = "text" class="form-control"
+                            placeholder="Your name *" v-model="form.displayName">
+                    </div>
+                    <div class="from-group">
+                        <button class="btn btn-primary">
+                            Register
+                        </button>
+                    </div>
+                    <img src="../assets/img/Thankyou.png" class="card-img-bottom" alt="...">
+                </form>
+
+                </div>
+            </div>
+        </div>    
+    </div>
 </template>
 
 <script>
@@ -55,4 +65,8 @@ export default {
 }
 </script>
 <style>
+.register{
+    background-color: #fffff0;
+}
+
 </style>

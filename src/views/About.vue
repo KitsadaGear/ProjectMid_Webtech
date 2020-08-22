@@ -1,53 +1,80 @@
 <template>
-  <div>
+<div class="shadow-lg p-3 mb-5 rounded" style="background-color: #fffff0;">
     <menu-bar></menu-bar>
-    <div class="shadow-lg p-3 mb-5 bg-white rounded">
-      <div class="text-center">
-        <h1>เกี่ยวกับเรา</h1>
-      </div>
-
-      <div class="shadow-lg p-3 mb-5 bg-white rounded">
-        <b-carousel
-          id="carousel-fade"
-          style="text-shadow: 0px 0px 2px #000"
-          fade
-          indicators
-          img-width="1024"
-          img-height="480"
-        >
-          <b-carousel-slide
-            caption="First slide"
-            img-src="https://picsum.photos/1024/480/?image=10"
-          ></b-carousel-slide>
-
-          <b-carousel-slide
-            caption="Second Slide"
-            img-src="https://picsum.photos/1024/480/?image=12"
-          ></b-carousel-slide>
-
-          <b-carousel-slide
-            caption="Third Slide"
-            img-src="https://picsum.photos/1024/480/?image=22"
-          ></b-carousel-slide>
-        </b-carousel>
-      </div>
-
-      <div class="mt-4">
-        <b-card
-          img-src="https://placekitten.com/300/300"
-          img-alt="Card image"
-          img-left
-          class="mb-3"
-        >
-          <b-card-text>Some quick example text to build on the card and make up the bulk of the card's content.</b-card-text>
-        </b-card>
-
-        <b-card img-src="https://placekitten.com/300/300" img-alt="Card image" img-right>
-          <b-card-text>Some quick example text to build on the card and make up the bulk of the card's content.</b-card-text>
-        </b-card>
+    <p></p>
+    
+    
+    <img src="../assets/img/honor.jpg" class="rounded float-right" alt="..." width="650" height="350">
+    <div class="card mb-5" style="max-width: 550px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="../assets/img/Heart.jpg" class="card-img" alt="...">
+        </div>
+        
+        
+        
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">เราคือใคร</h5>
+            <p class="card-text">เราคือส่วนกลางในการกระจายสิ่งของบริจาคเพื่อช่วยเหลือผู้ประสบภัยต่างๆ </p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+
+    <div class="card mb-5" style="max-width: 550px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="../assets/img/ddd.jpg" class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">หน้าที่ของเรา</h5>
+            <p class="card-text">หน้าที่ของเราคือการจัดการสิ่งของและการะจายสิ่งของหล่านั้นให้แก่ศูนย์หรือ มูลนิธิ ที่ช่วยเหลือผู้ประสบภัย ในพื้นที่ต่างๆ</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <img src="../assets/img/hand.jpg" class="rounded float-left" alt="..." width="600" height="338">
+      <div class="card mb-5" style="max-width: 550px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="../assets/img/card.png" class="card-img" alt="..." width="800" height="150">
+          </div>
+          
+          <div class="col-md-8  float-right">
+            <div class="card-body ">
+              <h5 class="card-title ">บริจาคอะไรได้บ้าง</h5>
+              <p class="card-text">สามารถบริจาคสิ่งของทั่วไปเช่น ข้าวสาร-อาหารแห้ง อุปกรณ์เครื่องใช้ไฟฟ้า เสื่อผ้า เครื่องนุ่มห่ม เป็นต้น</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-5" style="max-width: 550px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="../assets/img/donatt.jpg" class="card-img" alt="..." width="500" height="140">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">ใครบ้างที่จะได้รับสิ่งของบริจาคกับเรา</h5>
+              <p class="card-text">จะเป็นองค์กรหรือมูลนิธิ ที่ได้รับความไว้วางใจจากบุคคลภายนอกและจะเป็นองค์กรที่ไม่แสงหาผลกำไร</p>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+
+    <div class="card bg-info text-white">
+      <img src="../assets/img/Thankyou.png" class="card-img" alt="...">
+        <div class="card-img-overlay">
+          
+        </div>
+    </div>
+</div>
 </template>
 
 <script>
@@ -56,8 +83,11 @@ import MenuBar from "../components/Menubar.vue";
 export default {
   components: {
     MenuBar,
-  },
+  }
 };
 </script>
 
-<style></style>
+
+<style>
+
+</style>
