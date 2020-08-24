@@ -65,8 +65,19 @@
 </template>
 
 <script>
+import { mapState, mapActions } from "vuex";
 export default {
-  name: "app"
+  name: "app",
+  methods: {
+    ...mapActions({
+      clearAlert: "alert/clear",
+    }),
+  },
+  watch: {
+    $route(to, from) {
+      this.clearAlert();
+    },
+  },
 };
 </script>
 <style>

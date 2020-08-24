@@ -1,16 +1,16 @@
 import Vue from "vue";
-import Router from "vue-router";
-import Welcome from "@/views/Welcome";
-import Home from "@/views/Home";
-import About from "@/views/About.vue";
-import Contact from "@/views/Contact.vue";
-import Detail from "@/views/Detail.vue";
-import LoginPage from "@/views/LoginPage.vue";
-import RegisterPage from "@/views/RegisterPage.vue";
-import Reference from "@/views/Reference.vue";
-import Donate from "@/views/Donate.vue";
+import Welcome from "../views/Welcome";
+import Home from "../views/Home";
+import About from "../views/About.vue";
+import Contact from "../views/Contact.vue";
+import Detail from "../views/Detail.vue";
+import LoginPage from "../views/LoginPage.vue";
+import RegisterPage from "../views/RegisterPage.vue";
+import Reference from "../views/Reference.vue";
+import Donate from "../views/Donate.vue";
+import VueRouter from "vue-router";
 
-Vue.use(Router);
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -59,4 +59,7 @@ const routes = [
     component: Donate
   }
 ];
-export default new Router({ mode: "history", routes });
+export const router = new VueRouter({
+  mode: "history",
+  routes
+});
