@@ -169,7 +169,7 @@
             </form>
 
             <div class="p-4 mb-3 bg-light rounded">
-              <h4 style="text-align:center;font-size: 30px;">สรุปรายการบริจาคของท่าน</h4>
+              <h4 style="text-align:center;font-size: 30px;">สรุปรายการบริจาคทั้งหมดของท่าน</h4>
               <table class="table">
                 <thead class="thead-dark">
                   <tr>
