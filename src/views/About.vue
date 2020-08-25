@@ -24,8 +24,8 @@
                 <span class="sr-only">Next</span>
             </a>
     </div>
-    <p></p>
-        <div class="row row-cols-1 row-cols-md-2 ">
+    
+        <div class="row row-cols-1 row-cols-md-2 " style=" margin-top: 100px;">
           <div class="col mb-4 ">
             <div class="card rounded">
               <img src="../assets/img/Heart.jpg" class="card-img-top " alt="..." width="100" height="400">
@@ -45,7 +45,7 @@
             </div>
           </div>
           <div class="col mb-4">
-            <div class="card rounded">
+            <div class="card rounded" style=" margin-top: 100px;">
               <img src="../assets/img/storage.jpg" class="card-img-top rounded" alt="..." width="100" height="400">
               <div class="card-body">
                 <h5 class="card-title text-center ">บริจาคอะไรได้บ้าง</h5>
@@ -53,7 +53,7 @@
               </div>
             </div>
           </div>
-          <div class="col mb-4">
+          <div class="col mb-4" style=" margin-top: 100px;">
             <div class="card rounded"> 
               <img src="../assets/img/donatt.jpg" class="card-img-top rounded" alt="..." width="100" height="400">
               <div class="card-body">
@@ -65,8 +65,8 @@
         </div>
 
 
-    <div class="card  text-white rounded" style="background-color: lightblue ;">
-      <img src="../assets/img/Thankyou.png" class="card-img" alt="...">
+    <div class="card  text-white rounded" style="background-color: lightblue;   margin-top: 100px;">
+      <img src="../assets/img/Thankyou.png" class="card-img"  alt="...">
         <div class="card-img-overlay">
           
         </div>
@@ -86,6 +86,7 @@ export default {
 
 
 <style>
+
 
 
 </style>
