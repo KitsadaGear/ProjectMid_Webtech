@@ -221,7 +221,7 @@ export default {
 </script>
 
 <style></style>
-=======
+
 <style>
 .detailPage h1 {
   font-size: 2.5rem;

@@ -7,7 +7,7 @@ const user = JSON.parse(localStorage.getItem('user'))
 const state = user 
     ? { status: { loggedIn: true }, user}
     : { status: {}, user: null }
-
+    
 const mutations = {
     registerRequest(state){
         state.status = { registering: true }
@@ -49,7 +49,6 @@ const actions = {
                 dispatch('alert/success', 'Registration successful', { root: true })
             }, 1000);
         })
-
         .catch(error => {
             commit('registerFailure')
             dispatch('alert/error', error.message, { root: true })
@@ -63,7 +62,7 @@ const actions = {
         userService.login( email,password )
         .then (user => {
             commit ('loginSuccess' , user)
-            router.push({ name : 'Home' })
+            router.push({ name : 'Donate' })
         })
         .catch (error => {
             commit('loginFailure')
@@ -73,7 +72,7 @@ const actions = {
     logout({ commit }){
         userService.logout()
         commit('logout')
-        router.push({ name : 'LoginPage'})
+        router.push({ name : 'Home'})
     }
 }
 

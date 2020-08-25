@@ -1,10 +1,14 @@
 <template>
   <div id="app">
+    
+    <div v-if="alert.message" :class="`alert ${alert.type}`">
+        {{ alert.message }}
+    </div>
+
     <router-view></router-view>
   </div>
 </template>
 
-<script>
 import { mapState, mapActions } from "vuex";
 export default {
   name: "app",
@@ -19,7 +23,9 @@ export default {
     }
   }
 };
+
 </script>
+
 <style>
 #app {
   margin: 0%;

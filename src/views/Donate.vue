@@ -1,7 +1,9 @@
 <template>
   <div style>
     <menu-bar></menu-bar>
+
     <div class="Donatepage">
+
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -45,6 +47,9 @@
           <!-- /Picture Slider Here -->
         </div>
       </div>
+
+
+      
 
       <!-- /Carousel class -->
 
@@ -208,7 +213,9 @@
 import { departmentsCollection } from "../firebase.js";
 import MenuBar from "../components/Menubar.vue";
 import { firestore } from "firebase";
+
 import { mapState, mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -279,6 +286,10 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
+    computed:{
+      ...mapState('account',['user'])
+
+    },
     getData: function () {
       if (this.depart.depart_name != "") {
         var element = document.getElementById("department_list");
@@ -338,7 +349,7 @@ export default {
   },
   components: {
     MenuBar,
-  },
+  }
 };
 </script>
 
