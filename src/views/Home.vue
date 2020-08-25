@@ -2,6 +2,12 @@
   <div>
     <menu-bar></menu-bar>
     <div class="Homepage">
+
+       <div class="jumbotron" v-if="user">
+            <h4 class="display-9 text-center" > 
+                Welcome {{ user.displayName }}
+            </h4>
+       </div>
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -210,7 +216,7 @@
               น้ำดื่ม(drinking water) คือ น้ำที่สามารถนำมาบริโภค ได้แก่
               เพื่อช่วยกลไกการย่อยสลาย และละลายเหลือแร่ต่างๆ การขับถ่ายของเสีย
               หรือการหล่อลื่นเนื้อหนังข้อต่อต่างๆ ให้ชุ่มชื้น
-              โดยไม่ก่อให้เกิดโรคที่เป็นอันตรายต่อสุขภาพอนามัย
+              โดยไม่ก่อให้เกิดโรคที่เป็นอันตราย
             </p>
             <div style="text-align: center;">
               <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
@@ -243,6 +249,10 @@
 
 <script>
 import MenuBar from "../components/Menubar.vue";
+
+import { mapState, mapActions } from 'vuex'
+
+
 export default {
   data() {
     return {
@@ -259,8 +269,17 @@ export default {
     },
   },
   components: {
+<<<<<<< HEAD
     MenuBar,
   },
+=======
+    MenuBar
+  }, 
+  computed:{
+    ...mapState('account',['user'])
+
+  }
+>>>>>>> 1abb4e4e67d2f976c119e32bf9117295de294593
 };
 </script>
 

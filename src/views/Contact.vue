@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contac">
     <menu-bar></menu-bar>
     <div>
       <h1>ติดต่อเรา</h1>
@@ -24,15 +24,12 @@ export default {
 <style></style>
 =======
 <style>
-h1,
-.h1 {
+.contact_page h1 {
   font-size: 4em;
-}
-h1 {
   line-height: 4.5;
 }
-h2,
-.h2 {
+
+.contact_page h2 {
   font-size: 1.5rem;
 }
 </style>
