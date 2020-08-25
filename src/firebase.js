@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase";
+import * as firebase from 'firebase';
 
 const firebaseConfig = {
   apiKey: "AIzaSyBAjNr7OAoO4ro5fN2tbRv5IsrFt4e6j58",
@@ -11,7 +11,7 @@ const firebaseConfig = {
   measurementId: "G-WFKKQ8DWHG"
 };
 
-const app = initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
 
 export const db = app.firestore();
 export const departmentsCollection = db.collection("departments");
