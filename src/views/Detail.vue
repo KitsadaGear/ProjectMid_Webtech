@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="detailPage">
     <menu-bar></menu-bar>
     <div class="Head_Detail">
       <h1>สามารถบริจาคอะไรได้บ้าง?</h1>
@@ -223,26 +223,23 @@ export default {
 <style></style>
 
 <style>
-h1,
-.h1 {
+.detailPage h1 {
   font-size: 2.5rem;
   margin-top: 5rem;
   margin-left: 3rem;
 }
 
-h2,
-.h2 {
+.detailPage h2 {
   font-size: 1.3rem;
   margin-left: 2rem;
   margin-top: 1rem;
 }
 
-h3,
-.h3 {
+.detailPage h3 {
   font-size: 1rem;
 }
 
-p {
+.detailPage p {
   margin-top: 1rem;
   margin-bottom: 1rem;
   margin-left: 2rem;
