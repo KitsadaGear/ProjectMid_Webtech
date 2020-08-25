@@ -2,6 +2,11 @@
   <div>
     <menu-bar></menu-bar>
     <div class="Homepage">
+       <div class="jumbotron" v-if="user">
+            <h4 class="display-9 text-center" > 
+                Welcome {{ user.displayName }}
+            </h4>
+       </div>
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
         <div
@@ -276,6 +281,8 @@
 
 <script>
 import MenuBar from "../components/Menubar.vue";
+import { mapState, mapActions } from 'vuex'
+
 export default {
   data() {
     return {
@@ -293,7 +300,11 @@ export default {
   },
   components: {
     MenuBar
-  }
+  }, 
+        computed:{
+            ...mapState('account',['user'])
+
+        }
 };
 </script>
 

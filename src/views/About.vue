@@ -1,11 +1,12 @@
 <template>
-<div class="shadow-lg p-3 mb-5 rounded" style="background-color: #fffff0;">
+<div class="shadow-lg p-3 mb-5 rounded font-Taviraj" style="background-color: #fffff0;">
     <menu-bar></menu-bar>
     <p></p>
     
     
-    <img src="../assets/img/honor.jpg" class="rounded float-right" alt="..." width="650" height="350">
-    <div class="card mb-5" style="max-width: 550px;">
+    <img src="../assets/img/honor.jpg" class="rounded float-right" alt="..."   width="600" height="338">
+    <div class="card mb-5" >
+
       <div class="row no-gutters">
         <div class="col-md-4">
           <img src="../assets/img/Heart.jpg" class="card-img" alt="...">
@@ -13,7 +14,7 @@
         
         
         
-        <div class="col-md-8">
+        <div class="col md-5">
           <div class="card-body">
             <h5 class="card-title">เราคือใคร</h5>
             <p class="card-text">เราคือส่วนกลางในการกระจายสิ่งของบริจาคเพื่อช่วยเหลือผู้ประสบภัยต่างๆ </p>
@@ -22,7 +23,9 @@
       </div>
     </div>
 
-    <div class="card mb-5" style="max-width: 550px;">
+    
+
+    <div class="card mb-5" >
       <div class="row no-gutters">
         <div class="col-md-4">
           <img src="../assets/img/ddd.jpg" class="card-img" alt="...">
@@ -38,7 +41,9 @@
 
 
       <img src="../assets/img/hand.jpg" class="rounded float-left" alt="..." width="600" height="338">
-      <div class="card mb-5" style="max-width: 550px;">
+
+      
+      <div class="card mb-5" >
         <div class="row no-gutters">
           <div class="col-md-4">
             <img src="../assets/img/card.png" class="card-img" alt="..." width="800" height="150">
@@ -53,10 +58,10 @@
         </div>
       </div>
 
-      <div class="card mb-5" style="max-width: 550px;">
+      <div class="card mb-5" >
         <div class="row no-gutters">
           <div class="col-md-4">
-            <img src="../assets/img/donatt.jpg" class="card-img" alt="..." width="500" height="140">
+            <img src="../assets/img/donatt.jpg" class="card-img" alt="..." >
           </div>
           <div class="col-md-8">
             <div class="card-body">

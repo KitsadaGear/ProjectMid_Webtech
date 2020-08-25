@@ -2,7 +2,7 @@
 <div class="container">
     <div class="rounded text-center " style=" background-color: #fffff0;">
         <figure class="figure">
-            <img src="../assets/img/sm.jpg" class="figure-img img-fluid rounded" alt="...">
+            <img src="../assets/img/sm.png" class="figure-img img-fluid rounded" alt="...">
             <h4> Login </h4>
             <form @submit.prevent ="handelSubmit">
                 <div class="form-group">

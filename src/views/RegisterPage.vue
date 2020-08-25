@@ -3,10 +3,18 @@
     <div class="register">
         
         <div class="card container">
+
+            <div class="card text-white">
+                <img src="../assets/img/hand.jpg" class="card-img" alt="..." width="500" height="400">
+                <div class="card-img-overlay">
+                    <h1 class="card-title text-center">Register</h1>
+                </div>
+                </div>
+
             <div class="card-body">            
                 <div class=" rounded">
                 <form @submit.prevent="handleSubmit()">
-                    <h1 class=" text-center"> Register</h1>
+                    
                     <div class="form-group">
                         <label for="" >Email Address *</label>
                         <input type ="text" class="form-control"
