@@ -4,11 +4,7 @@
     <div class="Homepage">
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
-        <div
-          id="carouselExampleIndicators"
-          class="carousel slide"
-          data-ride="carousel"
-        >
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <b-carousel
             id="carousel-1"
             v-model="slide"
@@ -53,10 +49,7 @@
       <!-- /Carousel class -->
 
       <!-- News class -->
-      <div
-        class="container shadow-lg p-3 mb-5 rounded"
-        style="background-color:#948E99"
-      >
+      <div class="container shadow-lg p-3 mb-5 rounded" style="background-color:#948E99">
         <div class="card-deck">
           <div class="card">
             <img
@@ -148,19 +141,15 @@
               รสนิยมเฉพาะตัวบุคคลด้วย เสื้อผ้าบางชนิดอาจออกแบบให้สวมใส่เฉพาะเพศ
             </p>
             <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+              <router-link to="/detail-view" tag="div">
+                <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
+              </router-link>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img
-                src="../assets/img/medicine.jpg"
-                width="473px"
-                height="313px"
-              />
+              <img src="../assets/img/medicine.jpg" width="473px" height="313px" />
             </div>
             <h2>ยารักษาโรค</h2>
             <p>
@@ -170,19 +159,13 @@
               เพื่อให้ได้รับประโยชน์สูงสุดและให้ได้รับโทษน้อยที่สุด
             </p>
             <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img
-                src="../assets/img/unnamed.jpg"
-                width="473px"
-                height="313px"
-              />
+              <img src="../assets/img/unnamed.jpg" width="473px" height="313px" />
             </div>
             <h2>ข้าวสารอาหารแห้ง</h2>
             <p>
@@ -193,9 +176,7 @@
               รวมไปถึงข้าวสารที่เป็นอาหารหลักในการดำรงชีวิตของคนไทย
             </p>
             <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
 
@@ -216,19 +197,13 @@
               เครื่องซักผ้า
             </p>
             <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img
-                src="../assets/img/f57ctl.jpg"
-                width="473px"
-                height="313px"
-              />
+              <img src="../assets/img/f57ctl.jpg" width="473px" height="313px" />
             </div>
             <h2>น้ำดื่ม</h2>
             <p>
@@ -238,19 +213,13 @@
               โดยไม่ก่อให้เกิดโรคที่เป็นอันตรายต่อสุขภาพอนามัย
             </p>
             <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img
-                src="../assets/img/storage.jpg"
-                width="473px"
-                height="313px"
-              />
+              <img src="../assets/img/storage.jpg" width="473px" height="313px" />
             </div>
             <h2>สิ่งของอื่นๆ</h2>
             <p>
@@ -261,9 +230,7 @@
               โดยไม่มีการใช้งาน
             </p>
             <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
         </div>
@@ -280,7 +247,7 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
     };
   },
   methods: {
@@ -289,11 +256,11 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
-    }
+    },
   },
   components: {
-    MenuBar
-  }
+    MenuBar,
+  },
 };
 </script>
 

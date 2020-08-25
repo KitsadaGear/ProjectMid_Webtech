@@ -2,12 +2,11 @@
   <div class="Homepage">
     <div class="bgimg-1">
       <div class="caption">
-        <span class="border">ยินดีต้อนรับสู่ Punfun</span><br />
+        <span class="border">ยินดีต้อนรับสู่ Punfun</span>
+        <br />
         <span>
           <router-link to="/home-view">
-            <b-button variant="btn btn-primary" class="enter_btn">
-              เข้าสู่เว็บไซต์
-            </b-button>
+            <b-button variant="btn btn-primary" class="enter_btn">เข้าสู่เว็บไซต์</b-button>
           </router-link>
         </span>
       </div>
@@ -37,7 +36,7 @@ html {
 .caption {
   position: absolute;
   left: 0;
-  top: 50%;
+  top: 40%;
   width: 100%;
   text-align: center;
   color: #000;
@@ -46,12 +45,13 @@ html {
 .caption span.border {
   background-color: #111;
   color: #fff;
-  padding: 18px;
+  padding: 30px;
   font-size: 25px;
   letter-spacing: 10px;
 }
 
 .enter_btn {
-  margin-top: 50px;
+  margin-top: 150px;
+  padding: 20px 90px;
 }
 </style>
