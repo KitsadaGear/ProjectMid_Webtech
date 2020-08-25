@@ -479,5 +479,6 @@ input[type="text"] {
   padding: 0.375rem 0.75rem;
   border-radius: 4px;
   margin-bottom: 20px;
+  margin-top: 10px;
 }
 </style>
