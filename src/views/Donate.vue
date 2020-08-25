@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div style>
     <menu-bar></menu-bar>
+
     <div class="Donatepage">
+
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -46,6 +48,9 @@
         </div>
       </div>
 
+
+      
+
       <!-- /Carousel class -->
 
       <div role="main" class="container">
@@ -88,7 +93,7 @@
 
           <aside class="col-md-4 blog-sidebar">
             <!-- บริจาค-->
-            <form @submit.prevent="submitCustomDonate()">
+            <form v-if="dept_name">
               <div class="p-4 mb-3 bg-light rounded">
                 <h4 style="text-align:center;font-size: 30px;">ช่องทางการบริจาค</h4>
                 <p class="paragraph_info">โปรดเลือกสิ่งที่ท่านต้องการบริจาค</p>
@@ -176,16 +181,25 @@
                     <th scope="col" style="text-align:center">ชื่อสิ่งที่ท่านบริจาค</th>
                     <th scope="col" style="text-align:center">จำนวนที่ท่านบริจาค</th>
                   </tr>
-                  <tr>
-                    <td style="text-align:center">N/A</td>
-                    <td style="text-align:center">N/A</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align:center">N/A</td>
-                    <td style="text-align:center">N/A</td>
-                  </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>
+                  <tr>
+                    <td style="text-align:center">N/A</td>
+                    <td style="text-align:center">N/A</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center">N/A</td>
+                    <td style="text-align:center">N/A</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center">N/A</td>
+                    <td style="text-align:center">N/A</td>
+                  </tr>
+                  <tr>
+                    <td style="text-align:center">N/A</td>
+                    <td style="text-align:center">N/A</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </aside>
@@ -199,7 +213,9 @@
 import { departmentsCollection } from "../firebase.js";
 import MenuBar from "../components/Menubar.vue";
 import { firestore } from "firebase";
+
 import { mapState, mapActions } from "vuex";
+
 export default {
   data() {
     return {
@@ -270,6 +286,10 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
+    computed:{
+      ...mapState('account',['user'])
+
+    },
     getData: function () {
       if (this.depart.depart_name != "") {
         var element = document.getElementById("department_list");
@@ -329,14 +349,11 @@ export default {
   },
   components: {
     MenuBar,
-  },
+  }
 };
 </script>
 
 <style>
-html {
-  min-height: 100%;
-}
 aside .bg-light {
   background-color: #f0f8ff !important;
 }

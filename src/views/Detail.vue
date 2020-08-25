@@ -1,5 +1,9 @@
 <template>
+
   <div class="container">
+
+    <menu-bar></menu-bar>
+
     <div class="Head_Detail">
       <h1><i class="fas fa-question-circle"></i>สามารถบริจาคอะไรได้บ้าง?</h1>
       <h2>เพจแบ่งปันกันเถอะของเรารับบริจาคสิ่งของต่างๆที่มีสภาพที่ดี เช่น เสื้อผ้า ยารักษาโรค ข้าวสารอาหารแห้ง 
@@ -156,28 +160,30 @@
 export default {};
 </script>
 
+
+
 <style>
-h1, .h1 {
-    font-size: 2.5rem;
-    margin-top: 5rem;
-    margin-left: 3rem;
+.container h1 {
+  font-size: 2.5rem;
+  margin-top: 5rem;
+  margin-left: 3rem;
 }
 
-h2, .h2 {
-    font-size: 1.3rem;
-    margin-left: 2rem;
-    margin-top: 1rem;
+.container h2 {
+  font-size: 1.3rem;
+  margin-left: 2rem;
+  margin-top: 1rem;
 }
 
-h3, .h3 {
-    font-size: 1.0rem;
-    margin-left: 3rem;
+.container h3 {
+  font-size: 1rem;
 }
 
-p {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    margin-left: 2rem;
+.container p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+
 }
 
 .card-body {

@@ -9,6 +9,7 @@
         <h2>ติดต่อฝ่ายแฟรนไชน์: 08x-xxx-xxxx</h2>
         <h2><i class="fas fa-envelope"></i> ติดต่อชาวแบ่งปันกันได้ที่อีเมล: PunFun@xxx.com</h2>
       </div>
+
     </div>
 
     <h2 class="mt-5">สามารถพูดคุยกันได้ตาม Social Media:</h2>
@@ -41,15 +42,7 @@ export default {};
 </script>
 
 <style>
-h1, .h1 {
-    font-size: 3.5em;
-}
-h1 {
-    line-height: 4.5;
-}
-h2, .h2 {
-    font-size: 1.5rem;
-}
+
 
 button.btn.btn-info {
     margin-top: 4.5rem;
@@ -57,5 +50,14 @@ button.btn.btn-info {
 
 .card-body {
     background-color: peachpuff;
+
+.container h1 {
+  font-size: 4em;
+  line-height: 4.5;
+}
+
+.container h2 {
+  font-size: 1.5rem;
+
 }
 </style>
