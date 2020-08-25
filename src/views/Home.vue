@@ -235,7 +235,7 @@
               น้ำดื่ม(drinking water) คือ น้ำที่สามารถนำมาบริโภค ได้แก่
               เพื่อช่วยกลไกการย่อยสลาย และละลายเหลือแร่ต่างๆ การขับถ่ายของเสีย
               หรือการหล่อลื่นเนื้อหนังข้อต่อต่างๆ ให้ชุ่มชื้น
-              โดยไม่ก่อให้เกิดโรคที่เป็นอันตรายต่อสุขภาพอนามัย
+              โดยไม่ก่อให้เกิดโรคที่เป็นอันตราย
             </p>
             <div style="text-align: center;">
               <button type="button" class="btn btn-outline-info">
@@ -276,6 +276,7 @@
 
 <script>
 import MenuBar from "../components/Menubar.vue";
+
 export default {
   data() {
     return {
