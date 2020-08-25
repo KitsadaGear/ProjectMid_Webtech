@@ -1,7 +1,7 @@
 <template>
   <div>
     <menu-bar></menu-bar>
-    <div class="Homepage">
+    <div class="Donatepage">
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -47,15 +47,23 @@
       </div>
 
       <!-- /Carousel class -->
+
       <div role="main" class="container">
         <div class="row">
           <div class="col-md-8 blog-main">
-            <label class="pb-4 mb-4" style="font-size:20px">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
-            <select name="department_list" id="department_list" v-model="depart.depart_name">
-              <option value disabled selected hidden></option>
-              <option v-for="department in departments" :key="department.id">{{ department.name }}</option>
-            </select>
-            <button @click="getData()">Select</button>
+            <div class="select_row">
+              <label class="pb-4 mb-4" style="font-size:20px">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
+              <select
+                name="department_list"
+                id="department_list"
+                v-model="depart.depart_name"
+                style="text-align:center"
+              >
+                <option value disabled selected hidden></option>
+                <option v-for="department in departments" :key="department.id">{{ department.name }}</option>
+              </select>
+              <button class="btn btn-outline-info" @click="getData()">Select</button>
+            </div>
 
             <h1 class="depart_header" style="text-align:center">{{ dept_name }}</h1>
 
@@ -67,37 +75,62 @@
                     style="text-align:center; font-size:20px"
                   >ชื่อสิ่งที่ท่านต้องการบริจาค</th>
                   <th scope="col" style="text-align:center; font-size:20px">จำนวนที่ต้องการการบริจาค</th>
-                  <th
-                    scope="col"
-                    style="text-align:center; font-size:20px"
-                  >จำนวนที่ท่านต้องการบริจาค</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="requirement in requirements" :key="requirement.id">
-                  <td
-                    style="text-align:center; font-size:25px"
-                    v-if="requirement.status != 'Complete'"
-                  >{{ requirement.name}}</td>
-                  <td
-                    style="text-align:center; font-size:25px"
-                    v-if="requirement.status != 'Complete'"
-                  >{{ requirement.amount}}</td>
-                  <td
-                    style="text-align:center"
-                    class="table-row"
-                    v-if="requirement.status != 'Complete'"
-                  >
-                    <input type="text" style="text-align:center;" />
-                    <button type="button" class="btn btn-outline-primary">ยืนยัน</button>
-                  </td>
+                  <td style="text-align:center; font-size:25px">{{ requirement.name}}</td>
+                  <td style="text-align:center; font-size:25px">{{ requirement.amount}}</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <aside class="col-md-4 blog-sidebar">
+            <!-- บริจาค-->
             <form @submit.prevent="submitCustomDonate()">
+              <div class="p-4 mb-3 bg-light rounded">
+                <h4 style="text-align:center;font-size: 30px;">ช่องทางการบริจาค</h4>
+                <p class="paragraph_info">โปรดเลือกสิ่งที่ท่านต้องการบริจาค</p>
+
+                <div class="custom" style="text-align:center">
+                  <select v-model="depart.new_require.name">
+                    <option value disabled selected hidden></option>
+                    <option
+                      v-for="requirement in requirements"
+                      :key="requirement.id"
+                    >{{ requirement.name }}</option>
+                  </select>
+                </div>
+
+                <p class="paragraph_info" style="margin-top:-10px">จำนวนของสิ่งที่ท่านต้องการบริจาค</p>
+                <div class="input-group mb-3">
+                  <input
+                    type="number"
+                    class="form-control"
+                    aria-describedby="button-addon2"
+                    style="text-align:center;"
+                    placeholder="โปรดกรอกจำนวนของสิ่งของที่ต้องการบริจาค"
+                    v-model="depart.new_require.amount"
+                  />
+                </div>
+                <div style="text-align:center;">
+                  <button
+                    type="submit"
+                    class="btn btn-outline-primary"
+                    @click="updateDonate()"
+                  >ยืนยันรายการบริจาคของท่าน</button>
+                </div>
+                <div
+                  v-if="!depart.new_require.amount"
+                  :class="`alert ${alert.type}`"
+                  style="margin-top:20px"
+                >{{ alert.message }}</div>
+              </div>
+            </form>
+
+            <!--Custom -->
+            <form @submit.prevent="submitCustomDonate()" v-if="dept_name">
               <div class="p-4 mb-3 bg-light rounded">
                 <h4 style="text-align:center;font-size: 30px;">บริจาคเพิ่มเติม</h4>
                 <p class="paragraph_info">ชื่อสิ่งของที่ท่านต้องการบริจาค</p>
@@ -124,25 +157,11 @@
                     v-model="customDonate.amount"
                   />
                 </div>
-                <label style="font-size:20px">โปรดเลือกหน่วยงานที่คุณต้องการบริจาค</label>
-                <div class="custom" style="text-align:center">
-                  <select
-                    name="departmented_list"
-                    id="departmented_list"
-                    v-model="customDonate.depart_name"
-                  >
-                    <option value disabled selected hidden></option>
-                    <option
-                      v-for="departmented in departments"
-                      :key="departmented.id"
-                    >{{ departmented.name }}</option>
-                  </select>
-                </div>
                 <div style="text-align:center;">
                   <button type="submit" class="btn btn-outline-primary">ยืนยันรายการบริจาคของท่าน</button>
                 </div>
                 <div
-                  v-if="alert.message"
+                  v-if="!this.customDonate.name || !this.customDonate.amount"
                   :class="`alert ${alert.type}`"
                   style="margin-top:20px"
                 >{{ alert.message }}</div>
@@ -150,7 +169,7 @@
             </form>
 
             <div class="p-4 mb-3 bg-light rounded">
-              <h4 style="text-align:center;font-size: 30px;">สรุปรายการบริจาคของท่าน</h4>
+              <h4 style="text-align:center;font-size: 30px;">สรุปรายการบริจาคทั้งหมดของท่าน</h4>
               <table class="table">
                 <thead class="thead-dark">
                   <tr>
@@ -185,14 +204,20 @@ export default {
   data() {
     return {
       departments: [],
+      departmented: [],
       requirements: [],
+
       dept_name: "",
       depart: {
         depart_name: "",
+        name: "",
+        amount: 0,
+        enough: "",
         new_require: {
           name: "",
           amount: 0,
-          status: "",
+          enough: "",
+          depart_name: "",
         },
       },
       slide: 0,
@@ -200,14 +225,15 @@ export default {
       customDonate: {
         name: "",
         amount: 0,
-        depart_name: "",
-        status: "",
+
+        enough: "",
       },
     };
   },
   firestore() {
     return {
       departments: departmentsCollection,
+      departmented: departmentsCollection,
     };
   },
   computed: {
@@ -221,22 +247,20 @@ export default {
   },
   methods: {
     ...mapActions("alert", ["error"]),
+
     submitCustomDonate() {
-      if (
-        !this.customDonate.name ||
-        !this.customDonate.amount ||
-        !this.customDonate.depart_name
-      ) {
+      if (!this.customDonate.name || !this.customDonate.amount) {
         this.error("โปรดกรอกข้อมูลให้ครบถ้วน");
       } else {
         departmentsCollection
-          .doc(this.customDonate.depart_name)
+          .doc(this.depart.depart_name)
           .collection("Requirement")
-          .add({
+          .doc(this.customDonate.name)
+          .set({
             name: this.customDonate.name,
             amount: parseInt(this.customDonate.amount),
             donateDate: new Date(),
-            status: "Complete",
+            enough: false,
           });
       }
     },
@@ -258,10 +282,47 @@ export default {
             let dataArray = [];
             querySnapshot.forEach((doc) => {
               let requirements = doc.data();
-              requirements.id = doc.id;
-              dataArray.push(requirements);
+
+              if (requirements.enough == false) {
+                dataArray.push(requirements);
+              }
             });
             this.requirements = dataArray;
+          });
+      }
+    },
+    updateDonate() {
+      if (this.depart.depart_name != "") {
+        departmentsCollection
+          .doc(this.depart.depart_name)
+          .collection("Requirement")
+          .doc(this.depart.new_require.name)
+          .get()
+          .then((snapshot) => {
+            const document = snapshot.data();
+            var amountLeft =
+              parseInt(document.amount) -
+              parseInt(this.depart.new_require.amount);
+            if (document.amount >= this.depart.new_require.amount) {
+              if (amountLeft <= 0) {
+                departmentsCollection
+                  .doc(this.depart.depart_name)
+                  .collection("Requirement")
+                  .doc(this.depart.new_require.name)
+                  .update({
+                    amount: amountLeft,
+                    enough: true,
+                  });
+              } else {
+                departmentsCollection
+                  .doc(this.depart.depart_name)
+                  .collection("Requirement")
+                  .doc(this.depart.new_require.name)
+                  .update({
+                    amount: amountLeft,
+                  });
+              }
+            }
           });
       }
     },
@@ -273,11 +334,14 @@ export default {
 </script>
 
 <style>
+html {
+  min-height: 100%;
+}
 aside .bg-light {
   background-color: #f0f8ff !important;
 }
 
-.Homepage {
+.Donatepage {
   background-color: #fffff0;
   margin: 0;
 }
@@ -295,6 +359,19 @@ aside .bg-light {
 
 .blog-form {
   margin-bottom: 20px;
+}
+
+.select_row select {
+  width: 50%;
+  padding: 0.4rem 0.2rem;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.select_row button {
+  margin-bottom: 5px;
+  margin-left: 10px;
+  padding: 0.4rem 2rem;
 }
 
 .blog-sidebar {
