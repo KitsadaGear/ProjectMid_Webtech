@@ -3,77 +3,69 @@
     <menu-bar></menu-bar>
     <p></p>
     
-    
-    <img src="../assets/img/honor.jpg" class="rounded float-right" alt="..."   width="600" height="338">
-    <div class="card mb-5" >
-
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="../assets/img/Heart.jpg" class="card-img" alt="...">
-        </div>
-        
-        
-        
-        <div class="col md-5">
-          <div class="card-body">
-            <h5 class="card-title">เราคือใคร</h5>
-            <p class="card-text">เราคือส่วนกลางในการกระจายสิ่งของบริจาคเพื่อช่วยเหลือผู้ประสบภัยต่างๆ </p>
-          </div>
-        </div>
-      </div>
+        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="../assets/img/lebanon.jpg" class="d-block w-100 rounded" alt="..." width="300" height="500">
+                </div>
+                <div class="carousel-item">
+                <img src="../assets/img/21-1.jpg" class="d-block w-100 rounded" alt="..." width="300" height="500">
+                </div>
+                <div class="carousel-item">
+                <img src="../assets/img/22-2.jpg" class="d-block w-100 rounded" alt="..." width="300" height="500">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
     </div>
-
-    
-
-    <div class="card mb-5" >
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="../assets/img/ddd.jpg" class="card-img" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">หน้าที่ของเรา</h5>
-            <p class="card-text">หน้าที่ของเราคือการจัดการสิ่งของและการะจายสิ่งของหล่านั้นให้แก่ศูนย์หรือ มูลนิธิ ที่ช่วยเหลือผู้ประสบภัย ในพื้นที่ต่างๆ</p>
+    <p></p>
+        <div class="row row-cols-1 row-cols-md-2 ">
+          <div class="col mb-4 ">
+            <div class="card rounded">
+              <img src="../assets/img/Heart.jpg" class="card-img-top " alt="..." width="100" height="400">
+              <div class="card-body">
+                <h5 class="card-title text-center">เราคือใคร</h5>
+                    <p class="card-text">เราคือส่วนกลางในการกระจายสิ่งของบริจาคให้ทั่วถึงทุกภาคส่วน เพื่อช่วยเหลือผู้ประสบภัยและผู้ยากไร้ต่างๆ เพื่อบรรเทาความโศกเศร้าของผู้ประสบภัย  </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-
-      <img src="../assets/img/hand.jpg" class="rounded float-left" alt="..." width="600" height="338">
-
-      
-      <div class="card mb-5" >
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="../assets/img/card.png" class="card-img" alt="..." width="800" height="150">
+          <div class="col mb-4">
+            <div class="card rounded">
+              <img src="../assets/img/ddd.jpg" class="card-img-top rounded" alt="..." width="100" height="400">
+              <div class="card-body">
+              <h5 class="card-title text-center">หน้าที่ของเรา</h5>
+                    <p class="card-text">หน้าที่ของเราคือการจัดการสิ่งของและการะจายสิ่งของหล่านั้นให้แก่ศูนย์หรือ มูลนิธิ ที่ช่วยเหลือผู้ประสบภัย ในพื้นที่ต่างๆ</p>
+              </div>
+            </div>
           </div>
-          
-          <div class="col-md-8  float-right">
-            <div class="card-body ">
-              <h5 class="card-title ">บริจาคอะไรได้บ้าง</h5>
-              <p class="card-text">สามารถบริจาคสิ่งของทั่วไปเช่น ข้าวสาร-อาหารแห้ง อุปกรณ์เครื่องใช้ไฟฟ้า เสื่อผ้า เครื่องนุ่มห่ม เป็นต้น</p>
+          <div class="col mb-4">
+            <div class="card rounded">
+              <img src="../assets/img/storage.jpg" class="card-img-top rounded" alt="..." width="100" height="400">
+              <div class="card-body">
+                <h5 class="card-title text-center ">บริจาคอะไรได้บ้าง</h5>
+                      <p class="card-text">สามารถบริจาคสิ่งของทั่วไปเช่น ข้าวสาร-อาหารแห้ง อุปกรณ์เครื่องใช้ไฟฟ้า เสื่อผ้า เครื่องนุ่มห่ม เป็นต้น</p>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4">
+            <div class="card rounded"> 
+              <img src="../assets/img/donatt.jpg" class="card-img-top rounded" alt="..." width="100" height="400">
+              <div class="card-body">
+                <h5 class="card-title text-center">ใครบ้างที่จะได้รับสิ่งของบริจาคกับเรา</h5>
+                      <p class="card-text">จะเป็นองค์กรหรือมูลนิธิ ที่ได้รับความไว้วางใจจากบุคคลภายนอกและจะเป็นองค์กรที่ไม่แสงหาผลกำไร</p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="card mb-5" >
-        <div class="row no-gutters">
-          <div class="col-md-4">
-            <img src="../assets/img/donatt.jpg" class="card-img" alt="..." >
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">ใครบ้างที่จะได้รับสิ่งของบริจาคกับเรา</h5>
-              <p class="card-text">จะเป็นองค์กรหรือมูลนิธิ ที่ได้รับความไว้วางใจจากบุคคลภายนอกและจะเป็นองค์กรที่ไม่แสงหาผลกำไร</p>
-            </div>
-          </div>
-        </div>
-      </div>
-     
 
-    <div class="card bg-info text-white">
+    <div class="card  text-white rounded" style="background-color: lightblue ;">
       <img src="../assets/img/Thankyou.png" class="card-img" alt="...">
         <div class="card-img-overlay">
           
@@ -94,5 +86,6 @@ export default {
 
 
 <style>
+
 
 </style>

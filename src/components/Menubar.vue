@@ -51,6 +51,14 @@
             </b-button>
           </router-link>
           <!-- /Only Fast Pass -->
+
+           <router-link to="/logout-view" tag="li">
+            <b-button variant="outline-primary" class="header_btn">
+              <b-icon icon="person-fill"></b-icon>ออกจากระบบ
+            </b-button>
+          </router-link>
+
+
         </ul>
       </div>
       <!-- /Navbar item -->

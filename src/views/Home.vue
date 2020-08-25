@@ -2,6 +2,7 @@
   <div>
     <menu-bar></menu-bar>
     <div class="Homepage">
+
        <div class="jumbotron" v-if="user">
             <h4 class="display-9 text-center" > 
                 Welcome {{ user.displayName }}
@@ -301,10 +302,10 @@ export default {
   components: {
     MenuBar
   }, 
-        computed:{
-            ...mapState('account',['user'])
+  computed:{
+    ...mapState('account',['user'])
 
-        }
+  }
 };
 </script>
 
