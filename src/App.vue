@@ -10,14 +10,14 @@ export default {
   name: "app",
   methods: {
     ...mapActions({
-      clearAlert: "alert/clear",
-    }),
+      clearAlert: "alert/clear"
+    })
   },
   watch: {
     $route(to, from) {
       this.clearAlert();
-    },
-  },
+    }
+  }
 };
 </script>
 <style>
