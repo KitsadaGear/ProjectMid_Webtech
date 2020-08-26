@@ -88,7 +88,7 @@
 
           <aside class="col-md-4 blog-sidebar">
             <!-- บริจาค-->
-            <form class="donate_form" @submit.prevent="updateDonate()" v-if="dept_name">
+            <form class="donate_form">
               <div class="p-4 mb-3 bg-light rounded">
                 <h4>ช่องทางการบริจาค</h4>
                 <p class="paragraph_info">โปรดเลือกสิ่งที่ท่านต้องการบริจาค</p>
@@ -258,7 +258,7 @@ export default {
             name: this.customDonate.name,
             amount: parseInt(this.customDonate.amount),
             donateDate: new Date(),
-            enough: true,
+            enough: false,
           });
       }
     },
