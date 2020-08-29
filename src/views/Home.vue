@@ -1,14 +1,14 @@
 <template>
   <div>
     <menu-bar></menu-bar>
-    <div class="Homepage">
+
+    <div class="Homepage font-Taviraj">
+      <div class="jumbotron" v-if="user" style="margin-bottom:0">
+        <h4 class="display-9 text-center">ยินดีต้อนรับ {{ user.displayName }} เข้าสู่เว็บไซต์ของเรา</h4>
+      </div>
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
-        <div
-          id="carouselExampleIndicators"
-          class="carousel slide"
-          data-ride="carousel"
-        >
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <b-carousel
             id="carousel-1"
             v-model="slide"
@@ -53,10 +53,7 @@
       <!-- /Carousel class -->
 
       <!-- News class -->
-      <div
-        class="container shadow-lg p-3 mb-5 rounded"
-        style="background-color:#948E99"
-      >
+      <div class="container shadow-lg p-3 mb-5 rounded" style="background-color:#948E99">
         <div class="card-deck">
           <div class="card">
             <img
@@ -92,7 +89,7 @@
               <p class="card-text">
                 เกิดขึ้นเมื่อวันที่ 4 สิงหาคม พ.ศ. 2563
                 บริเวณท่าเรือเบรุตในเมืองเบรุต
-                เมืองหลวงของประเทศเลบานอน[2][3]เป็นเหตุระเบิดของ
+                เมืองหลวงของประเทศเลบานอนเป็นเหตุระเบิดของ
                 แอมโมเนียมไนเตรตประมาณ 2,750 ตัน (3,030 ตันสั้น; 2,710 ตันยาว)
                 ซึ่งเทียบเท่ากับทีเอ็นทีประมาณ 1.2 กิโลตัน (5.0 TJ)
                 ซึ่งถูกรัฐบาลเลบานอนยึดจากเรือ MV Rhosus
@@ -147,20 +144,16 @@
               ความปลอดภัย ความสะดวกสบาย ความสุภาพ และรวมถึง สังคม วัฒนธรรม
               รสนิยมเฉพาะตัวบุคคลด้วย เสื้อผ้าบางชนิดอาจออกแบบให้สวมใส่เฉพาะเพศ
             </p>
-            <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+            <div class="info_btn">
+              <router-link to="/detail-view" tag="div">
+                <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
+              </router-link>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img
-                src="../assets/img/medicine.jpg"
-                width="473px"
-                height="313px"
-              />
+              <img src="../assets/img/medicine.jpg" width="473px" height="313px" />
             </div>
             <h2>ยารักษาโรค</h2>
             <p>
@@ -169,20 +162,14 @@
               จึงต้องมีความระมัดระวังในการใช้ยา
               เพื่อให้ได้รับประโยชน์สูงสุดและให้ได้รับโทษน้อยที่สุด
             </p>
-            <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+            <div class="info_btn">
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img
-                src="../assets/img/unnamed.jpg"
-                width="473px"
-                height="313px"
-              />
+              <img src="../assets/img/unnamed.jpg" width="473px" height="313px" />
             </div>
             <h2>ข้าวสารอาหารแห้ง</h2>
             <p>
@@ -192,10 +179,8 @@
               ที่เราซื้อมาปรุงเป็นอาหาร
               รวมไปถึงข้าวสารที่เป็นอาหารหลักในการดำรงชีวิตของคนไทย
             </p>
-            <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+            <div class="info_btn">
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
 
@@ -215,42 +200,30 @@
               ไม่ว่าจะเป็นพัดลม แอร์ โทรทัศน์ ตู้เย็น หม้อหุงข้าว เตารีด
               เครื่องซักผ้า
             </p>
-            <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+            <div class="info_btn">
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img
-                src="../assets/img/f57ctl.jpg"
-                width="473px"
-                height="313px"
-              />
+              <img src="../assets/img/f57ctl.jpg" width="473px" height="313px" />
             </div>
             <h2>น้ำดื่ม</h2>
             <p>
               น้ำดื่ม(drinking water) คือ น้ำที่สามารถนำมาบริโภค ได้แก่
               เพื่อช่วยกลไกการย่อยสลาย และละลายเหลือแร่ต่างๆ การขับถ่ายของเสีย
               หรือการหล่อลื่นเนื้อหนังข้อต่อต่างๆ ให้ชุ่มชื้น
-              โดยไม่ก่อให้เกิดโรคที่เป็นอันตราย
+              โดยไม่ก่อให้เกิดโรคที่เป็นอันตรายต่อสุขภาพอนามัย
             </p>
-            <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+            <div class="info_btn">
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img
-                src="../assets/img/storage.jpg"
-                width="473px"
-                height="313px"
-              />
+              <img src="../assets/img/storage.jpg" width="473px" height="313px" />
             </div>
             <h2>สิ่งของอื่นๆ</h2>
             <p>
@@ -258,12 +231,10 @@
               หรือที่อื่นๆ มีสิ่งของที่เราไม่ได้ใช้แล้ว แต่ยังอยู่ในสภาพที่ดี
               หากเราไม่ได้ใช้แล้ว
               ก็ควรแบ่งปันให้กับผู้ที่ต้องการดีกว่าที่จะปล่อยสิ่งๆนั้นไว้เฉยๆ
-              โดยไม่มีการใช้งาน
+              โดยไม่มีการใช้งานสิ่งของเหล่านั้น
             </p>
-            <div style="text-align: center;">
-              <button type="button" class="btn btn-outline-info">
-                อ่านต่อที่นี่
-              </button>
+            <div class="info_btn">
+              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
             </div>
           </div>
         </div>
@@ -276,12 +247,13 @@
 
 <script>
 import MenuBar from "../components/Menubar.vue";
+import { mapState, mapActions } from "vuex";
 
 export default {
   data() {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
     };
   },
   methods: {
@@ -290,60 +262,66 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
-    }
+    },
   },
   components: {
-    MenuBar
-  }
+    MenuBar,
+  },
+  computed: {
+    ...mapState("account", ["user"]),
+  },
 };
 </script>
 
 <style>
-div#one {
-  font-family: "Franklin Gothic Medium", cursive;
-  color: cadetblue;
-}
-
 .Homepage {
   background-color: #fffff0;
   margin: 0;
 }
 
 @media (min-width: 768px) {
-  .mb-md-5,
-  .my-md-5 {
+  .Homepage .mb-md-5,
+  .Homepage .my-md-5 {
     margin-bottom: 0 !important;
   }
 }
 
-.container_info h1 {
+.Homepage .container .card .card-body h5 {
+  font-size: 30px;
+}
+.Homepage .container .card .card-body p {
+  font-size: 20px;
+}
+
+.Homepage .container_info h1 {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 20px;
 }
 
-.container_info img {
+.Homepage .container_info img {
   margin-top: 20px;
   max-width: 100%;
   height: auto;
 }
 
-.container_info h2 {
+.Homepage .container_info h2 {
   margin-top: 10px;
   text-align: center;
 }
 
-.container_info p {
+.Homepage .container_info p {
   width: 80%;
   margin-left: 10%;
+  font-size: 20px;
 }
 
 @media (min-width: 1200px) {
-  .container,
-  .container-sm,
-  .container-md,
-  .container-lg,
-  .container-xl {
+  .Homepage .container,
+  .Homepage .container-sm,
+  .Homepage .container-md,
+  .Homepage .container-lg,
+  .Homepage .container-xl {
     max-width: 80%;
   }
 }
@@ -356,5 +334,15 @@ div#one {
   color: black;
   padding: 12px 28px;
   max-width: 100%;
+}
+.card-body .card-title {
+  font-size: 20px;
+}
+
+.Homepage .col-lg-4 .info_btn {
+  text-align: center;
+}
+.Homepage .col-lg-4 button {
+  font-size: 20px;
 }
 </style>

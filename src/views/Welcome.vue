@@ -6,7 +6,9 @@
         <br />
         <span>
           <router-link to="/home-view">
-            <b-button variant="btn btn-primary" class="enter_btn">เข้าสู่เว็บไซต์</b-button>
+            <b-button variant="btn btn-primary" class="enter_btn"
+              >เข้าสู่เว็บไซต์</b-button
+            >
           </router-link>
         </span>
       </div>
@@ -41,6 +43,7 @@ export default {};
 .caption span.border {
   background-color: #111;
   color: #fff;
+  padding: 30px;
   padding: 22px 200px;
   font-size: 25px;
   letter-spacing: 10px;
