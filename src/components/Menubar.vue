@@ -1,5 +1,5 @@
 <template>
-  <div class="menubar">
+  <div class="menubar font-Taviraj">
     <div v-if="!user">
       <div>
         <b-navbar toggleable="lg" type="dark" variant="info" class="bg-light">
@@ -117,7 +117,7 @@ export default {
 </script>
 
 <style>
-.bg-light {
+.menubar .bg-light {
   background-color: #b0c4de !important;
 }
 .navbar-nav .nav-link {
@@ -133,11 +133,11 @@ export default {
   font-size: 20px;
 }
 
-.icon_name {
+.menubar .icon_name {
   font-size: 50px;
   color: black !important;
 }
-.navbar-dark .navbar-toggler {
+.menubar .navbar-dark .navbar-toggler {
   color: black !important;
   border-color: black;
 }
