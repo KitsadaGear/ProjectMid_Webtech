@@ -1,5 +1,5 @@
 <template>
-  <div class="contact_page font-Taviraj">
+  <div class="contact_page font-Kanit">
     <menu-bar></menu-bar>
     <div class="container">
       <h1>
@@ -58,8 +58,8 @@
 import MenuBar from "../components/Menubar.vue";
 export default {
   components: {
-    MenuBar,
-  },
+    MenuBar
+  }
 };
 </script>
 

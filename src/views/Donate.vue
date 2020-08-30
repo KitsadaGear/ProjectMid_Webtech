@@ -1,10 +1,14 @@
 <template>
   <div>
     <menu-bar></menu-bar>
-    <div class="Donatepage font-Taviraj">
+    <div class="Donatepage font-Kanit">
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-ride="carousel"
+        >
           <b-carousel
             id="carousel-1"
             v-model="slide"
@@ -56,7 +60,9 @@
               <h2 id="username">{{ user.displayName }}</h2>
             </h1>
             <div class="select_row">
-              <label class="pb-4 mb-4" style="font-size:25px">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
+              <label class="pb-4 mb-4" style="font-size:25px"
+                >โปรดเลือกหน่วยงานที่คุณต้องการ :</label
+              >
               <select
                 name="department_list"
                 id="department_list"
@@ -68,28 +74,38 @@
                   <option
                     v-for="department in departments"
                     :key="department.id"
-                  >{{ department.name }}</option>
+                    >{{ department.name }}</option
+                  >
                 </optgroup>
               </select>
-              <button class="btn btn-outline-info" @click="getData()">Select</button>
+              <button class="btn btn-outline-info" @click="getData()">
+                Select
+              </button>
             </div>
 
-            <h1 class="depart_header" style="text-align:center">{{ dept_name }}</h1>
+            <h1 class="depart_header" style="text-align:center">
+              {{ dept_name }}
+            </h1>
 
             <table class="table" v-if="dept_name">
               <thead class="thead-dark">
                 <tr>
-                  <th
-                    scope="col"
-                    style="text-align:center; font-size:20px"
-                  >ชื่อสิ่งที่ท่านต้องการบริจาค</th>
-                  <th scope="col" style="text-align:center; font-size:20px">จำนวนที่ต้องการการบริจาค</th>
+                  <th scope="col" style="text-align:center; font-size:20px">
+                    ชื่อสิ่งที่ท่านต้องการบริจาค
+                  </th>
+                  <th scope="col" style="text-align:center; font-size:20px">
+                    จำนวนที่ต้องการการบริจาค
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="requirement in requirements" :key="requirement.id">
-                  <td style="text-align:center; font-size:25px">{{ requirement.name }}</td>
-                  <td style="text-align:center; font-size:25px">{{ requirement.amount }}</td>
+                  <td style="text-align:center; font-size:25px">
+                    {{ requirement.name }}
+                  </td>
+                  <td style="text-align:center; font-size:25px">
+                    {{ requirement.amount }}
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -97,9 +113,18 @@
 
           <aside class="col-md-4 blog-sidebar">
             <!-- บริจาค-->
-            <form class="donate_form" @submit.prevent="updateDonate()" v-if="dept_name">
-              <div class="p-4 mb-3 rounded aside-form" style="background-color:#F8F8FF">
-                <h4 style="text-align:center;font-size: 30px;">ช่องทางการบริจาค</h4>
+            <form
+              class="donate_form"
+              @submit.prevent="updateDonate()"
+              v-if="dept_name"
+            >
+              <div
+                class="p-4 mb-3 rounded aside-form"
+                style="background-color:#F8F8FF"
+              >
+                <h4 style="text-align:center;font-size: 30px;">
+                  ช่องทางการบริจาค
+                </h4>
                 <p class="paragraph_info">โปรดเลือกสิ่งที่ท่านต้องการบริจาค</p>
 
                 <div class="custom" style="text-align:center">
@@ -109,12 +134,15 @@
                       <option
                         v-for="requirement in requirements"
                         :key="requirement.id"
-                      >{{ requirement.name }}</option>
+                        >{{ requirement.name }}</option
+                      >
                     </optgroup>
                   </select>
                 </div>
 
-                <p class="paragraph_info" style="margin-top:-10px">จำนวนของสิ่งที่ท่านต้องการบริจาค</p>
+                <p class="paragraph_info" style="margin-top:-10px">
+                  จำนวนของสิ่งที่ท่านต้องการบริจาค
+                </p>
                 <div class="input-group mb-3">
                   <input
                     type="number"
@@ -130,7 +158,9 @@
                     type="submit"
                     class="btn btn-outline-primary"
                     @click="updateDonate()"
-                  >ยืนยันรายการบริจาคของท่าน</button>
+                  >
+                    ยืนยันรายการบริจาคของท่าน
+                  </button>
                 </div>
               </div>
             </form>
@@ -143,7 +173,9 @@
               style="margin-top:30px"
             >
               <div class="p-4 mb-3 rounded aside-form">
-                <h4 style="text-align:center;font-size: 30px;">บริจาคเพิ่มเติม</h4>
+                <h4 style="text-align:center;font-size: 30px;">
+                  บริจาคเพิ่มเติม
+                </h4>
                 <p class="paragraph_info">ชื่อสิ่งของที่ท่านต้องการบริจาค</p>
                 <div class="input-group mb-3">
                   <input
@@ -169,19 +201,25 @@
                   />
                 </div>
                 <div style="text-align:center;">
-                  <button type="submit" class="btn btn-outline-primary">ยืนยันรายการบริจาคของท่าน</button>
+                  <button type="submit" class="btn btn-outline-primary">
+                    ยืนยันรายการบริจาคของท่าน
+                  </button>
                 </div>
               </div>
             </form>
 
             <div class="p-4 mb-3 rounded aside-form" style="margin-top:30px">
-              <h1 style="text-align:center;font-size: 30px;">ประวัติการบริจาคของท่าน</h1>
+              <h1 style="text-align:center;font-size: 30px;">
+                ประวัติการบริจาคของท่าน
+              </h1>
               <button
                 class="btn btn-outline-primary logDonate"
                 type="button"
                 data-toggle="modal"
                 data-target="#donateLogForm"
-              >คลิกทีนี่</button>
+              >
+                คลิกทีนี่
+              </button>
             </div>
             <!-- Modal -->
             <div
@@ -196,8 +234,15 @@
                   <div class="modal-header">
                     <h4
                       style="text-align:center;font-size: 2.5rem;margin-top:30px;margin-bottom:20px"
-                    >สรุปรายการบริจาคทั้งหมดของท่าน</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    >
+                      สรุปรายการบริจาคทั้งหมดของท่าน
+                    </h4>
+                    <button
+                      type="button"
+                      class="close"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
@@ -208,19 +253,27 @@
                           <th
                             scope="col"
                             style="text-align:center;font-size:20px"
-                          >ชื่อสิ่งที่ท่านบริจาค</th>
+                          >
+                            ชื่อสิ่งที่ท่านบริจาค
+                          </th>
                           <th
                             scope="col"
                             style="text-align:center;font-size:20px"
-                          >จำนวนที่ท่านบริจาค</th>
+                          >
+                            จำนวนที่ท่านบริจาค
+                          </th>
                           <th
                             scope="col"
                             style="text-align:center;font-size:20px"
-                          >หน่วยงานที่ท่านบริจาค</th>
+                          >
+                            หน่วยงานที่ท่านบริจาค
+                          </th>
                           <th
                             scope="col"
                             style="text-align:center;font-size:20px"
-                          >วันเวลาที่ท่านบริจาค</th>
+                          >
+                            วันเวลาที่ท่านบริจาค
+                          </th>
                         </tr>
                       </thead>
                       <tbody>
@@ -252,7 +305,13 @@
                     </table>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                    <button
+                      type="button"
+                      class="btn btn-outline-primary"
+                      data-dismiss="modal"
+                    >
+                      Close
+                    </button>
                   </div>
                 </div>
               </div>
@@ -288,30 +347,33 @@ export default {
           name: "",
           amount: 0,
           enough: "",
-          depart_name: "",
-        },
+          depart_name: ""
+        }
       },
       slide: 0,
       sliding: null,
       customDonate: {
         name: "",
         amount: 0,
-        enough: "",
-      },
+        enough: ""
+      }
     };
   },
   firestore() {
     return {
       departments: departmentsCollection,
       departmented: departmentsCollection,
-      donateLog: userLogCollection.doc().collection("donate_log").doc(),
+      donateLog: userLogCollection
+        .doc()
+        .collection("donate_log")
+        .doc()
     };
   },
   computed: {
     ...mapState({
-      alert: (state) => state.alert,
+      alert: state => state.alert
     }),
-    ...mapState("account", ["user"]),
+    ...mapState("account", ["user"])
   },
   beforeMount() {
     this.getData();
@@ -331,7 +393,7 @@ export default {
             name: this.customDonate.name,
             amount: parseInt(this.customDonate.amount),
             donateDate: new Date(),
-            enough: true,
+            enough: true
           });
         userLogCollection
           .doc(name)
@@ -341,7 +403,7 @@ export default {
             name: this.customDonate.name,
             amount: parseInt(this.customDonate.amount),
             donate_Date: new Date(),
-            department: this.depart.depart_name,
+            department: this.depart.depart_name
           });
       }
     },
@@ -352,7 +414,7 @@ export default {
       this.sliding = false;
     },
 
-    getData: function () {
+    getData: function() {
       if (this.depart.depart_name != "") {
         var element = document.getElementById("department_list");
         var selectedValue = element.options[element.selectedIndex].text;
@@ -360,9 +422,9 @@ export default {
         departmentsCollection
           .doc(this.depart.depart_name)
           .collection("Requirement")
-          .onSnapshot((querySnapshot) => {
+          .onSnapshot(querySnapshot => {
             let dataArray = [];
-            querySnapshot.forEach((doc) => {
+            querySnapshot.forEach(doc => {
               let requirements = doc.data();
               if (requirements.enough == false) {
                 dataArray.push(requirements);
@@ -379,7 +441,7 @@ export default {
           .collection("Requirement")
           .doc(this.depart.new_require.name)
           .get()
-          .then((snapshot) => {
+          .then(snapshot => {
             const document = snapshot.data();
             var amountLeft =
               parseInt(document.amount) -
@@ -392,7 +454,7 @@ export default {
                   .doc(this.depart.new_require.name)
                   .update({
                     amount: amountLeft,
-                    enough: true,
+                    enough: true
                   });
               } else {
                 departmentsCollection
@@ -400,18 +462,18 @@ export default {
                   .collection("Requirement")
                   .doc(this.depart.new_require.name)
                   .update({
-                    amount: amountLeft,
+                    amount: amountLeft
                   });
               }
             }
           });
       }
-    },
+    }
   },
   components: {
     MenuBar,
-    FooterBar,
-  },
+    FooterBar
+  }
 };
 </script>
 

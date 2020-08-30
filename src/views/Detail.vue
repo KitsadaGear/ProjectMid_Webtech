@@ -1,7 +1,7 @@
 <template>
   <div>
     <menu-bar></menu-bar>
-    <div class="container font-Taviraj">
+    <div class="container font-Kanit">
       <div class="container_detail">
         <div class="Head_Detail">
           <h1>
@@ -12,7 +12,8 @@
             เสื้อผ้า ยารักษาโรค ข้าวสารอาหารแห้ง เครื่องใช้ไฟฟ้า น้ำดื่ม ฯลฯ
           </h2>
           <h3>
-            <i class="fas fa-phone-square-alt"></i>หากต้องการติดต่อแบ่งปันกันเถอะหรือสอบถามทั่วไป: 02-xxx-xxxx,
+            <i class="fas fa-phone-square-alt"></i
+            >หากต้องการติดต่อแบ่งปันกันเถอะหรือสอบถามทั่วไป: 02-xxx-xxxx,
             08x-xxx-xxxx
           </h3>
         </div>
@@ -32,8 +33,9 @@
             </h1>
             <h2>
               เสื้อผ้าถือเป็นหนึ่งใน4ปัจจัยหลักในการดำรงชีวิต
-              เป็นสิ่งที่ปกคลุมร่างกายจากสภาพอากาศและ ป้องกันเราจากสิ่งสกปรกต่างๆ
-              ทั้งยังมีความเป็นแฟชั่น ความสวยงาม หล่อ เท่
+              เป็นสิ่งที่ปกคลุมร่างกายจากสภาพอากาศและ
+              ป้องกันเราจากสิ่งสกปรกต่างๆ ทั้งยังมีความเป็นแฟชั่น ความสวยงาม
+              หล่อ เท่
             </h2>
             <h1>
               <i class="fas fa-exclamation-circle"></i>ข้อควรรู้ก่อนบริจาค
@@ -48,8 +50,9 @@
               แบคทีเรียตอนแพครวมส่งให้ผู้ที่ต้องการ
             </p>
             <p>
-              3.แยกประเภทของเสื้อผ้า เพื่อลดภาระกับเจ้าหน้าที่ตอนคัดเลือกเสื้อผ้า
-              เช่น เสื้อ กางเกง กระโปรง ผ้าคาดผม
+              3.แยกประเภทของเสื้อผ้า
+              เพื่อลดภาระกับเจ้าหน้าที่ตอนคัดเลือกเสื้อผ้า เช่น เสื้อ กางเกง
+              กระโปรง ผ้าคาดผม
             </p>
             <p>
               4.ราคาของเสื้อผ้า หากเสื้อผ้าเป็นแบรนด์เนมหรือราคาแพง
@@ -61,7 +64,9 @@
             </p>
             <a href="http://localhost:8080/share-view">
               <h2>
-                <button type="button" class="btn btn-warning">บริจาคเลย ></button>
+                <button type="button" class="btn btn-warning">
+                  บริจาคเลย >
+                </button>
               </h2>
             </a>
           </div>
@@ -99,7 +104,9 @@
             </p>
             <a href="http://localhost:8080/share-view">
               <h2>
-                <button type="button" class="btn btn-warning">บริจาคเลย ></button>
+                <button type="button" class="btn btn-warning">
+                  บริจาคเลย >
+                </button>
               </h2>
             </a>
           </div>
@@ -141,7 +148,9 @@
             </p>
             <a href="http://localhost:8080/share-view">
               <h2>
-                <button type="button" class="btn btn-warning">บริจาคเลย ></button>
+                <button type="button" class="btn btn-warning">
+                  บริจาคเลย >
+                </button>
               </h2>
             </a>
           </div>
@@ -187,7 +196,9 @@
             </p>
             <a href="http://localhost:8080/share-view">
               <h2>
-                <button type="button" class="btn btn-warning">บริจาคเลย ></button>
+                <button type="button" class="btn btn-warning">
+                  บริจาคเลย >
+                </button>
               </h2>
             </a>
           </div>
@@ -222,7 +233,9 @@
             </p>
             <a href="http://localhost:8080/share-view">
               <h2>
-                <button type="button" class="btn btn-warning">บริจาคเลย ></button>
+                <button type="button" class="btn btn-warning">
+                  บริจาคเลย >
+                </button>
               </h2>
             </a>
           </div>
@@ -265,7 +278,9 @@
             </p>
             <a href="http://localhost:8080/share-view">
               <h2>
-                <button type="button" class="btn btn-warning">บริจาคเลย ></button>
+                <button type="button" class="btn btn-warning">
+                  บริจาคเลย >
+                </button>
               </h2>
             </a>
           </div>
@@ -304,10 +319,14 @@
               สิ่งของที่สกปรกอาจส่งผลให้เกิดการนำไปใช้งานจะติดเชื้อโรค
               แบคทีเรียได้
             </p>
-            <p>3.หากมีราคาแพงหรือแบรนด์เนมสามารถแจ้งเจ้าหน้าที่เพื่อความเหมาะสมในการบริจาค</p>
+            <p>
+              3.หากมีราคาแพงหรือแบรนด์เนมสามารถแจ้งเจ้าหน้าที่เพื่อความเหมาะสมในการบริจาค
+            </p>
             <a href="http://localhost:8080/share-view">
               <h2>
-                <button type="button" class="btn btn-warning">บริจาคเลย ></button>
+                <button type="button" class="btn btn-warning">
+                  บริจาคเลย >
+                </button>
               </h2>
             </a>
           </div>
@@ -321,8 +340,8 @@
 import MenuBar from "../components/Menubar.vue";
 export default {
   components: {
-    MenuBar,
-  },
+    MenuBar
+  }
 };
 </script>
 

@@ -2,13 +2,19 @@
   <div>
     <menu-bar></menu-bar>
 
-    <div class="Homepage font-Taviraj">
+    <div class="Homepage font-Kanit">
       <div class="jumbotron" v-if="user" style="margin-bottom:0">
-        <h4 class="display-9 text-center">ยินดีต้อนรับ {{ user.displayName }} เข้าสู่เว็บไซต์ของเรา</h4>
+        <h4 class="display-9 text-center">
+          ยินดีต้อนรับ {{ user.displayName }} เข้าสู่เว็บไซต์ของเรา
+        </h4>
       </div>
       <!-- Carousel class -->
       <div class="shadow-none p-3 mb-5 bg-light rounded">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div
+          id="carouselExampleIndicators"
+          class="carousel slide"
+          data-ride="carousel"
+        >
           <b-carousel
             id="carousel-1"
             v-model="slide"
@@ -53,7 +59,10 @@
       <!-- /Carousel class -->
 
       <!-- News class -->
-      <div class="container shadow-lg p-3 mb-5 rounded" style="background-color:#948E99">
+      <div
+        class="container shadow-lg p-3 mb-5 rounded"
+        style="background-color:#948E99"
+      >
         <div class="card-deck">
           <div class="card">
             <img
@@ -146,14 +155,20 @@
             </p>
             <div class="info_btn">
               <router-link to="/detail-view" tag="div">
-                <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
+                <button type="button" class="btn btn-outline-info">
+                  อ่านต่อที่นี่
+                </button>
               </router-link>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img src="../assets/img/medicine.jpg" width="473px" height="313px" />
+              <img
+                src="../assets/img/medicine.jpg"
+                width="473px"
+                height="313px"
+              />
             </div>
             <h2>ยารักษาโรค</h2>
             <p>
@@ -163,13 +178,19 @@
               เพื่อให้ได้รับประโยชน์สูงสุดและให้ได้รับโทษน้อยที่สุด
             </p>
             <div class="info_btn">
-              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
+              <button type="button" class="btn btn-outline-info">
+                อ่านต่อที่นี่
+              </button>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img src="../assets/img/unnamed.jpg" width="473px" height="313px" />
+              <img
+                src="../assets/img/unnamed.jpg"
+                width="473px"
+                height="313px"
+              />
             </div>
             <h2>ข้าวสารอาหารแห้ง</h2>
             <p>
@@ -180,7 +201,9 @@
               รวมไปถึงข้าวสารที่เป็นอาหารหลักในการดำรงชีวิตของคนไทย
             </p>
             <div class="info_btn">
-              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
+              <button type="button" class="btn btn-outline-info">
+                อ่านต่อที่นี่
+              </button>
             </div>
           </div>
 
@@ -201,13 +224,19 @@
               เครื่องซักผ้า
             </p>
             <div class="info_btn">
-              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
+              <button type="button" class="btn btn-outline-info">
+                อ่านต่อที่นี่
+              </button>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img src="../assets/img/f57ctl.jpg" width="473px" height="313px" />
+              <img
+                src="../assets/img/f57ctl.jpg"
+                width="473px"
+                height="313px"
+              />
             </div>
             <h2>น้ำดื่ม</h2>
             <p>
@@ -217,13 +246,19 @@
               โดยไม่ก่อให้เกิดโรคที่เป็นอันตรายต่อสุขภาพอนามัย
             </p>
             <div class="info_btn">
-              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
+              <button type="button" class="btn btn-outline-info">
+                อ่านต่อที่นี่
+              </button>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div style="text-align: center;">
-              <img src="../assets/img/storage.jpg" width="473px" height="313px" />
+              <img
+                src="../assets/img/storage.jpg"
+                width="473px"
+                height="313px"
+              />
             </div>
             <h2>สิ่งของอื่นๆ</h2>
             <p>
@@ -234,7 +269,9 @@
               โดยไม่มีการใช้งานสิ่งของเหล่านั้น
             </p>
             <div class="info_btn">
-              <button type="button" class="btn btn-outline-info">อ่านต่อที่นี่</button>
+              <button type="button" class="btn btn-outline-info">
+                อ่านต่อที่นี่
+              </button>
             </div>
           </div>
         </div>
@@ -254,7 +291,7 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null,
+      sliding: null
     };
   },
   methods: {
@@ -263,15 +300,15 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
-    },
+    }
   },
   components: {
     MenuBar,
-    FooterBar,
+    FooterBar
   },
   computed: {
-    ...mapState("account", ["user"]),
-  },
+    ...mapState("account", ["user"])
+  }
 };
 </script>
 
@@ -280,44 +317,37 @@ export default {
   background-color: #fffff0;
   margin: 0;
 }
-
 @media (min-width: 768px) {
   .Homepage .mb-md-5,
   .Homepage .my-md-5 {
     margin-bottom: 0 !important;
   }
 }
-
 .Homepage .container .card .card-body h5 {
   font-size: 30px;
 }
 .Homepage .container .card .card-body p {
   font-size: 20px;
 }
-
 .Homepage .container_info h1 {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 20px;
 }
-
 .Homepage .container_info img {
   margin-top: 20px;
   max-width: 100%;
   height: auto;
 }
-
 .Homepage .container_info h2 {
   margin-top: 10px;
   text-align: center;
 }
-
 .Homepage .container_info p {
   width: 80%;
   margin-left: 10%;
   font-size: 20px;
 }
-
 @media (min-width: 1200px) {
   .Homepage .container,
   .Homepage .container-sm,
@@ -327,11 +357,9 @@ export default {
     max-width: 80%;
   }
 }
-
 .container_info .lead {
   margin-top: 20px;
 }
-
 .container_info button {
   color: black;
   padding: 12px 28px;
@@ -340,7 +368,6 @@ export default {
 .card-body .card-title {
   font-size: 20px;
 }
-
 .Homepage .col-lg-4 .info_btn {
   text-align: center;
 }
