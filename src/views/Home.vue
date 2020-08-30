@@ -241,6 +241,7 @@
       </div>
 
       <!-- Donate info class -->
+      <footer-bar></footer-bar>
     </div>
   </div>
 </template>
@@ -248,7 +249,7 @@
 <script>
 import MenuBar from "../components/Menubar.vue";
 import { mapState, mapActions } from "vuex";
-
+import FooterBar from "../components/Footer.vue";
 export default {
   data() {
     return {
@@ -266,6 +267,7 @@ export default {
   },
   components: {
     MenuBar,
+    FooterBar,
   },
   computed: {
     ...mapState("account", ["user"]),

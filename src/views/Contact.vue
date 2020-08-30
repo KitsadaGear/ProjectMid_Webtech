@@ -64,7 +64,7 @@ export default {
 </script>
 
 <style>
-button.btn.btn-info {
+.contact_page button.btn.btn-info {
   margin-top: 4.5rem;
 }
 .contact_page .container .card-body {
