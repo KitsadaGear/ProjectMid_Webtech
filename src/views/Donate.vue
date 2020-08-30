@@ -93,52 +93,12 @@
                 </tr>
               </tbody>
             </table>
-
-            <h4
-              style="text-align:center;font-size: 2.5rem;margin-top:30px;margin-bottom:20px"
-            >สรุปรายการบริจาคทั้งหมดของท่าน</h4>
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col" style="text-align:center;font-size:20px">ชื่อสิ่งที่ท่านบริจาค</th>
-                  <th scope="col" style="text-align:center;font-size:20px">จำนวนที่ท่านบริจาค</th>
-                  <th scope="col" style="text-align:center;font-size:20px">หน่วยงานที่ท่านบริจาค</th>
-                  <th scope="col" style="text-align:center;font-size:20px">วันเวลาที่ท่านบริจาค</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
 
           <aside class="col-md-4 blog-sidebar">
             <!-- บริจาค-->
             <form class="donate_form" @submit.prevent="updateDonate()" v-if="dept_name">
-              <div class="p-4 mb-3 rounded" style="background-color:#F8F8FF">
+              <div class="p-4 mb-3 rounded aside-form" style="background-color:#F8F8FF">
                 <h4 style="text-align:center;font-size: 30px;">ช่องทางการบริจาค</h4>
                 <p class="paragraph_info">โปรดเลือกสิ่งที่ท่านต้องการบริจาค</p>
 
@@ -182,7 +142,7 @@
               class="donate_form"
               style="margin-top:30px"
             >
-              <div class="p-4 mb-3 rounded" style="background-color:#F8F8FF">
+              <div class="p-4 mb-3 rounded aside-form">
                 <h4 style="text-align:center;font-size: 30px;">บริจาคเพิ่มเติม</h4>
                 <p class="paragraph_info">ชื่อสิ่งของที่ท่านต้องการบริจาค</p>
                 <div class="input-group mb-3">
@@ -213,6 +173,90 @@
                 </div>
               </div>
             </form>
+
+            <div class="p-4 mb-3 rounded aside-form" style="margin-top:30px">
+              <h1 style="text-align:center;font-size: 30px;">ประวัติการบริจาคของท่าน</h1>
+              <button
+                class="btn btn-outline-primary logDonate"
+                type="button"
+                data-toggle="modal"
+                data-target="#donateLogForm"
+              >คลิกทีนี่</button>
+            </div>
+            <!-- Modal -->
+            <div
+              class="modal fade"
+              id="donateLogForm"
+              tabindex="-1"
+              aria-labelledby="donateLogFormLabel"
+              aria-hidden="true"
+            >
+              <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4
+                      style="text-align:center;font-size: 2.5rem;margin-top:30px;margin-bottom:20px"
+                    >สรุปรายการบริจาคทั้งหมดของท่าน</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th
+                            scope="col"
+                            style="text-align:center;font-size:20px"
+                          >ชื่อสิ่งที่ท่านบริจาค</th>
+                          <th
+                            scope="col"
+                            style="text-align:center;font-size:20px"
+                          >จำนวนที่ท่านบริจาค</th>
+                          <th
+                            scope="col"
+                            style="text-align:center;font-size:20px"
+                          >หน่วยงานที่ท่านบริจาค</th>
+                          <th
+                            scope="col"
+                            style="text-align:center;font-size:20px"
+                          >วันเวลาที่ท่านบริจาค</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                        </tr>
+                        <tr>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                        </tr>
+                        <tr>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                        </tr>
+                        <tr>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                          <td style="text-align:center; font-size:25px">N/A</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </aside>
         </div>
       </div>
@@ -260,7 +304,7 @@ export default {
     return {
       departments: departmentsCollection,
       departmented: departmentsCollection,
-      donateLog: userLogCollection.doc(),
+      donateLog: userLogCollection.doc().collection("donate_log").doc(),
     };
   },
   computed: {
@@ -496,5 +540,12 @@ export default {
 
 .blog-sidebar select {
   font-size: 20px;
+}
+.aside-form {
+  background-color: #f8f8ff;
+}
+.logDonate {
+  margin-top: 20px;
+  padding: 1rem 6.8rem !important;
 }
 </style>
