@@ -51,25 +51,16 @@
       <div role="main" class="container">
         <div class="row">
           <div class="col-md-8 blog-main">
-            <h1 style="margin-bottom:20px;text-align:center">
-              ยินดีต้อนรับ
-              <h2 id="username">{{ user.displayName }}</h2>
-            </h1>
             <div class="select_row">
-              <label class="pb-4 mb-4" style="font-size:25px">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
+              <label class="pb-4 mb-4" style="font-size:20px">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
               <select
                 name="department_list"
                 id="department_list"
                 v-model="depart.depart_name"
-                style="font-size:20px;"
+                style="text-align:center"
               >
                 <option value disabled selected hidden></option>
-                <optgroup style="font-size:20px;">
-                  <option
-                    v-for="department in departments"
-                    :key="department.id"
-                  >{{ department.name }}</option>
-                </optgroup>
+                <option v-for="department in departments" :key="department.id">{{ department.name }}</option>
               </select>
               <button class="btn btn-outline-info" @click="getData()">Select</button>
             </div>
@@ -93,64 +84,22 @@
                 </tr>
               </tbody>
             </table>
-
-            <h4
-              style="text-align:center;font-size: 2.5rem;margin-top:30px;margin-bottom:20px"
-            >สรุปรายการบริจาคทั้งหมดของท่าน</h4>
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th scope="col" style="text-align:center;font-size:20px">ชื่อสิ่งที่ท่านบริจาค</th>
-                  <th scope="col" style="text-align:center;font-size:20px">จำนวนที่ท่านบริจาค</th>
-                  <th scope="col" style="text-align:center;font-size:20px">หน่วยงานที่ท่านบริจาค</th>
-                  <th scope="col" style="text-align:center;font-size:20px">วันเวลาที่ท่านบริจาค</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                </tr>
-                <tr>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                  <td style="text-align:center; font-size:25px">N/A</td>
-                </tr>
-              </tbody>
-            </table>
           </div>
 
           <aside class="col-md-4 blog-sidebar">
             <!-- บริจาค-->
-            <form class="donate_form" @submit.prevent="updateDonate()" v-if="dept_name">
-              <div class="p-4 mb-3 rounded" style="background-color:#F8F8FF">
-                <h4 style="text-align:center;font-size: 30px;">ช่องทางการบริจาค</h4>
+            <form class="donate_form">
+              <div class="p-4 mb-3 bg-light rounded">
+                <h4>ช่องทางการบริจาค</h4>
                 <p class="paragraph_info">โปรดเลือกสิ่งที่ท่านต้องการบริจาค</p>
 
                 <div class="custom" style="text-align:center">
                   <select v-model="depart.new_require.name">
                     <option value disabled selected hidden></option>
-                    <optgroup style="font-size:20px;">
-                      <option
-                        v-for="requirement in requirements"
-                        :key="requirement.id"
-                      >{{ requirement.name }}</option>
-                    </optgroup>
+                    <option
+                      v-for="requirement in requirements"
+                      :key="requirement.id"
+                    >{{ requirement.name }}</option>
                   </select>
                 </div>
 
@@ -182,8 +131,8 @@
               class="donate_form"
               style="margin-top:30px"
             >
-              <div class="p-4 mb-3 rounded" style="background-color:#F8F8FF">
-                <h4 style="text-align:center;font-size: 30px;">บริจาคเพิ่มเติม</h4>
+              <div class="p-4 mb-3 bg-light rounded">
+                <h4>บริจาคเพิ่มเติม</h4>
                 <p class="paragraph_info">ชื่อสิ่งของที่ท่านต้องการบริจาค</p>
                 <div class="input-group mb-3">
                   <input
@@ -213,19 +162,47 @@
                 </div>
               </div>
             </form>
+            <form class="donate_form" style="margin-top:30px">
+              <div class="p-4 mb-3 bg-light rounded">
+                <h4>สรุปรายการบริจาคของท่าน</h4>
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col" style="text-align:center">ชื่อสิ่งที่ท่านบริจาค</th>
+                      <th scope="col" style="text-align:center">จำนวนที่ท่านบริจาค</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td style="text-align:center">N/A</td>
+                      <td style="text-align:center">N/A</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:center">N/A</td>
+                      <td style="text-align:center">N/A</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:center">N/A</td>
+                      <td style="text-align:center">N/A</td>
+                    </tr>
+                    <tr>
+                      <td style="text-align:center">N/A</td>
+                      <td style="text-align:center">N/A</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </form>
           </aside>
         </div>
       </div>
-      <footer-bar></footer-bar>
     </div>
   </div>
 </template>
 
 <script>
 import { departmentsCollection } from "../firebase.js";
-import { userLogCollection } from "../firebase.js";
 import MenuBar from "../components/Menubar.vue";
-import FooterBar from "../components/Footer.vue";
 import { firestore } from "firebase";
 import { mapState, mapActions } from "vuex";
 export default {
@@ -260,22 +237,16 @@ export default {
     return {
       departments: departmentsCollection,
       departmented: departmentsCollection,
-      donateLog: userLogCollection.doc(),
     };
   },
-  computed: {
-    ...mapState({
-      alert: (state) => state.alert,
-    }),
-    ...mapState("account", ["user"]),
-  },
+
   beforeMount() {
     this.getData();
   },
   methods: {
     ...mapActions("alert", ["error"]),
+
     submitCustomDonate() {
-      var name = document.getElementById("username").innerHTML;
       if (!this.customDonate.name || !this.customDonate.amount) {
         this.error("โปรดกรอกข้อมูลให้ครบถ้วน");
       } else {
@@ -287,17 +258,7 @@ export default {
             name: this.customDonate.name,
             amount: parseInt(this.customDonate.amount),
             donateDate: new Date(),
-            enough: true,
-          });
-        userLogCollection
-          .doc(name)
-          .collection("donate_log")
-          .doc(this.customDonate.name)
-          .set({
-            name: this.customDonate.name,
-            amount: parseInt(this.customDonate.amount),
-            donate_Date: new Date(),
-            department: this.depart.depart_name,
+            enough: false,
           });
       }
     },
@@ -366,44 +327,36 @@ export default {
   },
   components: {
     MenuBar,
-    FooterBar,
   },
 };
 </script>
 
 <style>
+aside .bg-light {
+  background-color: #f0f8ff !important;
+}
 .Donatepage {
   background-color: #fffff0;
   margin: 0;
 }
-
-.Donatepage .bg-light {
-  background-color: #b0c4de !important;
-}
-.container {
+.Donatepage .container {
   margin-top: 20px;
 }
 .Donatepage .table {
   background-color: white;
   margin: 0;
 }
-.blog-post h2 {
-  margin-bottom: 10px;
-}
-.blog-form {
-  margin-bottom: 20px;
-}
+
 .select_row select {
   width: 50%;
-  padding: 0.4rem;
+  padding: 0.4rem 0.2rem;
   border-radius: 4px;
   margin-left: 5px;
 }
 .select_row button {
   margin-bottom: 5px;
   margin-left: 10px;
-  padding: 0.5rem 2rem;
-  font-size: 20px;
+  padding: 0.4rem 2rem;
 }
 .blog-sidebar {
   text-align: center;
@@ -420,25 +373,7 @@ export default {
   .Donatepage .container-md,
   .Donatepage .container-lg,
   .Donatepage .container-xl {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 768px) {
-  .Donatepage .col-md-8 {
-    -ms-flex: 0 0 65%;
-    -webkit-box-flex: 0;
-    flex: 0 0 65%;
-    max-width: 65%;
-  }
-}
-
-@media (min-width: 768px) {
-  .Donatepage .col-md-4 {
-    -ms-flex: 0 0 35%;
-    -webkit-box-flex: 0;
-    flex: 0 0 35%;
-    max-width: 35%;
+    max-width: 80%;
   }
 }
 .depart_header {
@@ -446,20 +381,12 @@ export default {
 }
 .paragraph_info {
   margin-top: 30px;
-  font-size: 25px;
-}
-.Donatepage input[type="text"] {
-  padding: 1.5rem 1px;
-  margin: 8px 0;
-  box-sizing: border-box;
   font-size: 20px;
 }
-
-.Donatepage input[type="number"] {
-  padding: 1.5rem 1px;
+input[type="text"] {
+  padding: 9px 1px;
   margin: 8px 0;
   box-sizing: border-box;
-  font-size: 20px;
 }
 @media screen and (max-width: 600px) {
   input[type="text"] {
@@ -492,9 +419,5 @@ export default {
   .Donatepage .my-md-5 {
     margin-bottom: 0 !important;
   }
-}
-
-.blog-sidebar select {
-  font-size: 20px;
 }
 </style>

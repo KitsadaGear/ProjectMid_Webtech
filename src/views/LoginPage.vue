@@ -59,42 +59,37 @@
             </div> 
         </div>
     </div>
-</div>
+  </div>
 </template>
 
-
 <script>
-
-import { mapState, mapActions } from 'vuex'
-
+import { mapState, mapActions } from "vuex";
 
 export default {
-    data(){
-        return{
-            form: {
-                email: '',
-                password: ''
-            }
-        }
+  data() {
+    return {
+      form: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  methods: {
+    ...mapActions("account", ["login"]),
+    ...mapActions("alert", ["error"]),
+    handelSubmit(e) {
+      if (this.form.email && this.form.password) {
+        this.login(this.form);
+      } else {
+        alert("Email & Password not match");
+      }
     },
-    methods: {
-        ...mapActions('account',['login']),
-        ...mapActions('alert',['error']),
-        handelSubmit(e){
-            if(this.form.email && this.form.password){
-                this.login(this.form)
-            }
-        }
-    }
-}
+  },
+};
 </script>
 
 <style>
-
-div#two{
-    color: cadetblue;
+div#two {
+  color: cadetblue;
 }
-
-
-
 </style>
