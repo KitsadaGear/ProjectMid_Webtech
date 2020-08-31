@@ -19,7 +19,6 @@ export default {};
   color: white;
   text-align: center;
   padding: 20px;
-  margin-top: 30px;
 }
 
 .footer p {
