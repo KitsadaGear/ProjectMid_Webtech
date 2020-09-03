@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="Donatepage font-Kanit shadow-lg p-3 mb-5 rounded"
+      class="DonatePage font-Kanit shadow-lg p-3 mb-5 rounded"
       style="background-color: #fffff0;"
     >
       <menu-bar></menu-bar>
@@ -190,8 +190,8 @@ import FooterBar from "../components/Footer.vue";
 export default {
   components: {
     MenuBar,
-    FooterBar
-  }
+    FooterBar,
+  },
 };
 </script>
 

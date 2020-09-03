@@ -61,7 +61,7 @@ const actions = {
       .login(email, password)
       .then(user => {
         commit("loginSuccess", user);
-        router.push({ name: "Donate" });
+        router.push({ name: "Home" });
         alert("Login Success");
       })
       .catch(error => {
