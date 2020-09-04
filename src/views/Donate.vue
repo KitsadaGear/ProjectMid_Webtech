@@ -300,9 +300,8 @@ export default {
 
       customStorage: {
         customId: [],
-        customAmount: [],
+
         requireId: [],
-        requireAmount: [],
       },
       slide: 0,
       sliding: null,
@@ -351,11 +350,6 @@ export default {
           }
         }
 
-        console.log("this.customDonate.count : " + this.customDonate.count);
-        console.log("this.customDonate.amount : " + this.customDonate.amount);
-        console.log(
-          "this.customDonate.customCount : " + this.customDonate.customCount
-        );
         if (
           this.customDonate.count < 1 &&
           this.customDonate.amount > 0 &&
@@ -379,7 +373,7 @@ export default {
           userLogCollection
             .doc(name)
             .collection("donate_log")
-            .doc(this.customDonate.name)
+            .doc()
             .set({
               name: this.customDonate.name,
               amount: parseInt(this.customDonate.amount),
@@ -461,6 +455,7 @@ export default {
               let requirements = doc.data();
               dataId.push(doc.id);
               if (requirements.enough == false) {
+                //แก้ตรงนี้
                 dataArray.push(requirements);
               }
             });
@@ -472,16 +467,14 @@ export default {
           .collection("RequireStore")
           .onSnapshot((querySnapshot) => {
             let requireIds = [];
-            let requireAmounts = [];
+
             querySnapshot.forEach((doc) => {
               let stored = doc.data();
               if (stored.status == false) {
                 requireIds.push(doc.id);
-                requireAmounts.push(doc.amount);
               }
             });
             this.customStorage.requireId = requireIds;
-            this.customStorage.requireAmount = requireAmounts;
           });
 
         storeCollection
@@ -489,16 +482,14 @@ export default {
           .collection("CustomStore")
           .onSnapshot((querySnapshot) => {
             let customIds = [];
-            let customAmounts = [];
+
             querySnapshot.forEach((doc) => {
               let stored = doc.data();
               if (stored.status == false) {
                 customIds.push(doc.id);
-                customAmounts.push(doc.amount);
               }
             });
             this.customStorage.customId = customIds;
-            this.customStorage.customAmount = customAmounts;
           });
       }
     },

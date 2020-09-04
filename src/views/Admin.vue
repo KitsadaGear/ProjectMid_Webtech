@@ -22,6 +22,21 @@
                   >{{ department.name }}</option>
                 </optgroup>
               </select>
+            </div>
+            <div class="select_row" v-if="depart.depart_name">
+              <label class="pb-4 mb-4" style="font-size:25px">โปรดเลือกคลังเก็บสินค้าที่ต้องการ :</label>
+              <select
+                name="storage_list"
+                id="storage_list"
+                v-model="storage.getName"
+                style="font-size:20px;"
+              >
+                <option value disabled selected hidden></option>
+                <optgroup style="font-size:20px;">
+                  <option>RequireStore</option>
+                  <option>CustomStore</option>
+                </optgroup>
+              </select>
               <button class="btn btn-outline-info" @click="getData()">Select</button>
             </div>
 
@@ -41,10 +56,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="requirement in requirements" :key="requirement.id">
-                  <td style="text-align:center; font-size:25px">{{ requirement.name }}</td>
-                  <td style="text-align:center; font-size:25px">{{ requirement.amount }}</td>
-                </tr>
+                <template v-if="storage.storage_name == 'RequireStore'">
+                  <tr v-for="requirement in requireArray" :key="requirement.id">
+                    <td style="text-align:center; font-size:25px">{{ requirement.name }}</td>
+                    <td style="text-align:center; font-size:25px">{{ requirement.amount }}</td>
+                  </tr>
+                </template>
+                <template v-if="storage.storage_name == 'CustomStore'">
+                  <tr v-for="requirement in customArray" :key="requirement.id">
+                    <td style="text-align:center; font-size:25px">{{ requirement.name }}</td>
+                    <td style="text-align:center; font-size:25px">{{ requirement.amount }}</td>
+                  </tr>
+                </template>
               </tbody>
             </table>
           </div>
@@ -60,10 +83,18 @@
                   <select v-model="acceptDonated.name">
                     <option value disabled selected hidden></option>
                     <optgroup style="font-size:20px;">
-                      <option
-                        v-for="requirement in requirements"
-                        :key="requirement.id"
-                      >{{ requirement.name }}</option>
+                      <template v-if="storage.storage_name == 'RequireStore'">
+                        <option
+                          v-for="requirement in requireArray"
+                          :key="requirement.id"
+                        >{{ requirement.name }}</option>
+                      </template>
+                      <template v-if="storage.storage_name == 'CustomStore'">
+                        <option
+                          v-for="requirement in customArray"
+                          :key="requirement.id"
+                        >{{ requirement.name }}</option>
+                      </template>
                     </optgroup>
                   </select>
                 </div>
@@ -75,7 +106,7 @@
             </form>
 
             <!--Custom -->
-            <form @submit.prevent="modifyDonate()" class="donate_form" style="margin-top:30px">
+            <form class="donate_form" style="margin-top:30px" @submit.prevent="modifyDonate()">
               <div class="p-4 mb-3 rounded aside-form">
                 <h4 style="text-align:center;font-size: 30px;">แก้ไขรายการบริจาค</h4>
                 <p class="paragraph_info">รายชื่อสิ่งของบริจาค</p>
@@ -83,10 +114,18 @@
                   <select v-model="modifyDonated.name">
                     <option value disabled selected hidden></option>
                     <optgroup style="font-size:20px;">
-                      <option
-                        v-for="requirement in requirements"
-                        :key="requirement.id"
-                      >{{ requirement.name }}</option>
+                      <template v-if="storage.storage_name == 'RequireStore'">
+                        <option
+                          v-for="requirement in requireArray"
+                          :key="requirement.id"
+                        >{{ requirement.name }}</option>
+                      </template>
+                      <template v-if="storage.storage_name == 'CustomStore'">
+                        <option
+                          v-for="requirement in customArray"
+                          :key="requirement.id"
+                        >{{ requirement.name }}</option>
+                      </template>
                     </optgroup>
                   </select>
                 </div>
@@ -180,13 +219,16 @@ export default {
   data() {
     return {
       departments: [],
-      requirements: [],
+      requireArray: [],
+      customArray: [],
       dept_name: "",
+      storage_name: "",
       depart: {
         depart_name: "",
-        name: "",
-        amount: 0,
-        enough: "",
+      },
+      storage: {
+        storage_name: "",
+        getName: "",
       },
       acceptDonated: {
         name: "",
@@ -194,7 +236,21 @@ export default {
       modifyDonated: {
         name: "",
         amount: "",
+        amountLeft: "",
         enough: "",
+      },
+      customDonate: {
+        name: "",
+        amount: 0,
+        enough: "",
+        count: "",
+        customCount: "",
+      },
+      customStorage: {
+        customId: [],
+        customAmount: [],
+        requireId: [],
+        requireAmount: [],
       },
     };
   },
@@ -211,59 +267,115 @@ export default {
       storages: storeCollection,
     };
   },
+  beforeMount() {
+    this.getData();
+  },
   methods: {
     ...mapActions("alert", ["error"]),
     getData: function () {
+      this.storage.storage_name = this.storage.getName;
       if (this.depart.depart_name != "") {
         var element = document.getElementById("department_list");
         var selectedValue = element.options[element.selectedIndex].text;
         this.dept_name = selectedValue;
-        departmentsCollection
+        var elements = document.getElementById("storage_list");
+        var selected = elements.options[element.selectedIndex].text;
+        this.storage_name = selected;
+        storeCollection
           .doc(this.depart.depart_name)
-          .collection("Requirement")
+          .collection("RequireStore")
           .onSnapshot((querySnapshot) => {
             let dataArray = [];
-
             querySnapshot.forEach((doc) => {
-              let requirements = doc.data();
-              if (
-                requirements.enough == true &&
-                requirements.status != "Accept"
-              ) {
-                dataArray.push(requirements);
+              let require = doc.data();
+              if (require.enough == true && require.status == false) {
+                dataArray.push(require);
               }
             });
-            this.requirements = dataArray;
+            this.requireArray = dataArray;
+          });
+        storeCollection
+          .doc(this.depart.depart_name)
+          .collection("CustomStore")
+          .onSnapshot((querySnapshot) => {
+            let customDataArray = [];
+            querySnapshot.forEach((doc) => {
+              let custom = doc.data();
+              if (custom.enough == true && custom.status == false) {
+                customDataArray.push(custom);
+              }
+            });
+            this.customArray = customDataArray;
           });
       }
     },
     acceptDonate() {
-      departmentsCollection
+      storeCollection
         .doc(this.depart.depart_name)
-        .collection("Requirement")
+        .collection(this.storage.getName)
         .doc(this.acceptDonated.name)
-        .update({ status: "Accept" });
+        .update({
+          status: true,
+        });
     },
     modifyDonate() {
-      departmentsCollection
-        .doc(this.depart.depart_name)
-        .collection("Requirement")
-        .doc(this.modifyDonated.name)
-        .get()
-        .then((snapshot) => {
-          const document = snapshot.data();
-          var modifyAmount = 0;
+      if (this.storage.getName == "CustomStore") {
+        storeCollection
+          .doc(this.depart.depart_name)
+          .collection(this.storage.getName)
+          .doc(this.modifyDonated.name)
+          .get()
+          .then((snapshot) => {
+            const documentModify = snapshot.data();
+            var amount_left =
+              documentModify.amount - parseInt(this.modifyDonated.amount);
 
-          if (
-            parseInt(document.amount) - parseInt(this.modifyDonated.amount) <
-            1
-          ) {
-            modifyAmount = 0;
-          } else {
-            modifyAmount =
-              parseInt(document.amount) - parseInt(this.modifyDonated.amount);
-          }
-        });
+            if (amount_left < 0) {
+              alert("Error");
+            } else if (amount_left == 0) {
+              storeCollection
+                .doc(this.depart.depart_name)
+                .collection(this.storage.getName)
+                .doc(this.modifyDonated.name)
+                .delete();
+            } else {
+              storeCollection
+                .doc(this.depart.depart_name)
+                .collection(this.storage.getName)
+                .doc(this.modifyDonated.name)
+                .update({
+                  amount: amount_left,
+                });
+            }
+          });
+      } else if (this.storage.getName == "RequireStore") {
+        storeCollection
+          .doc(this.depart.depart_name)
+          .collection(this.storage.getName)
+          .doc(this.modifyDonated.name)
+          .get()
+          .then((snapshot) => {
+            const documentModify = snapshot.data();
+
+            if (amount_left < 0) {
+              alert("Error");
+            } else {
+              storeCollection
+                .doc(this.depart.depart_name)
+                .collection(this.storage.getName)
+                .doc(this.modifyDonated.name)
+                .delete();
+              departmentsCollection
+                .doc(this.depart.depart_name)
+                .collection("Requirement")
+                .doc(this.modifyDonated.name)
+                .update({
+                  amount: documentModify.amount,
+                  enough: false,
+                });
+            }
+          });
+      }
     },
   },
 };

@@ -1,24 +1,17 @@
 <template>
   <div>
-    <div
-      class="Homepage font-Kanit shadow-lg p-3 mb-5 rounded"
-      style="background-color: #fffff0;"
-    >
+    <div class="Homepage font-Kanit shadow-lg p-3 mb-5 rounded" style="background-color: #fffff0;">
       <menu-bar></menu-bar>
 
       <div>
         <div class="jumbotron" v-if="user" style="margin-bottom:0">
-          <h4 class="display-9 text-center">
-            ยินดีต้อนรับ {{ user.displayName }} เข้าสู่เว็บไซต์ของเรา
-          </h4>
+          <h4
+            class="display-9 text-center"
+          >ยินดีต้อนรับ {{ user.displayName }} เข้าสู่เว็บไซต์ของเรา</h4>
         </div>
         <!-- Carousel class -->
         <div class="shadow-none p-3 mb-5 bg-light rounded">
-          <div
-            id="carouselExampleIndicators"
-            class="carousel slide"
-            data-ride="carousel"
-          >
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <b-carousel
               id="carousel-1"
               v-model="slide"
@@ -63,10 +56,7 @@
         <!-- /Carousel class -->
 
         <!-- News class -->
-        <div
-          class="container shadow-lg p-3 mb-5 rounded"
-          style="background-color:#948E99"
-        >
+        <div class="container shadow-lg p-3 mb-5 rounded" style="background-color:#948E99">
           <div class="card-deck">
             <div class="card">
               <img
@@ -98,9 +88,7 @@
                 height="400px"
               />
               <div class="card-body">
-                <h5 class="card-title">
-                  เหตุการณ์ระเบิดที่เบรุต ประเทศเลบานอน
-                </h5>
+                <h5 class="card-title">เหตุการณ์ระเบิดที่เบรุต ประเทศเลบานอน</h5>
                 <p class="card-text">
                   เกิดขึ้นเมื่อวันที่ 4 สิงหาคม พ.ศ. 2563
                   บริเวณท่าเรือเบรุตในเมืองเบรุต
@@ -160,22 +148,11 @@
                 วัฒนธรรม รสนิยมเฉพาะตัวบุคคลด้วย
                 เสื้อผ้าบางชนิดอาจออกแบบให้สวมใส่เฉพาะเพศ
               </p>
-              <div class="info_btn">
-                <router-link to="/detail-view" tag="div">
-                  <button type="button" class="btn btn-outline-info">
-                    อ่านต่อที่นี่
-                  </button>
-                </router-link>
-              </div>
             </div>
 
             <div class="col-lg-4">
               <div style="text-align: center;">
-                <img
-                  src="../assets/img/medicine.jpg"
-                  width="473px"
-                  height="313px"
-                />
+                <img src="../assets/img/medicine.jpg" width="473px" height="313px" />
               </div>
               <h2>ยารักษาโรค</h2>
               <p>
@@ -184,20 +161,11 @@
                 จึงต้องมีความระมัดระวังในการใช้ยา
                 เพื่อให้ได้รับประโยชน์สูงสุดและให้ได้รับโทษน้อยที่สุด
               </p>
-              <div class="info_btn">
-                <button type="button" class="btn btn-outline-info">
-                  อ่านต่อที่นี่
-                </button>
-              </div>
             </div>
 
             <div class="col-lg-4">
               <div style="text-align: center;">
-                <img
-                  src="../assets/img/unnamed.jpg"
-                  width="473px"
-                  height="313px"
-                />
+                <img src="../assets/img/unnamed.jpg" width="473px" height="313px" />
               </div>
               <h2>ข้าวสารอาหารแห้ง</h2>
               <p>
@@ -207,11 +175,6 @@
                 ที่เราซื้อมาปรุงเป็นอาหาร
                 รวมไปถึงข้าวสารที่เป็นอาหารหลักในการดำรงชีวิตของคนไทย
               </p>
-              <div class="info_btn">
-                <button type="button" class="btn btn-outline-info">
-                  อ่านต่อที่นี่
-                </button>
-              </div>
             </div>
 
             <div class="col-lg-4">
@@ -230,20 +193,11 @@
                 ไม่ว่าจะเป็นพัดลม แอร์ โทรทัศน์ ตู้เย็น หม้อหุงข้าว เตารีด
                 เครื่องซักผ้า
               </p>
-              <div class="info_btn">
-                <button type="button" class="btn btn-outline-info">
-                  อ่านต่อที่นี่
-                </button>
-              </div>
             </div>
 
             <div class="col-lg-4">
               <div style="text-align: center;">
-                <img
-                  src="../assets/img/f57ctl.jpg"
-                  width="473px"
-                  height="313px"
-                />
+                <img src="../assets/img/f57ctl.jpg" width="473px" height="313px" />
               </div>
               <h2>น้ำดื่ม</h2>
               <p>
@@ -252,20 +206,11 @@
                 หรือการหล่อลื่นเนื้อหนังข้อต่อต่างๆ ให้ชุ่มชื้น
                 โดยไม่ก่อให้เกิดโรคที่เป็นอันตรายต่อสุขภาพอนามัย
               </p>
-              <div class="info_btn">
-                <button type="button" class="btn btn-outline-info">
-                  อ่านต่อที่นี่
-                </button>
-              </div>
             </div>
 
             <div class="col-lg-4">
               <div style="text-align: center;">
-                <img
-                  src="../assets/img/storage.jpg"
-                  width="473px"
-                  height="313px"
-                />
+                <img src="../assets/img/storage.jpg" width="473px" height="313px" />
               </div>
               <h2>สิ่งของอื่นๆ</h2>
               <p>
@@ -275,11 +220,6 @@
                 ก็ควรแบ่งปันให้กับผู้ที่ต้องการดีกว่าที่จะปล่อยสิ่งๆนั้นไว้เฉยๆ
                 โดยไม่มีการใช้งานสิ่งของเหล่านั้น
               </p>
-              <div class="info_btn">
-                <button type="button" class="btn btn-outline-info">
-                  อ่านต่อที่นี่
-                </button>
-              </div>
             </div>
           </div>
         </div>
@@ -299,7 +239,7 @@ export default {
   data() {
     return {
       slide: 0,
-      sliding: null
+      sliding: null,
     };
   },
   methods: {
@@ -308,15 +248,15 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
-    }
+    },
   },
   components: {
     MenuBar,
-    FooterBar
+    FooterBar,
   },
   computed: {
-    ...mapState("account", ["user"])
-  }
+    ...mapState("account", ["user"]),
+  },
 };
 </script>
 
@@ -376,10 +316,9 @@ export default {
 .card-body .card-title {
   font-size: 20px;
 }
-.Homepage .col-lg-4 .info_btn {
-  text-align: center;
-}
-.Homepage .col-lg-4 button {
-  font-size: 20px;
+
+.mb-5,
+.my-5 {
+  margin-bottom: 0 !important;
 }
 </style>
