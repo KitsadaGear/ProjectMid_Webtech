@@ -13,6 +13,7 @@
             <div class="card-body text-center"> 
                 <figure class="figure">
                     <div class="rounded-pill">
+                        
                     <form @submit.prevent="handleSubmit()">
                         
                         <div class="form-group ">

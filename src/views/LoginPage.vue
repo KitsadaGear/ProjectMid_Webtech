@@ -84,7 +84,7 @@ export default {
         alert("Email & Password not match");
       }
     },
-  },
+  }
 };
 </script>
 
