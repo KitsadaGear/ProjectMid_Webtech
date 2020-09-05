@@ -9,7 +9,9 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import { firestorePlugin } from "vuefire";
 import { store } from "./stores";
+import VueSimpleAlert from "vue-simple-alert";
 
+Vue.use(VueSimpleAlert);
 Vue.use(firestorePlugin);
 
 Vue.config.productionTip = false;
