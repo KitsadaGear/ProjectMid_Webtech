@@ -1,17 +1,28 @@
 <template>
   <div>
-    <div class="Homepage font-Kanit shadow-lg p-3 mb-5 rounded" style="background-color: #fffff0;">
+    <div
+      class="Homepage font-Kanit shadow-lg p-3 mb-5 rounded"
+      style="background-color: #fffff0;"
+    >
       <menu-bar></menu-bar>
 
       <div>
-        <div class="jumbotron" v-if="user" style="margin-bottom:20px; margin-top:20px">
-          <h4
-            class="display-9 text-center"
-          >ยินดีต้อนรับ {{ user.displayName }} เข้าสู่เว็บไซต์ของเรา</h4>
+        <div
+          class="jumbotron"
+          v-if="user"
+          style="margin-bottom:20px; margin-top:20px"
+        >
+          <h4 class="display-9 text-center">
+            ยินดีต้อนรับ {{ user.displayName }} เข้าสู่เว็บไซต์ของเรา
+          </h4>
         </div>
         <!-- Carousel class -->
         <div class="shadow-none p-3 mb-5 bg-light rounded">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div
+            id="carouselExampleIndicators"
+            class="carousel slide"
+            data-ride="carousel"
+          >
             <b-carousel
               id="carousel-1"
               v-model="slide"
@@ -56,7 +67,10 @@
         <!-- /Carousel class -->
 
         <!-- News class -->
-        <div class="container shadow-lg p-3 mb-5 rounded" style="background-color:#948E99">
+        <div
+          class="container shadow-lg p-3 mb-5 rounded"
+          style="background-color:#948E99"
+        >
           <div class="card-deck">
             <div class="card">
               <img
@@ -88,7 +102,9 @@
                 height="400px"
               />
               <div class="card-body">
-                <h5 class="card-title">เหตุการณ์ระเบิดที่เบรุต ประเทศเลบานอน</h5>
+                <h5 class="card-title">
+                  เหตุการณ์ระเบิดที่เบรุต ประเทศเลบานอน
+                </h5>
                 <p class="card-text">
                   เกิดขึ้นเมื่อวันที่ 4 สิงหาคม พ.ศ. 2563
                   บริเวณท่าเรือเบรุตในเมืองเบรุต
@@ -152,7 +168,11 @@
 
             <div class="col-lg-4">
               <div style="text-align: center;">
-                <img src="../assets/img/medicine.jpg" width="473px" height="313px" />
+                <img
+                  src="../assets/img/medicine.jpg"
+                  width="473px"
+                  height="313px"
+                />
               </div>
               <h2>ยารักษาโรค</h2>
               <p>
@@ -165,7 +185,11 @@
 
             <div class="col-lg-4">
               <div style="text-align: center;">
-                <img src="../assets/img/unnamed.jpg" width="473px" height="313px" />
+                <img
+                  src="../assets/img/unnamed.jpg"
+                  width="473px"
+                  height="313px"
+                />
               </div>
               <h2>ข้าวสารอาหารแห้ง</h2>
               <p>
@@ -197,7 +221,11 @@
 
             <div class="col-lg-4">
               <div style="text-align: center;">
-                <img src="../assets/img/f57ctl.jpg" width="473px" height="313px" />
+                <img
+                  src="../assets/img/f57ctl.jpg"
+                  width="473px"
+                  height="313px"
+                />
               </div>
               <h2>น้ำดื่ม</h2>
               <p>
@@ -210,7 +238,11 @@
 
             <div class="col-lg-4">
               <div style="text-align: center;">
-                <img src="../assets/img/storage.jpg" width="473px" height="313px" />
+                <img
+                  src="../assets/img/storage.jpg"
+                  width="473px"
+                  height="313px"
+                />
               </div>
               <h2>สิ่งของอื่นๆ</h2>
               <p>
@@ -232,14 +264,14 @@
 </template>
 
 <script>
-import MenuBar from "../components/Menubar.vue";
 import { mapState, mapActions } from "vuex";
+import MenuBar from "../components/Menubar.vue";
 import FooterBar from "../components/Footer.vue";
 export default {
   data() {
     return {
       slide: 0,
-      sliding: null,
+      sliding: null
     };
   },
   methods: {
@@ -248,15 +280,15 @@ export default {
     },
     onSlideEnd(slide) {
       this.sliding = false;
-    },
+    }
   },
   components: {
     MenuBar,
-    FooterBar,
+    FooterBar
   },
   computed: {
-    ...mapState("account", ["user"]),
-  },
+    ...mapState("account", ["user"])
+  }
 };
 </script>
 
