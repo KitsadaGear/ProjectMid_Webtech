@@ -5,13 +5,9 @@
       <div role="main" class="container">
         <div class="row">
           <div class="col-md-8 blog-main" style="margin-top: 50px">
-            <h1 style="margin-bottom:20px;text-align:center">
-              สรุปยอดการบริจาคของหน่วยงาน
-            </h1>
+            <h1 style="margin-bottom:20px;text-align:center">สรุปยอดการบริจาคของหน่วยงาน</h1>
             <div class="select_row">
-              <label class="pb-4 mb-4" style="font-size:25px"
-                >โปรดเลือกหน่วยงานที่คุณต้องการ :</label
-              >
+              <label class="pb-4 mb-4" style="font-size:25px">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
               <select
                 name="department_list"
                 id="department_list"
@@ -23,15 +19,12 @@
                   <option
                     v-for="department in departments"
                     :key="department.id"
-                    >{{ department.name }}</option
-                  >
+                  >{{ department.name }}</option>
                 </optgroup>
               </select>
             </div>
             <div class="select_row" v-if="depart.depart_name">
-              <label class="pb-4 mb-4" style="font-size:25px"
-                >โปรดเลือกคลังเก็บสินค้าที่ต้องการ :</label
-              >
+              <label class="pb-4 mb-4" style="font-size:25px">โปรดเลือกคลังเก็บสินค้าที่ต้องการ :</label>
               <select
                 name="storage_list"
                 id="storage_list"
@@ -44,45 +37,35 @@
                   <option>CustomStore</option>
                 </optgroup>
               </select>
-              <button class="btn btn-outline-info" @click="getData()">
-                Select
-              </button>
+              <button class="btn btn-outline-info" @click="getData()">Select</button>
             </div>
 
-            <h1 class="depart_header" style="text-align:center">
-              {{ dept_name }}
-            </h1>
+            <h1 class="depart_header" style="text-align:center">{{ dept_name }}</h1>
 
             <table class="table" v-if="dept_name">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col" style="text-align:center; font-size:20px">
-                    ชื่อสิ่งของที่ได้รับการบริจาค
-                  </th>
-                  <th scope="col" style="text-align:center; font-size:20px">
-                    จำนวนสิ่งของที่ได้รับการบริจาค
-                  </th>
+                  <th
+                    scope="col"
+                    style="text-align:center; font-size:20px"
+                  >ชื่อสิ่งของที่ได้รับการบริจาค</th>
+                  <th
+                    scope="col"
+                    style="text-align:center; font-size:20px"
+                  >จำนวนสิ่งของที่ได้รับการบริจาค</th>
                 </tr>
               </thead>
               <tbody>
                 <template v-if="storage.storage_name == 'RequireStore'">
                   <tr v-for="requirement in requireArray" :key="requirement.id">
-                    <td style="text-align:center; font-size:25px">
-                      {{ requirement.name }}
-                    </td>
-                    <td style="text-align:center; font-size:25px">
-                      {{ requirement.amount }}
-                    </td>
+                    <td style="text-align:center; font-size:25px">{{ requirement.name }}</td>
+                    <td style="text-align:center; font-size:25px">{{ requirement.amount }}</td>
                   </tr>
                 </template>
                 <template v-if="storage.storage_name == 'CustomStore'">
                   <tr v-for="requirement in customArray" :key="requirement.id">
-                    <td style="text-align:center; font-size:25px">
-                      {{ requirement.name }}
-                    </td>
-                    <td style="text-align:center; font-size:25px">
-                      {{ requirement.amount }}
-                    </td>
+                    <td style="text-align:center; font-size:25px">{{ requirement.name }}</td>
+                    <td style="text-align:center; font-size:25px">{{ requirement.amount }}</td>
                   </tr>
                 </template>
               </tbody>
@@ -91,18 +74,9 @@
 
           <aside class="col-md-4 blog-sidebar">
             <!-- ยืนยันบริจาค-->
-            <form
-              class="donate_form"
-              @submit.prevent="acceptDonate()"
-              style="margin-top: 50px"
-            >
-              <div
-                class="p-4 mb-3 rounded aside-form"
-                style="background-color:#F8F8FF"
-              >
-                <h4 style="text-align:center;font-size: 30px;">
-                  ยืนยันรายการบริจาค
-                </h4>
+            <form class="donate_form" @submit.prevent="acceptDonate()" style="margin-top: 50px">
+              <div class="p-4 mb-3 rounded aside-form" style="background-color:#F8F8FF">
+                <h4 style="text-align:center;font-size: 30px;">ยืนยันรายการบริจาค</h4>
                 <p class="paragraph_info">รายชื่อสิ่งของบริจาค</p>
 
                 <div class="custom" style="text-align:center">
@@ -113,38 +87,28 @@
                         <option
                           v-for="requirement in requireArray"
                           :key="requirement.id"
-                          >{{ requirement.name }}</option
-                        >
+                        >{{ requirement.name }}</option>
                       </template>
                       <template v-if="storage.storage_name == 'CustomStore'">
                         <option
                           v-for="requirement in customArray"
                           :key="requirement.id"
-                          >{{ requirement.name }}</option
-                        >
+                        >{{ requirement.name }}</option>
                       </template>
                     </optgroup>
                   </select>
                 </div>
 
                 <div style="text-align:center;">
-                  <button type="submit" class="btn btn-outline-primary">
-                    ยืนยันรายการบริจาค
-                  </button>
+                  <button type="submit" class="btn btn-outline-primary">ยืนยันรายการบริจาค</button>
                 </div>
               </div>
             </form>
 
             <!--Custom -->
-            <form
-              class="donate_form"
-              style="margin-top:30px"
-              @submit.prevent="modifyDonate()"
-            >
+            <form class="donate_form" style="margin-top:30px" @submit.prevent="modifyDonate()">
               <div class="p-4 mb-3 rounded aside-form">
-                <h4 style="text-align:center;font-size: 30px;">
-                  แก้ไขรายการบริจาค
-                </h4>
+                <h4 style="text-align:center;font-size: 30px;">แก้ไขรายการบริจาค</h4>
                 <p class="paragraph_info">รายชื่อสิ่งของบริจาค</p>
                 <div class="custom" style="text-align:center">
                   <select v-model="modifyDonated.name">
@@ -154,15 +118,13 @@
                         <option
                           v-for="requirement in requireArray"
                           :key="requirement.id"
-                          >{{ requirement.name }}</option
-                        >
+                        >{{ requirement.name }}</option>
                       </template>
                       <template v-if="storage.storage_name == 'CustomStore'">
                         <option
                           v-for="requirement in customArray"
                           :key="requirement.id"
-                          >{{ requirement.name }}</option
-                        >
+                        >{{ requirement.name }}</option>
                       </template>
                     </optgroup>
                   </select>
@@ -180,9 +142,7 @@
                   />
                 </div>
                 <div style="text-align:center;">
-                  <button type="submit" class="btn btn-outline-primary">
-                    แก้ไขรายการบริจาค
-                  </button>
+                  <button type="submit" class="btn btn-outline-primary">ยืนยันการแก้ไขรายการบริจาค</button>
                 </div>
               </div>
             </form>
@@ -211,34 +171,34 @@ export default {
       dept_name: "",
       storage_name: "",
       depart: {
-        depart_name: ""
+        depart_name: "",
       },
       storage: {
         storage_name: "",
-        getName: ""
+        getName: "",
       },
       acceptDonated: {
-        name: ""
+        name: "",
       },
       modifyDonated: {
         name: "",
         amount: "",
         amountLeft: "",
-        enough: ""
+        enough: "",
       },
       customDonate: {
         name: "",
         amount: 0,
         enough: "",
         count: "",
-        customCount: ""
+        customCount: "",
       },
       customStorage: {
         customId: [],
         customAmount: [],
         requireId: [],
-        requireAmount: []
-      }
+        requireAmount: [],
+      },
     };
   },
   beforeMount() {
@@ -246,12 +206,12 @@ export default {
   },
   components: {
     MenuBar,
-    FooterBar
+    FooterBar,
   },
   firestore() {
     return {
       departments: departmentsCollection,
-      storages: storeCollection
+      storages: storeCollection,
     };
   },
   beforeMount() {
@@ -259,9 +219,9 @@ export default {
   },
   methods: {
     ...mapActions("alert", ["error"]),
-    getData: function() {
+    getData: function () {
       this.storage.storage_name = this.storage.getName;
-      if (this.depart.depart_name != "") {
+      if (this.depart.depart_name != "" && this.storage.getName) {
         var element = document.getElementById("department_list");
         var selectedValue = element.options[element.selectedIndex].text;
         this.dept_name = selectedValue;
@@ -271,9 +231,9 @@ export default {
         storeCollection
           .doc(this.depart.depart_name)
           .collection("RequireStore")
-          .onSnapshot(querySnapshot => {
+          .onSnapshot((querySnapshot) => {
             let dataArray = [];
-            querySnapshot.forEach(doc => {
+            querySnapshot.forEach((doc) => {
               let require = doc.data();
               if (require.enough == true && require.status == false) {
                 dataArray.push(require);
@@ -284,9 +244,9 @@ export default {
         storeCollection
           .doc(this.depart.depart_name)
           .collection("CustomStore")
-          .onSnapshot(querySnapshot => {
+          .onSnapshot((querySnapshot) => {
             let customDataArray = [];
-            querySnapshot.forEach(doc => {
+            querySnapshot.forEach((doc) => {
               let custom = doc.data();
               if (custom.enough == true && custom.status == false) {
                 customDataArray.push(custom);
@@ -302,94 +262,118 @@ export default {
         .collection(this.storage.getName)
         .doc(this.acceptDonated.name)
         .update({
-          status: true
+          status: true,
         });
       this.$fire({
         title: "แก้ไขข้อมูลเสร็จสิ้น",
         type: "success",
-        timer: 9000
+        timer: 9000,
       });
     },
     modifyDonate() {
-      if (this.storage.getName == "CustomStore") {
-        storeCollection
-          .doc(this.depart.depart_name)
-          .collection(this.storage.getName)
-          .doc(this.modifyDonated.name)
-          .get()
-          .then(snapshot => {
-            const documentModify = snapshot.data();
-            var amount_left =
-              documentModify.amount - parseInt(this.modifyDonated.amount);
+      if (
+        this.modifyDonated.name &&
+        this.modifyDonated.amount &&
+        this.modifyDonated > 0
+      ) {
+        if (this.storage.getName == "CustomStore") {
+          storeCollection
+            .doc(this.depart.depart_name)
+            .collection(this.storage.getName)
+            .doc(this.modifyDonated.name)
+            .get()
+            .then((snapshot) => {
+              const documentModify = snapshot.data();
+              var amount_left =
+                documentModify.amount - parseInt(this.modifyDonated.amount);
 
-            if (amount_left < 0) {
-              alert("Error");
-            } else if (amount_left == 0) {
-              storeCollection
-                .doc(this.depart.depart_name)
-                .collection(this.storage.getName)
-                .doc(this.modifyDonated.name)
-                .delete();
-              this.$fire({
-                title: "แก้ไขข้อมูลเสร็จสิ้น",
-                type: "success",
-                timer: 9000
-              });
-            } else {
-              storeCollection
-                .doc(this.depart.depart_name)
-                .collection(this.storage.getName)
-                .doc(this.modifyDonated.name)
-                .update({
-                  amount: amount_left
+              if (amount_left < 0) {
+                this.$fire({
+                  title: "โปรดตรวจสอบข้อมูลที่กรอกเข้ามา",
+                  type: "error",
+                  timer: 9000,
                 });
-              this.$fire({
-                title: "แก้ไขข้อมูลเสร็จสิ้น",
-                type: "success",
-                timer: 9000
-              });
-            }
-          });
-      } else if (this.storage.getName == "RequireStore") {
-        storeCollection
-          .doc(this.depart.depart_name)
-          .collection(this.storage.getName)
-          .doc(this.modifyDonated.name)
-          .get()
-          .then(snapshot => {
-            const documentModify = snapshot.data();
+                this.modifyDonated.name = "";
+                this.modifyDonated.amount = "";
+              } else if (amount_left == 0) {
+                storeCollection
+                  .doc(this.depart.depart_name)
+                  .collection(this.storage.getName)
+                  .doc(this.modifyDonated.name)
+                  .delete();
+                this.modifyDonated.name = "";
+                this.modifyDonated.amount = "";
+                this.$fire({
+                  title: "แก้ไขข้อมูลเสร็จสิ้น",
+                  type: "success",
+                  timer: 9000,
+                });
+              } else {
+                storeCollection
+                  .doc(this.depart.depart_name)
+                  .collection(this.storage.getName)
+                  .doc(this.modifyDonated.name)
+                  .update({
+                    amount: amount_left,
+                  });
+                this.modifyDonated.name = "";
+                this.modifyDonated.amount = "";
+                this.$fire({
+                  title: "แก้ไขข้อมูลเสร็จสิ้น",
+                  type: "success",
+                  timer: 9000,
+                });
+              }
+            });
+        } else if (this.storage.getName == "RequireStore") {
+          storeCollection
+            .doc(this.depart.depart_name)
+            .collection(this.storage.getName)
+            .doc(this.modifyDonated.name)
+            .get()
+            .then((snapshot) => {
+              const documentModify = snapshot.data();
 
-            if (amount_left < 0) {
-              this.$fire({
-                title: "โปรดทราบ",
-                text: "กรุณาตรวจสอบข้อมูลที่ป้อนเข้ามา",
-                type: "error",
-                timer: 9000
-              });
-            } else {
-              storeCollection
-                .doc(this.depart.depart_name)
-                .collection(this.storage.getName)
-                .doc(this.modifyDonated.name)
-                .delete();
-              departmentsCollection
-                .doc(this.depart.depart_name)
-                .collection("Requirement")
-                .doc(this.modifyDonated.name)
-                .update({
-                  amount: documentModify.amount,
-                  enough: false
+              if (amount_left < 0) {
+                this.$fire({
+                  title: "โปรดทราบ",
+                  text: "กรุณาตรวจสอบข้อมูลที่ป้อนเข้ามา",
+                  type: "error",
+                  timer: 9000,
                 });
-              this.$fire({
-                title: "แก้ไขข้อมูลเสร็จสิ้น",
-                type: "success",
-                timer: 9000
-              });
-            }
-          });
+              } else {
+                storeCollection
+                  .doc(this.depart.depart_name)
+                  .collection(this.storage.getName)
+                  .doc(this.modifyDonated.name)
+                  .delete();
+                departmentsCollection
+                  .doc(this.depart.depart_name)
+                  .collection("Requirement")
+                  .doc(this.modifyDonated.name)
+                  .update({
+                    amount: documentModify.amount,
+                    enough: false,
+                  });
+                this.modifyDonated.name = "";
+                this.modifyDonated.amount = "";
+                this.$fire({
+                  title: "แก้ไขข้อมูลเสร็จสิ้น",
+                  type: "success",
+                  timer: 9000,
+                });
+              }
+            });
+        }
+      } else {
+        this.$fire({
+          title: "โปรดกรอกข้อมูลให้ครบถ้วนถูกต้อง",
+          type: "error",
+          timer: 9000,
+        });
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
