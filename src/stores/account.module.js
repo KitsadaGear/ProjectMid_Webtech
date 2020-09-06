@@ -62,7 +62,6 @@ const actions = {
       .then(user => {
         commit("loginSuccess", user);
         router.push({ name: "Home" });
-        alert("Login Success");
       })
       .catch(error => {
         commit("loginFailure");

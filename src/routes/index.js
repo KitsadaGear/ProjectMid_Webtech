@@ -11,7 +11,7 @@ import Donate from "../views/Donate.vue";
 import VueRouter from "vue-router";
 import Logout from "@/views/Logout.vue";
 import Admin from "@/views/Admin.vue";
-
+import RequestDonate from "@/views/RequestDonate.vue";
 Vue.use(VueRouter);
 
 const routes = [
@@ -69,6 +69,11 @@ const routes = [
     path: "/admin-view",
     name: "admin",
     component: Admin
+  },
+  {
+    path: "/request-view",
+    name: "request",
+    component: RequestDonate
   }
 ];
 export const router = new VueRouter({
