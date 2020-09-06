@@ -11,25 +11,32 @@
           <b-navbar-nav class="ml-auto">
             <router-link to="/home-view">
               <b-button variant="outline-primary" class="header_btn">
-                <b-icon icon="house-fill" style="margin-right: 6px"></b-icon>หน้าหลัก
+                <b-icon icon="house-fill" style="margin-right: 6px"></b-icon
+                >หน้าหลัก
               </b-button>
             </router-link>
 
             <router-link to="/about-view">
               <b-button variant="outline-primary" class="header_btn">
-                <b-icon icon="person-fill" style="margin-right: 6px"></b-icon>เกี่ยวกับเรา
+                <b-icon icon="person-fill" style="margin-right: 6px"></b-icon
+                >เกี่ยวกับเรา
               </b-button>
             </router-link>
             <router-link to="/detail-view">
               <b-button variant="outline-primary" class="header_btn">
-                <b-icon icon="info-square-fill" style="margin-right: 6px"></b-icon>บริจาคอะไรได้
+                <b-icon
+                  icon="info-square-fill"
+                  style="margin-right: 6px"
+                ></b-icon
+                >บริจาคอะไรได้
               </b-button>
             </router-link>
 
             <div v-if="!user">
               <router-link to="/login-view">
                 <b-button variant="outline-primary" class="header_btn">
-                  <b-icon icon="heart-fill" style="margin-right: 8px"></b-icon>บริจาคที่นี่
+                  <b-icon icon="heart-fill" style="margin-right: 8px"></b-icon
+                  >บริจาคที่นี่
                 </b-button>
               </router-link>
             </div>
@@ -47,14 +54,29 @@
                 </b-button>
               </router-link>
             </div>
+            <div v-if="user">
+              <div v-if="user.displayName != 'Admin'">
+                <router-link to="/request-view">
+                  <b-button variant="outline-primary" class="header_btn">
+                    <b-icon icon="person-fill"></b-icon>แจ้งความต้องการที่นี่
+                  </b-button>
+                </router-link>
+              </div>
+            </div>
+
             <router-link to="/contact-view">
               <b-button variant="outline-primary" class="header_btn">
-                <b-icon icon="chat-left-dots-fill" style="margin-right: 8px"></b-icon>ติดต่อเรา
+                <b-icon
+                  icon="chat-left-dots-fill"
+                  style="margin-right: 8px"
+                ></b-icon
+                >ติดต่อเรา
               </b-button>
             </router-link>
             <router-link to="/reference-view">
               <b-button variant="outline-primary" class="header_btn">
-                <b-icon icon="file-text-fill" style="margin-right: 6px"></b-icon>เอกสารอ้างอิง
+                <b-icon icon="file-text-fill" style="margin-right: 6px"></b-icon
+                >เอกสารอ้างอิง
               </b-button>
             </router-link>
             <div v-if="user">
@@ -75,8 +97,8 @@
 import { mapState, mapActions } from "vuex";
 export default {
   computed: {
-    ...mapState("account", ["user"]),
-  },
+    ...mapState("account", ["user"])
+  }
 };
 </script>
 
