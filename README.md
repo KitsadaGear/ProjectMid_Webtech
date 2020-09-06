@@ -21,6 +21,7 @@
     5. Run คำสั่ง npm install vue-moment
     6. Run คำสั่ง npm install vuefire firebase
     7. Run คำสั่ง npm install vuex
-    8. Run คำสั่ง npm run dev ในการแสดง Website ที่เราเขียนลงไป
+    8. Run คำสั่ง npm install vue-simple-alert
+    9. Run คำสั่ง npm run dev ในการแสดง Website ที่เราเขียนลงไป
 
 * เงื่อนไขอื่นที่ผู้ร่วมพัฒนาหรือผู้ติดตั้งระบบจำเป็นต้องทราบ
