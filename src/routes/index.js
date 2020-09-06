@@ -9,12 +9,12 @@ import RegisterPage from "../views/RegisterPage.vue";
 import Reference from "../views/Reference.vue";
 import Donate from "../views/Donate.vue";
 import VueRouter from "vue-router";
-
+import Logout from "@/views/Logout.vue";
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
+    path: "/", 
     name: "Welcome",
     component: Welcome
   },
@@ -57,6 +57,11 @@ const routes = [
     path: "/donate-view",
     name: "Donate",
     component: Donate
+  },
+  {
+    path: "/logout-view",
+    name: "logout",
+    component: Logout
   }
 ];
 export const router = new VueRouter({

@@ -3,8 +3,8 @@
   - ชื่อระบบ ศูนย์กลางการจัดการสิ่งของรับบริจาค
   - ชื่อและรหัสนิสิตสมาชิกในกลุ่ม รวมถึงชื่อ github user
 
-    1. วิวิธ ลีฬหาล้ำเลิศ 6010450705 username: PeaVivit
-    2. กฤษดา ศาลาชูพงศ์ 6010450021 username: KitsadaGear
+    1. กฤษดา ศาลาชูพงศ์ 6010450021 username: KitsadaGear
+    2. วิวิธ ลีฬหาล้ำเลิศ 6010450705 username: PeaVivit
     3. วริศรา ถิระเศรษฐกิจ 6010451191 username: Bambiboo
 
   - ฟังก์ชันการทำงานของระบบ
@@ -20,6 +20,7 @@
     4. Run คำสั่ง npm install vue bootstrap-vue bootstrap
     5. Run คำสั่ง npm install vue-moment
     6. Run คำสั่ง npm install vuefire firebase
-    7. Run คำสั่ง npm run dev ในการแสดง Website ที่เราเขียนลงไป
+    7. Run คำสั่ง npm install vuex
+    8. Run คำสั่ง npm run dev ในการแสดง Website ที่เราเขียนลงไป
 
 * เงื่อนไขอื่นที่ผู้ร่วมพัฒนาหรือผู้ติดตั้งระบบจำเป็นต้องทราบ

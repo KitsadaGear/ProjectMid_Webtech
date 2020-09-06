@@ -1,28 +1,58 @@
-<template>
-<div class="container">
-    <h1>Register</h1>
-    <form @submit.prevent="handleSubmit()">
-        <div class="form-group">
-            <label for="" >Email Address *</label>
-            <input type ="text" class="form-control"
-                placeholder="You Email *" v-model="form.email">
-        </div>
-        <div class= "form-group">
-            <label for =""> Password *</label>
-            <input type = "password" class="form-control"
-                placeholder="Your password *" v-model="form.password">
-        </div>
-        <div class= "form-group">
-            <label for =""> Displat Name *</label>
-            <input type = "text" class="form-control"
-                placeholder="Your name *" v-model="form.displayName">
-        </div>
-        <div class="from-group">
-            <button class="btn btn-primary">
-                Register
-            </button>
-        </div>
-    </form>
+<template> 
+<div class="rounded " style="background:-webkit-linear-gradient(#C9D6FF,#E2E2E2);" >
+    <div class="register">
+        
+        <div class="card container font-Kanit " style="background:-webkit-linear-gradient(#FFAFBD,#ffc3a0); ">
+            <div class="card rounded-pill text-darkness ">
+                <img src="../assets/img/hand.jpg"  style="opacity:0.4;filter:alpha(opacity=40)" class="card-img  rounded-pill " alt="..." width="500" height="400">
+                <div class="card-img-overlay  " style=" margin-top: 140px;">
+                    <h1 class="card-title text-center">  Register </h1>
+                </div>
+            </div>
+
+            <div class="card-body text-center"> 
+                <figure class="figure">
+                    <div class="rounded-pill">
+                    <form @submit.prevent="handleSubmit()">
+                        
+                        <div class="form-group ">
+                            <label for="" >Email Address *</label>
+                            <input type ="text" class="form-control rounded-pill"
+                                placeholder=" You Email *" v-model="form.email">
+                        </div>
+                        <div class= "form-group">
+                            <label for =""> Password *</label>
+                            <input type = "password" class="form-control rounded-pill"
+                                placeholder=" Your password *" v-model="form.password">
+                        </div>
+                        <div class= "form-group">
+                            <label for =""> Displat Name *</label>
+                            <input type = "text" class="form-control rounded-pill"
+                                placeholder=" Your name *" v-model="form.displayName">
+                        </div>
+                        <div class="from-group ">
+                            <button class="btn btn-success rounded-pill">
+                                สมัครสมาชิก
+                            </button>
+                            
+                            
+                        <router-link :to="{ name: 'Home'}"
+                            class="btn btn-danger rounded-pill">
+                            ยกเลิก
+                        </router-link>
+                        <p></p>
+
+                
+                        </div>
+                        <img src="../assets/img/Do.jpg" class="card-img-bottom rounded-pill" alt="..." >
+                    
+                    </form>
+
+                    </div>
+                </figure> 
+            </div>
+        </div>    
+    </div>
 </div>
 </template>
 
@@ -55,4 +85,5 @@ export default {
 }
 </script>
 <style>
+
 </style>

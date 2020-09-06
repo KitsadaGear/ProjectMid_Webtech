@@ -1,4 +1,5 @@
 <template>
+
 <v-card height="150">
     <v-footer
       absolute
@@ -12,6 +13,7 @@
       </v-col>
     </v-footer>
   </v-card>
+
 </template>
 
 <script>
@@ -19,4 +21,17 @@ export default {};
 </script>
 
 <style>
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.footer p {
+  margin: 0;
+}
 </style>
