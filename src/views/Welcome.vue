@@ -6,9 +6,7 @@
         <br />
         <span>
           <router-link to="/home-view">
-            <b-button variant="btn btn-primary" class="enter_btn"
-              >เข้าสู่เว็บไซต์</b-button
-            >
+            <b-button variant="btn btn-primary" class="enter_btn">เข้าสู่เว็บไซต์</b-button>
           </router-link>
         </span>
       </div>

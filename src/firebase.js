@@ -16,3 +16,4 @@ const app = firebase.initializeApp(firebaseConfig);
 export const db = app.firestore();
 export const departmentsCollection = db.collection("departments");
 export const userLogCollection = db.collection("user_donate_log");
+export const storeCollection = db.collection("storage");

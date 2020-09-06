@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="Donatepage font-Kanit shadow-lg p-3 mb-5 rounded"
+      class="DonatePage font-Kanit shadow-lg p-3 mb-5 rounded"
       style="background-color: #fffff0;"
     >
       <menu-bar></menu-bar>
@@ -169,12 +169,232 @@
             <div class="card">
               <img
                 class="card-img-top"
-                src="../assets/img/lebanon.jpg"
+                src="https://thumbs.dreamstime.com/b/bag-rice-icon-natural-healthy-food-bag-rice-icon-natural-healthy-food-asian-ingredient-cooking-vector-flat-style-cartoon-158753297.jpg"
                 alt="..."
                 width="600px"
                 height="400px"
               />
-              <div class="card-body"></div>
+              <div class="card-body">
+                <p class="card-text">
+                  thumbs.dreamstime , bag-rice-icon , Link:
+                  https://thumbs.dreamstime.com/b/bag-rice-icon-natural-healthy-food-bag-rice-icon-natural-healthy-food-asian-ingredient-cooking-vector-flat-style-cartoon-158753297.jpg
+                  , ค้นหาเมื่อ: วันที่ 18 สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card-deck">
+            <div class="card">
+              <img
+                src="https://cf.shopee.co.th/file/000456970eec8688a9631256bfc80d61"
+                class="card-img-top"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p
+                  class="card-text"
+                >Link: https://cf.shopee.co.th/file/000456970eec8688a9631256bfc80d61 , ค้นหาเมื่อ: วันที่ 19 สิงหาคม 2563</p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="https://i.pinimg.com/originals/74/f9/25/74f92538d5ddf233e27964faa5e7786f.jpg"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  Link:
+                  https://i.pinimg.com/originals/74/f9/25/74f92538d5ddf233e27964faa5e7786f.jpg
+                  , ค้นหาเมื่อ: วันที่ 19 สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="../assets/img/cropped.jpg"
+                class="card-img-top"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  admin , natural disaster ภัยธรรมชาติน่ารู้ , Link:
+                  https://www.agir21.org/%E0%B8%A1%E0%B8%B2%E0%B8%A8%E0%B8%B6%E0%B8%81%E0%B8%A9%E0%B8%B2%E0%B9%80%E0%B8%81%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%A0%E0%B8%B1%E0%B8%A2%E0%B8%9E%E0%B8%B4%E0%B8%9A%E0%B8%B1%E0%B8%95%E0%B8%B4/
+                  , เขียนเมื่อ: วันที่ 2 มิถุนายน 2558 , ค้นหาเมื่อ: วันที่ 20
+                  สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="../assets/img/Heart.jpg"
+                class="card-img-top"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  organdonationscotland , New NHS Organ Donor Register launched , Link:
+                  https://www.organdonationscotland.org/news-events/new-nhs-organ-donor-register-launched
+                  , ค้นหาเมื่อ: วันที่ 20 สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="../assets/img/hand.jpg"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  UN (United Nation) , UNYSAN To Mark Youth Day at KMC EduHall , Link:
+                  http://unyouthnepal.org.np/event/unysan-to-mark-youth-day-at-kmc-eduhall/
+                  , เขียนเมื่อ: วันที่ 8 เมษายน 2557 , ค้นหาเมื่อ: วันที่ 20 สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card-deck">
+            <div class="card">
+              <img
+                src="../assets/img/donatt.jpg"
+                class="card-img-top"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p
+                  class="card-text"
+                >islamic-relief Australia , donation-bg , Link: https://islamic-relief.com.au/donation-bg/ , เขียนเมื่อ: วันที่ 1 มิถุนายน 2556 , ค้นหาเมื่อ: วันที่ 20 สิงหาคม 2563</p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="../assets/img/343717.jpg"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  แนวหน้า , ปัน 'อาหารคุณภาพดีมีคุณค่า' ให้น้องๆ กาฬสินธุ์ ก่อนส่งต่อความอิ่ม ครบมื้อครบเทอมสู่ 10 ร.ร.จังหวัดยากจน
+                  Link:
+                  https://www.naewna.com/likesara/343717 ,
+                  เขียนเมื่อ: วันที่ 7 มิถุนายน 2561 , ค้นหาเมื่อ: วันที่ 20 สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="../assets/img/1587.jpg"
+                class="card-img-top"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  กรุงเทพธุรกิจ , เปิดวิธี ‘แจกอาหาร’ ให้ถูกระเบียบ กทม. สู้ภัยโควิด-19 ไปด้วยกัน , Link:
+                  https://www.bangkokbiznews.com/news/detail/877555
+                  , เขียนเมื่อ: วันที่ 6 กันยายน 2563 , ค้นหาเมื่อ: วันที่ 6 กันยายน 2563
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                src="../assets/img/fooddonate.jpeg"
+                class="card-img-top"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  Andyjim , Donate leftover food will be easier with eFeed-Hungers Application แอพพลิเคชั่นใหม่สำหรับบริจาคอาหาร , Link:
+                  https://steemit.com/food/@andyjim/donate-leftover-food-will-be-easier-with-efeed-hungers-application
+                  , เขียนเมื่อ: วันที่ 5 กันยายน 2561 , ค้นหาเมื่อ: วันที่ 20 สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="../assets/img/fd.jpg"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  TNEWS , เริ่มจากการแบ่งปันเล็กๆ สู่น้องๆ บนดอยสูง , Link:
+                  https://www.tnews.co.th/social/490124/%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%81%E0%B8%9A%E0%B9%88%E0%B8%87%E0%B8%9B%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%A5%E0%B9%87%E0%B8%81%E0%B9%86-%E0%B8%AA%E0%B8%B9%E0%B9%88%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B9%86-%E0%B8%9A%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AA%E0%B8%B9%E0%B8%87
+                  , เขียนเมื่อ: วันที่ 14 มกราคม 2560 , ค้นหาเมื่อ: วันที่ 20 สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card-deck">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="../assets/img/660.jpg"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  TNEWS , เริ่มจากการแบ่งปันเล็กๆ สู่น้องๆ บนดอยสูง , Link:
+                  https://www.tnews.co.th/social/490124/%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%81%E0%B8%9A%E0%B9%88%E0%B8%87%E0%B8%9B%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%A5%E0%B9%87%E0%B8%81%E0%B9%86-%E0%B8%AA%E0%B8%B9%E0%B9%88%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B9%86-%E0%B8%9A%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AA%E0%B8%B9%E0%B8%87
+                  , เขียนเมื่อ: วันที่ 14 มกราคม 2560 , ค้นหาเมื่อ: วันที่ 20 สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="../assets/img/Doi.jpg"
+                alt="..."
+                width="600px"
+                height="400px"
+              />
+              <div class="card-body">
+                <p class="card-text">
+                  TNEWS , เริ่มจากการแบ่งปันเล็กๆ สู่น้องๆ บนดอยสูง , Link:
+                  https://www.tnews.co.th/social/490124/%E0%B9%80%E0%B8%A3%E0%B8%B4%E0%B9%88%E0%B8%A1%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%81%E0%B8%9A%E0%B9%88%E0%B8%87%E0%B8%9B%E0%B8%B1%E0%B8%99%E0%B9%80%E0%B8%A5%E0%B9%87%E0%B8%81%E0%B9%86-%E0%B8%AA%E0%B8%B9%E0%B9%88%E0%B8%99%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B9%86-%E0%B8%9A%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%A2%E0%B8%AA%E0%B8%B9%E0%B8%87
+                  , เขียนเมื่อ: วันที่ 14 มกราคม 2560 , ค้นหาเมื่อ: วันที่ 20 สิงหาคม 2563
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src width="600px" height="400px" />
+              <div class="card-body">
+                <p class="card-text"></p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src width="600px" height="400px" />
+              <div class="card-body">
+                <p class="card-text"></p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" src width="600px" height="400px" />
+              <div class="card-body">
+                <p class="card-text"></p>
+              </div>
             </div>
           </div>
         </div>
@@ -190,8 +410,8 @@ import FooterBar from "../components/Footer.vue";
 export default {
   components: {
     MenuBar,
-    FooterBar
-  }
+    FooterBar,
+  },
 };
 </script>
 
