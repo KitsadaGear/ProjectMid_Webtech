@@ -76,7 +76,6 @@
     <footer-bar style="margin-top: 20px;"></footer-bar>
   </div>
 </template>
-
 <script>
 import MenuBar from "../components/Menubar.vue";
 import FooterBar from "../components/Footer.vue";
@@ -101,6 +100,7 @@ h1,
 h1 {
   line-height: 4.5;
 }
+
 h2,
 .h2 {
   font-size: 1.5rem;
