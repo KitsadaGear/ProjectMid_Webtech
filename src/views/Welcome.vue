@@ -34,9 +34,13 @@ export default {};
 .caption {
   position: absolute;
   left: 0;
+<<<<<<< HEAD
 
   top: 35%;
 
+=======
+  top: 35%;
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
   width: 100%;
   text-align: center;
   color: #000;
@@ -45,8 +49,13 @@ export default {};
 .caption span.border {
   background-color: #111;
   color: #fff;
+<<<<<<< HEAD
   padding: 22px 200px;
 
+=======
+  padding: 30px;
+  padding: 22px 200px;
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
   font-size: 25px;
   letter-spacing: 10px;
 }

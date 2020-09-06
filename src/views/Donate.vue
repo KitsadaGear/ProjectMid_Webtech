@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div style>
     <menu-bar></menu-bar>
 
@@ -209,45 +210,238 @@
                     <th scope="col" style="text-align:center">
                       จำนวนที่ท่านบริจาค
                     </th>
+=======
+  <div>
+    <div
+      class="DonatePage font-Kanit shadow-lg p-3 mb-5 rounded"
+      style="background-color: #fffff0;"
+    >
+      <menu-bar></menu-bar>
+      <div>
+        <!-- /Carousel class -->
+
+        <div role="main" class="container">
+          <div class="row">
+            <div class="col-md-8 blog-main">
+              <h1 style="margin-bottom:20px;text-align:center">
+                ยินดีต้อนรับ
+                <h2 id="username">{{ user.displayName }}</h2>
+              </h1>
+              <div class="select_row">
+                <label class="pb-4 mb-4" style="font-size:25px">โปรดเลือกหน่วยงานที่คุณต้องการ :</label>
+                <select
+                  name="department_list"
+                  id="department_list"
+                  v-model="depart.depart_name"
+                  style="font-size:20px;"
+                >
+                  <option value disabled selected hidden></option>
+                  <optgroup style="font-size:20px;">
+                    <option
+                      v-for="department in departments"
+                      :key="department.id"
+                    >{{ department.name }}</option>
+                  </optgroup>
+                </select>
+
+                <button class="btn btn-outline-info" @click="getData()">Select</button>
+              </div>
+
+              <h1 class="depart_header" style="text-align:center">{{ dept_name }}</h1>
+
+              <table class="table" v-if="dept_name">
+                <thead class="thead-dark">
+                  <tr>
+                    <th
+                      scope="col"
+                      style="text-align:center; font-size:20px"
+                    >ชื่อสิ่งที่ท่านต้องการบริจาค</th>
+                    <th
+                      scope="col"
+                      style="text-align:center; font-size:20px"
+                    >จำนวนที่ต้องการการบริจาค</th>
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td style="text-align:center">N/A</td>
-                    <td style="text-align:center">N/A</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align:center">N/A</td>
-                    <td style="text-align:center">N/A</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align:center">N/A</td>
-                    <td style="text-align:center">N/A</td>
-                  </tr>
-                  <tr>
-                    <td style="text-align:center">N/A</td>
-                    <td style="text-align:center">N/A</td>
+                  <tr v-for="requirement in requirements" :key="requirement.id">
+                    <td style="text-align:center; font-size:25px">{{ requirement.name }}</td>
+                    <td style="text-align:center; font-size:25px">{{ requirement.amount }}</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-          </aside>
+
+            <aside class="col-md-4 blog-sidebar">
+              <!-- บริจาค-->
+              <form class="donate_form" @submit.prevent="updateDonate()">
+                <div class="p-4 mb-3 rounded aside-form" style="background-color:#F8F8FF">
+                  <h4 style="text-align:center;font-size: 30px;">บริจาคตามความต้องการของหน่วยงาน</h4>
+                  <p class="paragraph_info">โปรดเลือกสิ่งที่ท่านต้องการบริจาค</p>
+
+                  <div class="custom" style="text-align:center">
+                    <select v-model="depart.new_require.name">
+                      <option value disabled selected hidden></option>
+                      <optgroup style="font-size:20px;">
+                        <option
+                          v-for="requirement in requirements"
+                          :key="requirement.id"
+                        >{{ requirement.name }}</option>
+                      </optgroup>
+                    </select>
+                  </div>
+
+                  <p
+                    class="paragraph_info"
+                    style="margin-top:-10px"
+                  >จำนวนของสิ่งที่ท่านต้องการบริจาค</p>
+                  <div class="input-group mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      aria-describedby="button-addon2"
+                      style="text-align:center;"
+                      placeholder="โปรดกรอกจำนวนของสิ่งของที่ต้องการบริจาค"
+                      v-model="depart.new_require.amount"
+                    />
+                  </div>
+                  <div style="text-align:center;">
+                    <button
+                      type="submit"
+                      class="btn btn-outline-primary"
+                      @click="updateDonate()"
+                    >ยืนยันรายการบริจาคของท่าน</button>
+                  </div>
+                </div>
+              </form>
+
+              <!--Custom -->
+              <form
+                @submit.prevent="submitCustomDonate()"
+                class="donate_form"
+                style="margin-top:30px"
+              >
+                <div class="p-4 mb-3 rounded aside-form">
+                  <h4 style="text-align:center;font-size: 30px;">บริจาคเพิ่มเติม</h4>
+                  <p class="paragraph_info">ชื่อสิ่งของที่ท่านต้องการบริจาค</p>
+                  <div class="input-group mb-3">
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-describedby="button-addon2"
+                      style="text-align:center;"
+                      placeholder="โปรดกรอกชื่อสิ่งของที่ต้องการบริจาค"
+                      id="donate_name"
+                      v-model="customDonate.name"
+                    />
+                  </div>
+                  <p class="paragraph_info">จำนวนของสิ่งที่ท่านต้องการบริจาค</p>
+                  <div class="input-group mb-3">
+                    <input
+                      type="number"
+                      class="form-control"
+                      aria-describedby="button-addon2"
+                      style="text-align:center;"
+                      placeholder="โปรดกรอกจำนวนของสิ่งของที่ต้องการบริจาค"
+                      id="donate_amount"
+                      v-model="customDonate.amount"
+                    />
+                  </div>
+                  <div style="text-align:center;">
+                    <button type="submit" class="btn btn-outline-primary">ยืนยันรายการบริจาคของท่าน</button>
+                  </div>
+                </div>
+              </form>
+
+              <div class="p-4 mb-3 rounded aside-form" style="margin-top:30px">
+                <h1 style="text-align:center;font-size: 30px;">ประวัติการบริจาคของท่าน</h1>
+
+                <button
+                  class="btn btn-outline-primary logDonate"
+                  type="button"
+                  data-toggle="modal"
+                  data-target="#donateLogForm"
+                  @click="getDonateLog()"
+                >คลิกทีนี่</button>
+              </div>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="donateLogForm"
+                tabindex="-1"
+                aria-labelledby="donateLogFormLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-scrollable modal-xl">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4
+                        style="text-align:center;font-size: 2.5rem;margin-top:30px;margin-bottom:20px"
+                      >สรุปรายการบริจาคทั้งหมดของท่าน</h4>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <table class="table">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th
+                              scope="col"
+                              style="text-align:center;font-size:20px"
+                            >ชื่อสิ่งที่ท่านบริจาค</th>
+                            <th
+                              scope="col"
+                              style="text-align:center;font-size:20px"
+                            >จำนวนที่ท่านบริจาค</th>
+                            <th
+                              scope="col"
+                              style="text-align:center;font-size:20px"
+                            >หน่วยงานที่ท่านบริจาค</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr v-for="donateLog in userDonateLog" :key="donateLog.id">
+                            <td style="text-align:center; font-size:25px">{{ donateLog.name }}</td>
+                            <td style="text-align:center; font-size:25px">{{ donateLog.amount }}</td>
+                            <td style="text-align:center; font-size:25px">{{ donateLog.department }}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-outline-primary"
+                        data-dismiss="modal"
+                      >Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </aside>
+          </div>
         </div>
       </div>
     </div>
+    <footer-bar></footer-bar>
   </div>
 </template>
 
 <script>
 import { departmentsCollection } from "../firebase.js";
+import { userLogCollection } from "../firebase.js";
+import { storeCollection } from "../firebase.js";
 import MenuBar from "../components/Menubar.vue";
+import FooterBar from "../components/Footer.vue";
 import { firestore } from "firebase";
 import { mapState, mapActions } from "vuex";
 export default {
   data() {
     return {
       departments: [],
-      departmented: [],
+      storages: [],
+      userDonateLog: [],
       requirements: [],
       dept_name: "",
       depart: {
@@ -255,6 +449,7 @@ export default {
         name: "",
         amount: 0,
         enough: "",
+
         new_require: {
           name: "",
           amount: 0,
@@ -262,35 +457,70 @@ export default {
           depart_name: ""
         }
       },
-      slide: 0,
-      sliding: null,
+      requireDonate: {
+        storeId: [],
+      },
       customDonate: {
         name: "",
         amount: 0,
+<<<<<<< HEAD
         enough: ""
       }
+=======
+        enough: "",
+        count: "",
+        customCount: "",
+      },
+
+      customStorage: {
+        customId: [],
+        requireId: [],
+      },
+
+      slide: 0,
+      sliding: null,
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
     };
   },
   firestore() {
     return {
       departments: departmentsCollection,
+<<<<<<< HEAD
       departmented: departmentsCollection
+=======
+      userDonateLog: userLogCollection,
+      storages: storeCollection,
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
     };
   },
   computed: {
     ...mapState({
+<<<<<<< HEAD
       alert: state => state.alert
     })
+=======
+      alert: (state) => state.alert,
+    }),
+    ...mapState("account", ["user"]),
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
   },
   beforeMount() {
     this.getData();
   },
+
   methods: {
     ...mapActions("alert", ["error"]),
     submitCustomDonate() {
-      if (!this.customDonate.name || !this.customDonate.amount) {
-        this.error("โปรดกรอกข้อมูลให้ครบถ้วน");
+      var name = document.getElementById("username").innerHTML;
+      if (!this.depart.depart_name) {
+        this.$fire({
+          title: "ข้อมูลไม่ถูกต้อง",
+          text: "โปรดเลือกหน่วยงานที่ต้องการบริจาค",
+          type: "error",
+          timer: 9000,
+        });
       } else {
+<<<<<<< HEAD
         departmentsCollection
           .doc(this.depart.depart_name)
           .collection("Requirement")
@@ -300,7 +530,119 @@ export default {
             amount: parseInt(this.customDonate.amount),
             donateDate: new Date(),
             enough: false
+=======
+        if (
+          !this.customDonate.name ||
+          !this.customDonate.amount ||
+          this.customDonate.amount == 0
+        ) {
+          this.$fire({
+            title: "ข้อมูลไม่ถูกต้อง",
+            text: "โปรดกรอกข้อมูลให้ครบถ้วนถูกต้อง",
+            type: "error",
+            timer: 9000,
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
           });
+        } else {
+          // มีใน Requirement หรือไม่
+          for (var i = 0; i <= this.requireDonate.storeId.length; i++) {
+            if (this.customDonate.name == this.requireDonate.storeId[i]) {
+              this.customDonate.count = 1;
+              break;
+            } else {
+              this.customDonate.count = 0;
+            }
+          }
+          // มีใน CustomDonate หรือไม่
+          for (var x = 0; x <= this.customStorage.customId.length; x++) {
+            if (this.customDonate.name == this.customStorage.customId[x]) {
+              this.customDonate.customCount = 1;
+              break;
+            } else {
+              this.customDonate.customCount = 0;
+            }
+          }
+
+          if (
+            this.customDonate.count < 1 &&
+            this.customDonate.amount > 0 &&
+            this.customDonate.customCount < 1
+          ) {
+            // ----------------------- ของใหม่ -----------------------
+            var name = document.getElementById("username").innerHTML;
+
+            storeCollection
+              .doc(this.depart.depart_name)
+              .collection("CustomStore")
+              .doc(this.customDonate.name)
+              .set({
+                name: this.customDonate.name,
+                amount: parseInt(this.customDonate.amount),
+                donateDate: new Date(),
+                enough: true,
+                status: false,
+                userDonate: name,
+              });
+
+            userLogCollection
+              .doc(name)
+              .collection("donate_log")
+              .doc()
+              .set({
+                name: this.customDonate.name,
+                amount: parseInt(this.customDonate.amount),
+                department: this.depart.depart_name,
+                donateDate: Date.now(),
+                status: false,
+              });
+            console.log("Update ของใหม่");
+            this.customDonate.name = "";
+            this.customDonate.amount = "";
+            this.$fire({
+              title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+              type: "success",
+              timer: 9000,
+            });
+          } else if (
+            // ----------------------- มีของซ้ำใน Requirement อยู่แล้ว -----------------------
+            this.customDonate.count >= 1
+          ) {
+            this.$fire({
+              title: "โปรดทราบ",
+              text:
+                "คุณได้กรอกความต้องการที่มีในหน่วยงาน กรุณากรอกในฟอร์ม 'ช่องทางการบริจาค' ",
+              type: "error",
+              timer: 9000,
+            });
+            // ----------------------- ไม่มีของเดิมซ้ำใน Requirement-----------------------
+          } else {
+            storeCollection
+              .doc(this.depart.depart_name)
+              .collection("CustomStore")
+              .doc(this.customDonate.name)
+              .get()
+              .then((snapshot) => {
+                const docData = snapshot.data();
+                storeCollection
+                  .doc(this.depart.depart_name)
+                  .collection("CustomStore")
+                  .doc(this.customDonate.name)
+                  .update({
+                    amount:
+                      parseInt(docData.amount) +
+                      parseInt(this.customDonate.amount),
+                    donateDate: new Date(),
+                  });
+                this.customDonate.name = "";
+                this.customDonate.amount = "";
+                this.$fire({
+                  title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+                  type: "success",
+                  timer: 9000,
+                });
+              });
+          }
+        }
       }
     },
     onSlideStart(slide) {
@@ -309,10 +651,31 @@ export default {
     onSlideEnd(slide) {
       this.sliding = false;
     },
+<<<<<<< HEAD
     computed: {
       ...mapState("account", ["user"])
     },
     getData: function() {
+=======
+
+    getDonateLog() {
+      var name = document.getElementById("username").innerHTML;
+      userLogCollection
+        .doc(name)
+        .collection("donate_log")
+        .onSnapshot((querySnapshot) => {
+          let logArray = [];
+
+          querySnapshot.forEach((doc) => {
+            let logDonate = doc.data();
+            logArray.push(logDonate);
+          });
+          this.userDonateLog = logArray;
+        });
+    },
+
+    getData: function () {
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
       if (this.depart.depart_name != "") {
         var element = document.getElementById("department_list");
         var selectedValue = element.options[element.selectedIndex].text;
@@ -322,16 +685,56 @@ export default {
           .collection("Requirement")
           .onSnapshot(querySnapshot => {
             let dataArray = [];
+<<<<<<< HEAD
             querySnapshot.forEach(doc => {
               let requirements = doc.data();
+=======
+            let dataId = [];
+
+            querySnapshot.forEach((doc) => {
+              let requirements = doc.data();
+              dataId.push(doc.id);
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
               if (requirements.enough == false) {
+                //แก้ตรงนี้
                 dataArray.push(requirements);
               }
             });
             this.requirements = dataArray;
+            this.requireDonate.storeId = dataId;
+          });
+        storeCollection
+          .doc(this.depart.depart_name)
+          .collection("RequireStore")
+          .onSnapshot((querySnapshot) => {
+            let requireIds = [];
+
+            querySnapshot.forEach((doc) => {
+              let stored = doc.data();
+              if (stored.status == false) {
+                requireIds.push(doc.id);
+              }
+            });
+            this.customStorage.requireId = requireIds;
+          });
+
+        storeCollection
+          .doc(this.depart.depart_name)
+          .collection("CustomStore")
+          .onSnapshot((querySnapshot) => {
+            let customIds = [];
+
+            querySnapshot.forEach((doc) => {
+              let stored = doc.data();
+              if (stored.status == false) {
+                customIds.push(doc.id);
+              }
+            });
+            this.customStorage.customId = customIds;
           });
       }
     },
+<<<<<<< HEAD
     updateDonate() {
       if (this.depart.depart_name != "") {
         departmentsCollection
@@ -353,8 +756,169 @@ export default {
                   .update({
                     amount: amountLeft,
                     enough: true
+=======
+
+    updateDonate: function (event) {
+      if (!this.depart.depart_name) {
+        this.$fire({
+          title: "ข้อมูลไม่ถูกต้อง",
+          text: "โปรดเลือกหน่วยงานที่ต้องการบริจาค",
+          type: "error",
+          timer: 9000,
+        });
+      } else {
+        if (
+          this.depart.new_require.name &&
+          this.depart.new_require.amount &&
+          this.depart.new_require.amount > 0
+        ) {
+          var name = document.getElementById("username").innerHTML;
+
+          departmentsCollection
+            .doc(this.depart.depart_name)
+            .collection("Requirement")
+            .doc(this.depart.new_require.name)
+            .get()
+            .then((snapshot) => {
+              const document = snapshot.data();
+              var amountLeft =
+                parseInt(document.amount) -
+                parseInt(this.depart.new_require.amount);
+
+              if (document.amount >= this.depart.new_require.amount) {
+                //-----------------------บริจาคครบ--------------------------
+                if (amountLeft <= 0) {
+                  departmentsCollection
+                    .doc(this.depart.depart_name)
+                    .collection("Requirement")
+                    .doc(this.depart.new_require.name)
+                    .update({
+                      amount: amountLeft,
+                      enough: true,
+                    });
+
+                  userLogCollection
+                    .doc(name)
+                    .collection("donate_log")
+                    .doc()
+                    .set({
+                      name: this.depart.new_require.name,
+                      amount: parseInt(this.depart.new_require.amount),
+                      department: this.depart.depart_name,
+                      donateDate: new Date(),
+                      status: false,
+                    });
+
+                  storeCollection
+                    .doc(this.depart.depart_name)
+                    .collection("RequireStore")
+                    .doc(this.depart.new_require.name)
+                    .set({
+                      name: this.depart.new_require.name,
+                      amount: parseInt(this.depart.new_require.amount),
+                      enough: true,
+                      donateDate: new Date(),
+                      status: false,
+                    });
+                  this.depart.new_require.name = "";
+                  this.depart.new_require.amount = "";
+                  this.$fire({
+                    title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+                    type: "success",
+                    timer: 9000,
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
                   });
+                  //-----------------------บริจาคไม่ครบ--------------------------
+                } else if (amountLeft > 0) {
+                  departmentsCollection
+                    .doc(this.depart.depart_name)
+                    .collection("Requirement")
+                    .doc(this.depart.new_require.name)
+                    .update({
+                      amount: amountLeft,
+                    });
+
+                  userLogCollection
+                    .doc(name)
+                    .collection("donate_log")
+                    .doc()
+                    .set({
+                      name: this.depart.new_require.name,
+                      amount: parseInt(this.depart.new_require.amount),
+                      department: this.depart.depart_name,
+                      donateDate: new Date(),
+                      status: false,
+                    });
+
+                  for (
+                    var x = 0;
+                    x <= this.customStorage.requireId.length;
+                    x++
+                  ) {
+                    if (
+                      this.depart.new_require.name ==
+                      this.customStorage.requireId[x]
+                    ) {
+                      this.customDonate.customCount = 1;
+                      break;
+                    } else {
+                      this.customDonate.customCount = 0;
+                    }
+                  }
+                  if (this.customDonate.customCount > 0) {
+                    storeCollection
+                      .doc(this.depart.depart_name)
+                      .collection("RequireStore")
+                      .doc(this.depart.new_require.name)
+                      .get()
+                      .then((snapshot) => {
+                        const documentData = snapshot.data();
+                        var amounted =
+                          parseInt(documentData.amount) +
+                          parseInt(this.depart.new_require.amount);
+                        storeCollection
+                          .doc(this.depart.depart_name)
+                          .collection("RequireStore")
+                          .doc(this.depart.new_require.name)
+                          .set({
+                            name: this.depart.new_require.name,
+                            amount: parseInt(amounted),
+                            enough: true,
+                            donateDate: new Date(),
+                            status: false,
+                          });
+                      });
+                    this.depart.new_require.name = "";
+                    this.depart.new_require.amount = "";
+                    this.$fire({
+                      title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+                      type: "success",
+                      timer: 9000,
+                    });
+                  } else {
+                    storeCollection
+                      .doc(this.depart.depart_name)
+                      .collection("RequireStore")
+                      .doc(this.depart.new_require.name)
+                      .set({
+                        name: this.depart.new_require.name,
+                        amount: parseInt(this.depart.new_require.amount),
+                        enough: true,
+                        donateDate: new Date(),
+                        status: false,
+                      });
+                    this.depart.new_require.name = "";
+                    this.depart.new_require.amount = "";
+                    this.$fire({
+                      title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+                      type: "success",
+                      timer: 9000,
+                    });
+                  }
+                }
+                //-----------------------บริจาคเกิน--------------------------
               } else {
+<<<<<<< HEAD
                 departmentsCollection
                   .doc(this.depart.depart_name)
                   .collection("Requirement")
@@ -362,19 +926,47 @@ export default {
                   .update({
                     amount: amountLeft
                   });
+=======
+                this.depart.new_require.name = "";
+                this.depart.new_require.amount = "";
+
+                this.$fire({
+                  title: "โปรดทราบ",
+                  text:
+                    "คุณบริจาคเกินความต้องการของหน่วยงาน กรุณาป้อนข้อมูลใหม่",
+                  type: "error",
+                  timer: 9000,
+                });
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
               }
-            }
+            });
+        } else {
+          this.depart.new_require.name = "";
+          this.depart.new_require.amount = "";
+          this.$fire({
+            title: "โปรดทราบ",
+            text: "โปรดกรอกข้อมูลให้ครบถ้วน",
+            type: "error",
+            timer: 9000,
           });
+        }
       }
     }
   },
   components: {
+<<<<<<< HEAD
     MenuBar
   }
+=======
+    MenuBar,
+    FooterBar,
+  },
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
 };
 </script>
 
 <style>
+<<<<<<< HEAD
 aside .bg-light {
   background-color: #f0f8ff !important;
 }
@@ -382,10 +974,20 @@ aside .bg-light {
   background-color: #fffff0;
   margin: 0;
 }
+=======
+.DonatePage {
+  background-color: #fffff0;
+  margin: 0;
+}
+
+.DonatePage .bg-light {
+  background-color: #b0c4de !important;
+}
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
 .container {
   margin-top: 20px;
 }
-.table {
+.DonatePage .table {
   background-color: white;
   margin: 0;
 }
@@ -397,14 +999,15 @@ aside .bg-light {
 }
 .select_row select {
   width: 50%;
-  padding: 0.4rem 0.2rem;
+  padding: 0.4rem;
   border-radius: 4px;
   margin-left: 5px;
 }
 .select_row button {
   margin-bottom: 5px;
   margin-left: 10px;
-  padding: 0.4rem 2rem;
+  padding: 0.5rem 2rem;
+  font-size: 20px;
 }
 .blog-sidebar {
   text-align: center;
@@ -416,25 +1019,61 @@ aside .bg-light {
   color: black;
 }
 @media (min-width: 1200px) {
-  .container,
-  .container-sm,
-  .container-md,
-  .container-lg,
-  .container-xl {
-    max-width: 1500px;
+  .DonatePage .container,
+  .DonatePage .container-sm,
+  .DonatePage .container-md,
+  .DonatePage .container-lg,
+  .DonatePage .container-xl {
+    max-width: 100%;
   }
 }
+<<<<<<< HEAD
+=======
+
+@media (min-width: 768px) {
+  .DonatePage .col-md-8 {
+    -ms-flex: 0 0 65%;
+    -webkit-box-flex: 0;
+    flex: 0 0 65%;
+    max-width: 65%;
+  }
+}
+
+@media (min-width: 768px) {
+  .DonatePage .col-md-4 {
+    -ms-flex: 0 0 35%;
+    -webkit-box-flex: 0;
+    flex: 0 0 35%;
+    max-width: 35%;
+  }
+}
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
 .depart_header {
   margin-bottom: 20px;
 }
 .paragraph_info {
   margin-top: 30px;
+<<<<<<< HEAD
   font-size: 20px;
 }
 input[type="text"] {
   padding: 9px 1px;
+=======
+  font-size: 25px;
+}
+.DonatePage input[type="text"] {
+  padding: 1.5rem 1px;
   margin: 8px 0;
   box-sizing: border-box;
+  font-size: 20px;
+}
+
+.DonatePage input[type="number"] {
+  padding: 1.5rem 1px;
+>>>>>>> decb4ab640d513cfb6590e5d2f9cc911fd0266ca
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 20px;
 }
 @media screen and (max-width: 600px) {
   input[type="text"] {
@@ -452,5 +1091,36 @@ input[type="text"] {
   padding: 0.375rem 0.75rem;
   border-radius: 4px;
   margin-bottom: 20px;
+}
+
+.donate_form button {
+  margin-top: 20px;
+  font-size: 20px;
+}
+.donate_form h4 {
+  font-size: 40px;
+}
+
+@media (min-width: 768px) {
+  .DonatePage .mb-md-5,
+  .DonatePage .my-md-5 {
+    margin-bottom: 0 !important;
+  }
+}
+
+.blog-sidebar select {
+  font-size: 20px;
+}
+.aside-form {
+  background-color: #f8f8ff;
+}
+.logDonate {
+  margin-top: 20px;
+  padding: 1rem 6.8rem !important;
+}
+
+.mb-5,
+.my-5 {
+  margin-bottom: 0 !important;
 }
 </style>

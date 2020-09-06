@@ -1,4 +1,4 @@
-import * as firebase from 'firebase';
+import * as firebase from "firebase";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBAjNr7OAoO4ro5fN2tbRv5IsrFt4e6j58",
@@ -15,3 +15,5 @@ const app = firebase.initializeApp(firebaseConfig);
 
 export const db = app.firestore();
 export const departmentsCollection = db.collection("departments");
+export const userLogCollection = db.collection("user_donate_log");
+export const storeCollection = db.collection("storage");

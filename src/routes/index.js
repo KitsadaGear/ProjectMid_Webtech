@@ -10,11 +10,13 @@ import Reference from "../views/Reference.vue";
 import Donate from "../views/Donate.vue";
 import VueRouter from "vue-router";
 import Logout from "@/views/Logout.vue";
+import Admin from "@/views/Admin.vue";
+import RequestDonate from "@/views/RequestDonate.vue";
 Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/", 
+    path: "/",
     name: "Welcome",
     component: Welcome
   },
@@ -62,6 +64,16 @@ const routes = [
     path: "/logout-view",
     name: "logout",
     component: Logout
+  },
+  {
+    path: "/admin-view",
+    name: "admin",
+    component: Admin
+  },
+  {
+    path: "/request-view",
+    name: "request",
+    component: RequestDonate
   }
 ];
 export const router = new VueRouter({
