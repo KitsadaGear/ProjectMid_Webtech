@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container font-Kanit">
     <h1>ติดต่อเรา<i class="fas fa-phone-square-alt"></i></h1>
-    <div class="card" style="width: 50rem;height: 15rem;">
+    <div class="card" style="width: 50rem;height: 20rem;">
       <div class="card-body">
-        <h2>ติดต่อฝ่ายบริจาคหรือสอบถามทั่วไป: 02-xxx-xxxx, 08x-xxx-xxxx</h2>
-        <h2>ติดต่อฝ่ายกิจกรรม: 08x-xxx-xxxx</h2>
-        <h2>ติดต่อฝ่ายพัฒนา: 08x-xxx-xxxx</h2>
-        <h2>ติดต่อฝ่ายแฟรนไชน์: 08x-xxx-xxxx</h2>
+        <h2><i class="fa fa-phone-square" aria-hidden="true"></i> ติดต่อฝ่ายบริจาคหรือสอบถามทั่วไป: 02-xxx-xxxx, 08x-xxx-xxxx</h2>
+        <h2><i class="fa fa-phone-square" aria-hidden="true"></i> ติดต่อฝ่ายกิจกรรม: 08x-xxx-xxxx</h2>
+        <h2><i class="fa fa-phone-square" aria-hidden="true"></i> ติดต่อฝ่ายพัฒนา: 08x-xxx-xxxx</h2>
+        <h2><i class="fa fa-phone-square" aria-hidden="true"></i> ติดต่อฝ่ายแฟรนไชน์: 08x-xxx-xxxx</h2>
         <h2><i class="fas fa-envelope"></i> ติดต่อชาวแบ่งปันกันได้ที่อีเมล: PunFun@xxx.com</h2>
       </div>
     </div>
@@ -32,6 +32,17 @@
       <a href="https://discord.com/login"><i class="fab fa-discord fa-5x"></i></a>
       <p>Discord</p>
     </button>
+
+    <div class="MemberPunFun">
+      <div class="card" style="width: 50rem">
+        <div class="card body">
+          <h1>Member of PunFun<i class="fas fa-phone-square-alt"></i></h1>
+          <h2>นายกฤษดา ศาลาชูพงศ์   Email: kitsada.sal@ku.th</h2>
+          <h2>นายวิวิธ    ลีฬหาล้ำเลิศ  Email: vivit.leelahalamlert@gmail.com</h2>
+          <h2>นางสาววริศรา  ถิระเศรษฐกิจ  Email: varisara.ti@ku.th</h2>
+        </div>
+      </div>
+    </div>
     
   </div>
 </template>

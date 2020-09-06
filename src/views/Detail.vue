@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+    <div class="container font-Kanit">
     <div class="Head_Detail">
       <h1><i class="fas fa-question-circle"></i>สามารถบริจาคอะไรได้บ้าง?</h1>
       <h2>เพจแบ่งปันกันเถอะของเรารับบริจาคสิ่งของต่างๆที่มีสภาพที่ดี เช่น เสื้อผ้า ยารักษาโรค ข้าวสารอาหารแห้ง 
@@ -26,7 +26,7 @@
       <p>3.แยกประเภทของเสื้อผ้า เพื่อลดภาระกับเจ้าหน้าที่ตอนคัดเลือกเสื้อผ้า เช่น เสื้อ กางเกง กระโปรง ผ้าคาดผม</p>
       <p>4.ราคาของเสื้อผ้า หากเสื้อผ้าเป็นแบรนด์เนมหรือราคาแพง ผู้แบ่งปันสามารถบอกราคากับเจ้าหน้าที่ได้ เพื่อการบริจาคได้เหมาะสม</p>
       <p>5.เสื้อผ้าที่ไม่ควรนำมาบริจาค เสื้อผ้าที่บริจาคได้ยาก เช่น ชุดยูนิฟอร์มต่างๆ ชุดนักเรียน ชุดชั้นในที่ผ่านการใช้งานแล้ว </p>
-      <a href="http://localhost:8080/share-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
+      <a href="http://localhost:8080/login-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
     </div>
     </div>
 
@@ -45,7 +45,7 @@
       <h1><i class="fas fa-exclamation-circle"></i>ข้อควรรู้ก่อนบริจาค<i class="fas fa-exclamation-circle"></i></h1>
       <p>1.มีสภาพที่สมบูรณ์หรือซ่อมแซมมาแล้วเรียบร้อย ไม่มีรูขาด คิดถึงผู้ที่ได้รับของของเราไปด้วยนะ</p>
       <p>2.ควรซักให้สะอาดมาก่อนนำมาบริจาค เพื่อป้องกันเชื้อรา แบคทีเรีย และกลิ่นไม่พึงประสงค์</p>
-      <a href="http://localhost:8080/share-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
+      <a href="http://localhost:8080/login-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
       </div>
     </div>
 
@@ -65,7 +65,7 @@
       <p>1.ตรวจสอบสภาพของกระเป๋าควรมีสภาพสมบูรณ์ สามารถใช้งานได้ ไม่ขาด ไม่มีรู ใส่ของได้</p>
       <p>2.ทำความสะอาดให้เรียบร้อยเพื่อป้องกันเชื้อรา ความอับชื้น อาจทำให้กระเป๋าเกิดการชำรุดได้</p>
       <p>3.หากกระเป๋ามีราคาแพงหรือแบรนด์เนมสามารถแจ้งเจ้าหน้าที่เพื่อเสนอราคาที่ไม่แพงมากจนเกินไป เพื่อการบริจาคที่เหมาะสม</p>
-      <a href="http://localhost:8080/share-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
+      <a href="http://localhost:8080/login-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
     </div>
     </div>
 
@@ -87,7 +87,7 @@
       <p>2.ควรตรวจสอบว่าบรรจุภัณฑ์มีรู รอยรั่ว หรือเสียหายหรือไม่ เพื่อป้องกันแมลงเข้าและอาหารถูกเชื้อโรคปะปน</p>
       <p>3.ไม่ควรนำอาหารสดหรืออาหารที่ต้องทานภายในวันเดียวมาบริจาค เนื่องจากการแพคของบริจาคจำเป็นต้องใช้เวลาและการเดินทางค่อนข้างนานก่อนบริจาค
       </p>
-      <a href="http://localhost:8080/share-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
+      <a href="http://localhost:8080/login-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
     </div>
     </div>
 
@@ -105,7 +105,7 @@
       <h1><i class="fas fa-exclamation-circle"></i>ข้อควรรู้ก่อนบริจาค<i class="fas fa-exclamation-circle"></i></h1>
       <p>1.ตรวจสอบวันหมดอายุของน้ำดื่มให้แน่ชัดก่อนบริจาค</p>
       <p>2.ควรตรวจสอบว่าบรรจุภัณฑ์มีรู รอยรั่ว หรือเสียหายหรือไม่ เพื่อป้องกันเชื้อโรคปะปน</p>
-      <a href="http://localhost:8080/share-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
+      <a href="http://localhost:8080/login-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
     </div>
     </div>
 
@@ -125,7 +125,7 @@
       <p>1.ควรซ่อมแซมหรือเครื่องใช้ไฟฟ้าอยู่ในสภาพสมบูรณ์พร้อมใช้งาน ป้องกันการช็อตของไฟฟ้าอาจเป็นอันตรายถึงชีวิตต่อผู้ใช้งานได้</p>
       <p>2.ทำความสะอาดเบื้องต้นก่อนนำมาบริจาค เครื่องใช้ไฟฟ้าที่สกปรกอาจส่งผลให้เกิดการนำไปใช้งานจะติดเชื้อโรค แบคทีเรียได้</p>
       <p>3.ควรมีใบรับประกันสินค้าหรือคู่มือวิธีการใช้งาน หากเครื่องใช้ไฟฟ้านั้นมีกรุณานำติดมาด้วย</p>
-      <a href="http://localhost:8080/share-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
+      <a href="http://localhost:8080/login-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
     </div>
     </div>
 
@@ -145,15 +145,13 @@
       <p>1.ตรวจสอบสภาพการใช้งานหรือซ่อมแซมก่อนนำไปบริจาค ต้องนึกถึงใจเขาใจเราเวลาใช้งานสิ่งของที่เราบริจาคให้</p>
       <p>2.ทำความสะอาดเบื้องต้นก่อนนำมาบริจาค สิ่งของที่สกปรกอาจส่งผลให้เกิดการนำไปใช้งานจะติดเชื้อโรค แบคทีเรียได้</p>
       <p>3.หากมีราคาแพงหรือแบรนด์เนมสามารถแจ้งเจ้าหน้าที่เพื่อความเหมาะสมในการบริจาค</p>
-      <a href="http://localhost:8080/share-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
+      <a href="http://localhost:8080/login-view"><h2><button type="button" class="btn btn-warning">บริจาคเลย ></button></h2></a>
     </div>
     </div>
-
   </div>
 </template>
 
 <script>
-export default {};
 </script>
 
 <style>
