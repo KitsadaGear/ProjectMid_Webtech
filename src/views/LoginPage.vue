@@ -82,8 +82,19 @@ export default {
     ...mapActions("alert", ["error"]),
 
     handelSubmit(e) {
+      if(this.form.email && this.form.password ){
+            this.login(this.form)
+            // this.$fire({
+            // title: "Suceesss",
+            // text: "ยินดีต้อนรับ",
+            // type: "success",
+            // timer: 1000
+            // }).then(r => {
+            //   console.log(r.value);
+            // });
+      } 
       
-      if (this.form.email == '' || this.form.password  == '' ) {
+      else{
           this.$fire({
             title: "Warinig",
             text: "กรุณากรอกให้ครบทุกช่อง",
@@ -93,17 +104,6 @@ export default {
           console.log(r.value);
           });
       }
-      if(this.form.email == this.login  && this.form.password == this.login){
-        this.login(this.form)
-          this.$fire({
-          title: "Suceesss",
-          text: "ยินดีต้อนรับ",
-          type: "success",
-          timer: 1000
-          }).then(r => {
-            console.log(r.value);
-          });
-      }      
     }
   },components: {
     FooterBar

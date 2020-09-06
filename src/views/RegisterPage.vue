@@ -93,18 +93,6 @@ export default {
                 console.log(r.value);
                 });            
             }
-
-            // else{
-            //         this.login(!this.form)
-            //         this.$fire({
-            //         title: "Error",
-            //         text: " กรุณากรอกให้ถูกต้อง",
-            //         type: "error",
-            //         timer: 3000
-            //     }).then(r => {
-            //         console.log(r.value);
-            //     });
-            // }
         } 
     },
     components: {
