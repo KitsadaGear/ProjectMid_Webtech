@@ -4,7 +4,7 @@
       <menu-bar></menu-bar>
 
       <div>
-        <div class="jumbotron" v-if="user" style="margin-bottom:0">
+        <div class="jumbotron" v-if="user" style="margin-bottom:20px; margin-top:20px">
           <h4
             class="display-9 text-center"
           >ยินดีต้อนรับ {{ user.displayName }} เข้าสู่เว็บไซต์ของเรา</h4>
