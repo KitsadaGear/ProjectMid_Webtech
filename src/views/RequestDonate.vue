@@ -5,6 +5,53 @@
       style="background-color: #fffff0;"
     >
       <menu-bar></menu-bar>
+
+      <div>
+
+        <div role="main" class="container">
+          
+          <div class="container mt-4">
+            <label>โปรดกรอกชื่อหน่วยงานของคุณ</label>
+            <input type="text">
+            <label> โปรดกรอกชื่อสิ่งของที่ต้องรับบริจาค</label>
+            <input type="text">
+            <label>โปรดกรอกจำนวนที่ต้องการรับบริจาค</label>
+            <input type="number">
+            <div style="text-align:center;">
+              <button
+                type="submit"
+                class="btn btn-outline-primary"
+                @click="updateDonate()"
+                >ยืนยัน</button>
+            </div>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>
+                    ชื่อหน่วยงาน
+                  </th>
+                  <th>
+                    สิ่งของที่ต้องการรับบริจาค
+                  </th>
+                  <th>
+                    จำนวนที่ต้องการ
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
     <footer-bar></footer-bar>
   </div>
