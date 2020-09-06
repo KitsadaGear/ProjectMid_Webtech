@@ -1,5 +1,10 @@
 <template>
   <div id="app">
+
+    <div v-if="alert.message" :class="`alert ${alert.type}`">
+        {{ alert.message }}
+        </div>
+
     <router-view></router-view>
   </div>
 </template>
@@ -17,6 +22,11 @@ export default {
     $route(to, from) {
       this.clearAlert();
     }
+  },
+  computed:{
+      ...mapState({
+      alert: state => state.alert
+      })
   }
 };
 </script>

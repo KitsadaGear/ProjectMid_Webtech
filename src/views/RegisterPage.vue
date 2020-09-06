@@ -13,7 +13,7 @@
             <div class="card-body text-center"> 
                 <figure class="figure">
                     <div class="rounded-pill">
-                        
+
                     <form @submit.prevent="handleSubmit()">
                         
                         <div class="form-group ">
@@ -31,7 +31,8 @@
                             <input type = "text" class="form-control rounded-pill"
                                 placeholder=" Your name *" v-model="form.displayName">
                         </div>
-                        <div class="from-group ">
+                        <div class="from-group " >
+                            
                             <button class="btn btn-success rounded-pill">
                                 สมัครสมาชิก
                             </button>
@@ -54,12 +55,14 @@
             </div>
         </div>    
     </div>
+    <footer-bar></footer-bar>
 </div>
 </template>
 
 <script>
 
 import { mapState, mapActions } from 'vuex'
+import FooterBar from "../components/Footer.vue";
 
 export default {
     data(){
@@ -76,13 +79,38 @@ export default {
         ...mapActions('alert',['error']),
         handleSubmit(){
             if(this.form.email && this.form.password && this.form.displayName){
+
                 this.register(this.form)
+
             }
             else{
-                this.error("All fields are required")
+                this.$fire({
+                    title: "Warinig",
+                    text: "กรุณากรอกให้ครบทุกช่อง",
+                    type: "warning",
+                    timer: 3000
+                }).then(r => {
+                console.log(r.value);
+                });            
             }
+
+            // else{
+            //         this.login(!this.form)
+            //         this.$fire({
+            //         title: "Error",
+            //         text: " กรุณากรอกให้ถูกต้อง",
+            //         type: "error",
+            //         timer: 3000
+            //     }).then(r => {
+            //         console.log(r.value);
+            //     });
+            // }
         } 
-    }
+    },
+    components: {
+    FooterBar
+  },
+  
 }
 </script>
 <style>

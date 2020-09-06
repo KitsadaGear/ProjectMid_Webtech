@@ -15,22 +15,22 @@
                     <form @submit.prevent ="handelSubmit">
                         <div class="form-group">
                             <label for="" > Email Address </label>
-                            <input type ="text" class="form-control rounded-pill" placeholder="You Email " v-model="form.email" >
+                            <input type ="text" class="form-control rounded-pill"
+                             placeholder="You Email " v-model="form.email" >
                         </div>
                         <div class= "form-group">
                             <label for =""> Password </label>
-                            <input type = "password" class="form-control rounded-pill" placeholder="Your password " v-model="form.password">
+                            <input type = "password" class="form-control rounded-pill"
+                             placeholder="Your password " v-model="form.password">
                         </div>
                         <div class="from-group ">
-                            <button class="btn btn-primary rounded-pill">
-                                เข้าสู่ระบบ
-                            </button>
-                        </div>
+                            <button class="btn btn-primary rounded-pill"> เข้าสู่ระบบ</button>
                         <p></p>
                         <router-link :to="{ name: 'RegisterPage'}"
                             class="btn btn-primary rounded-pill">
                             สมัครสมาชิก
-                        </router-link>
+                          </router-link>
+                        </div>
                     </form>
 
 
@@ -59,11 +59,14 @@
             </div> 
         </div>
     </div>
+    <footer-bar></footer-bar>
   </div>
+  
 </template>
 
 <script>
 import { mapState, mapActions } from "vuex";
+import FooterBar from "../components/Footer.vue";
 
 export default {
   data() {
@@ -77,13 +80,33 @@ export default {
   methods: {
     ...mapActions("account", ["login"]),
     ...mapActions("alert", ["error"]),
+
     handelSubmit(e) {
-      if (this.form.email && this.form.password) {
-        this.login(this.form);
-      } else {
-        alert("Email & Password not match");
+      
+      if (this.form.email == '' || this.form.password  == '' ) {
+          this.$fire({
+            title: "Warinig",
+            text: "กรุณากรอกให้ครบทุกช่อง",
+            type: "warning",
+            timer: 3000
+          }).then(r => {
+          console.log(r.value);
+          });
       }
-    },
+      if(this.form.email == this.login  && this.form.password == this.login){
+        this.login(this.form)
+          this.$fire({
+          title: "Suceesss",
+          text: "ยินดีต้อนรับ",
+          type: "success",
+          timer: 1000
+          }).then(r => {
+            console.log(r.value);
+          });
+      }      
+    }
+  },components: {
+    FooterBar
   }
 };
 </script>
