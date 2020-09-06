@@ -1,55 +1,11 @@
 <template>
   <div>
     <div
-      class="Donatepage font-Kanit shadow-lg p-3 mb-5 rounded"
+      class="DonatePage font-Kanit shadow-lg p-3 mb-5 rounded"
       style="background-color: #fffff0;"
     >
       <menu-bar></menu-bar>
       <div>
-        <!-- Carousel class -->
-        <div class="shadow-none p-3 mb-5 bg-light rounded">
-          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <b-carousel
-              id="carousel-1"
-              v-model="slide"
-              :interval="4000"
-              controls
-              indicators
-              img-width="800"
-              img-height="600"
-              style="text-shadow: 1px 1px 2px #333;"
-              @sliding-start="onSlideStart"
-              @sliding-end="onSlideEnd"
-            >
-              <!-- Picture Slider Here -->
-              <b-carousel-slide>
-                <template v-slot:img>
-                  <img
-                    class="d-block w-100 rounded"
-                    width="800"
-                    height="600"
-                    src="../assets/img/shutterstock_180809027-696x367.jpg"
-                    alt="image slot"
-                  />
-                </template>
-              </b-carousel-slide>
-
-              <b-carousel-slide>
-                <template v-slot:img>
-                  <img
-                    class="d-block rounded w-100"
-                    width="800"
-                    height="600"
-                    src="../assets/img/download.jpg"
-                    alt="image slot"
-                  />
-                </template>
-              </b-carousel-slide>
-            </b-carousel>
-            <!-- /Picture Slider Here -->
-          </div>
-        </div>
-
         <!-- /Carousel class -->
 
         <div role="main" class="container">
@@ -75,6 +31,7 @@
                     >{{ department.name }}</option>
                   </optgroup>
                 </select>
+
                 <button class="btn btn-outline-info" @click="getData()">Select</button>
               </div>
 
@@ -104,9 +61,9 @@
 
             <aside class="col-md-4 blog-sidebar">
               <!-- บริจาค-->
-              <form class="donate_form" @submit.prevent="updateDonate()" v-if="dept_name">
+              <form class="donate_form" @submit.prevent="updateDonate()">
                 <div class="p-4 mb-3 rounded aside-form" style="background-color:#F8F8FF">
-                  <h4 style="text-align:center;font-size: 30px;">ช่องทางการบริจาค</h4>
+                  <h4 style="text-align:center;font-size: 30px;">บริจาคตามความต้องการของหน่วยงาน</h4>
                   <p class="paragraph_info">โปรดเลือกสิ่งที่ท่านต้องการบริจาค</p>
 
                   <div class="custom" style="text-align:center">
@@ -148,7 +105,6 @@
               <!--Custom -->
               <form
                 @submit.prevent="submitCustomDonate()"
-                v-if="dept_name"
                 class="donate_form"
                 style="margin-top:30px"
               >
@@ -186,6 +142,7 @@
 
               <div class="p-4 mb-3 rounded aside-form" style="margin-top:30px">
                 <h1 style="text-align:center;font-size: 30px;">ประวัติการบริจาคของท่าน</h1>
+
                 <button
                   class="btn btn-outline-primary logDonate"
                   type="button"
@@ -228,20 +185,13 @@
                               scope="col"
                               style="text-align:center;font-size:20px"
                             >หน่วยงานที่ท่านบริจาค</th>
-                            <th
-                              scope="col"
-                              style="text-align:center;font-size:20px"
-                            >วันเวลาที่ท่านบริจาค</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr v-for="donateLog in userDonateLog" :key="donateLog.id">
-                            <td style="text-align:center; font-size:25px">{{donateLog.name}}</td>
-                            <td style="text-align:center; font-size:25px">{{donateLog.amount}}</td>
-                            <td style="text-align:center; font-size:25px">{{donateLog.department}}</td>
-                            <td
-                              style="text-align:center; font-size:25px"
-                            >{{new Date(donateLog.donate_Date.seconds * 1000)}}</td>
+                            <td style="text-align:center; font-size:25px">{{ donateLog.name }}</td>
+                            <td style="text-align:center; font-size:25px">{{ donateLog.amount }}</td>
+                            <td style="text-align:center; font-size:25px">{{ donateLog.department }}</td>
                           </tr>
                         </tbody>
                       </table>
@@ -268,6 +218,7 @@
 <script>
 import { departmentsCollection } from "../firebase.js";
 import { userLogCollection } from "../firebase.js";
+import { storeCollection } from "../firebase.js";
 import MenuBar from "../components/Menubar.vue";
 import FooterBar from "../components/Footer.vue";
 import { firestore } from "firebase";
@@ -276,15 +227,16 @@ export default {
   data() {
     return {
       departments: [],
-      requirements: [],
-      requirementsID: [],
+      storages: [],
       userDonateLog: [],
+      requirements: [],
       dept_name: "",
       depart: {
         depart_name: "",
         name: "",
         amount: 0,
         enough: "",
+
         new_require: {
           name: "",
           amount: 0,
@@ -292,12 +244,22 @@ export default {
           depart_name: "",
         },
       },
+      requireDonate: {
+        storeId: [],
+      },
       customDonate: {
         name: "",
         amount: 0,
         enough: "",
         count: "",
+        customCount: "",
       },
+
+      customStorage: {
+        customId: [],
+        requireId: [],
+      },
+
       slide: 0,
       sliding: null,
     };
@@ -306,6 +268,7 @@ export default {
     return {
       departments: departmentsCollection,
       userDonateLog: userLogCollection,
+      storages: storeCollection,
     };
   },
   computed: {
@@ -322,84 +285,124 @@ export default {
     ...mapActions("alert", ["error"]),
     submitCustomDonate() {
       var name = document.getElementById("username").innerHTML;
-      if (!this.customDonate.name || !this.customDonate.amount) {
-        this.error("โปรดกรอกข้อมูลให้ครบถ้วน");
+      if (!this.depart.depart_name) {
+        this.$fire({
+          title: "ข้อมูลไม่ถูกต้อง",
+          text: "โปรดเลือกหน่วยงานที่ต้องการบริจาค",
+          type: "error",
+          timer: 9000,
+        });
       } else {
-        for (var i = 0; i <= this.requirementsID.length; i++) {
-          if (this.customDonate.name == this.requirementsID[i]) {
-            this.customDonate.count = 1;
-            break;
-          } else {
-            this.customDonate.count = 0;
-          }
-        }
-        if (this.customDonate.count < 1 && this.customDonate.amount > 0) {
-          departmentsCollection
-            .doc(this.depart.depart_name)
-            .collection("Requirement")
-            .doc(this.customDonate.name)
-            .set({
-              name: this.customDonate.name,
-              amount: parseInt(this.customDonate.amount),
-              donateDate: new Date(),
-              enough: true,
-            });
-
-          userLogCollection
-            .doc(name)
-            .collection("donate_log")
-            .doc(this.customDonate.name)
-            .set({
-              name: this.customDonate.name,
-              amount: parseInt(this.customDonate.amount),
-              donate_Date: new Date(),
-              department: this.depart.depart_name,
-            });
-          console.log("Update ของใหม่");
-        } else if (
-          this.customDonate.count > 0 &&
-          this.customDonate.amount > 0
+        if (
+          !this.customDonate.name ||
+          !this.customDonate.amount ||
+          this.customDonate.amount == 0
         ) {
-          departmentsCollection
-            .doc(this.depart.depart_name)
-            .collection("Requirement")
-            .doc(this.customDonate.name)
-            .get()
-            .then((snapshot) => {
-              const document = snapshot.data();
-              var amountLeft = 0;
-              if (
-                parseInt(document.amount) - parseInt(this.customDonate.amount) <
-                1
-              ) {
-                amountLeft = 0;
-              } else {
-                amountLeft =
-                  parseInt(document.amount) -
-                  parseInt(this.customDonate.amount);
-              }
+          this.$fire({
+            title: "ข้อมูลไม่ถูกต้อง",
+            text: "โปรดกรอกข้อมูลให้ครบถ้วนถูกต้อง",
+            type: "error",
+            timer: 9000,
+          });
+        } else {
+          // มีใน Requirement หรือไม่
+          for (var i = 0; i <= this.requireDonate.storeId.length; i++) {
+            if (this.customDonate.name == this.requireDonate.storeId[i]) {
+              this.customDonate.count = 1;
+              break;
+            } else {
+              this.customDonate.count = 0;
+            }
+          }
+          // มีใน CustomDonate หรือไม่
+          for (var x = 0; x <= this.customStorage.customId.length; x++) {
+            if (this.customDonate.name == this.customStorage.customId[x]) {
+              this.customDonate.customCount = 1;
+              break;
+            } else {
+              this.customDonate.customCount = 0;
+            }
+          }
 
-              if (document.amount >= this.customDonate.amount) {
-                if (amountLeft <= 0) {
-                  departmentsCollection
-                    .doc(this.depart.depart_name)
-                    .collection("Requirement")
-                    .doc(this.customDonate.name)
-                    .update({
-                      amount: amountLeft,
-                      enough: true,
-                    });
-                } else {
-                  departmentsCollection
-                    .doc(this.depart.depart_name)
-                    .collection("Requirement")
-                    .doc(this.customDonate.name)
-                    .update({
-                      amount: amountLeft,
-                    });
-                }
-              }
+          if (
+            this.customDonate.count < 1 &&
+            this.customDonate.amount > 0 &&
+            this.customDonate.customCount < 1
+          ) {
+            // ----------------------- ของใหม่ -----------------------
+            var name = document.getElementById("username").innerHTML;
+
+            storeCollection
+              .doc(this.depart.depart_name)
+              .collection("CustomStore")
+              .doc(this.customDonate.name)
+              .set({
+                name: this.customDonate.name,
+                amount: parseInt(this.customDonate.amount),
+                donateDate: new Date(),
+                enough: true,
+                status: false,
+                userDonate: name,
+              });
+
+            userLogCollection
+              .doc(name)
+              .collection("donate_log")
+              .doc()
+              .set({
+                name: this.customDonate.name,
+                amount: parseInt(this.customDonate.amount),
+                department: this.depart.depart_name,
+                donateDate: Date.now(),
+                status: false,
+              });
+            console.log("Update ของใหม่");
+            this.customDonate.name = "";
+            this.customDonate.amount = "";
+            this.$fire({
+              title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+              type: "success",
+              timer: 9000,
             });
+          } else if (
+            // ----------------------- มีของซ้ำใน Requirement อยู่แล้ว -----------------------
+            this.customDonate.count >= 1
+          ) {
+            this.$fire({
+              title: "โปรดทราบ",
+              text:
+                "คุณได้กรอกความต้องการที่มีในหน่วยงาน กรุณากรอกในฟอร์ม 'ช่องทางการบริจาค' ",
+              type: "error",
+              timer: 9000,
+            });
+            // ----------------------- ไม่มีของเดิมซ้ำใน Requirement-----------------------
+          } else {
+            storeCollection
+              .doc(this.depart.depart_name)
+              .collection("CustomStore")
+              .doc(this.customDonate.name)
+              .get()
+              .then((snapshot) => {
+                const docData = snapshot.data();
+                storeCollection
+                  .doc(this.depart.depart_name)
+                  .collection("CustomStore")
+                  .doc(this.customDonate.name)
+                  .update({
+                    amount:
+                      parseInt(docData.amount) +
+                      parseInt(this.customDonate.amount),
+                    donateDate: new Date(),
+                  });
+                this.customDonate.name = "";
+                this.customDonate.amount = "";
+                this.$fire({
+                  title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+                  type: "success",
+                  timer: 9000,
+                });
+              });
+          }
         }
       }
     },
@@ -410,7 +413,7 @@ export default {
       this.sliding = false;
     },
 
-    getDonateLog: function () {
+    getDonateLog() {
       var name = document.getElementById("username").innerHTML;
       userLogCollection
         .doc(name)
@@ -437,51 +440,231 @@ export default {
           .onSnapshot((querySnapshot) => {
             let dataArray = [];
             let dataId = [];
+
             querySnapshot.forEach((doc) => {
               let requirements = doc.data();
+              dataId.push(doc.id);
               if (requirements.enough == false) {
+                //แก้ตรงนี้
                 dataArray.push(requirements);
-                dataId.push(doc.id);
               }
             });
             this.requirements = dataArray;
-            this.requirementsID = dataId;
+            this.requireDonate.storeId = dataId;
+          });
+        storeCollection
+          .doc(this.depart.depart_name)
+          .collection("RequireStore")
+          .onSnapshot((querySnapshot) => {
+            let requireIds = [];
+
+            querySnapshot.forEach((doc) => {
+              let stored = doc.data();
+              if (stored.status == false) {
+                requireIds.push(doc.id);
+              }
+            });
+            this.customStorage.requireId = requireIds;
+          });
+
+        storeCollection
+          .doc(this.depart.depart_name)
+          .collection("CustomStore")
+          .onSnapshot((querySnapshot) => {
+            let customIds = [];
+
+            querySnapshot.forEach((doc) => {
+              let stored = doc.data();
+              if (stored.status == false) {
+                customIds.push(doc.id);
+              }
+            });
+            this.customStorage.customId = customIds;
           });
       }
     },
-    updateDonate() {
-      if (this.depart.depart_name != "") {
-        departmentsCollection
-          .doc(this.depart.depart_name)
-          .collection("Requirement")
-          .doc(this.depart.new_require.name)
-          .get()
-          .then((snapshot) => {
-            const document = snapshot.data();
-            var amountLeft =
-              parseInt(document.amount) -
-              parseInt(this.depart.new_require.amount);
-            if (document.amount >= this.depart.new_require.amount) {
-              if (amountLeft <= 0) {
-                departmentsCollection
-                  .doc(this.depart.depart_name)
-                  .collection("Requirement")
-                  .doc(this.depart.new_require.name)
-                  .update({
-                    amount: amountLeft,
-                    enough: true,
+
+    updateDonate: function (event) {
+      if (!this.depart.depart_name) {
+        this.$fire({
+          title: "ข้อมูลไม่ถูกต้อง",
+          text: "โปรดเลือกหน่วยงานที่ต้องการบริจาค",
+          type: "error",
+          timer: 9000,
+        });
+      } else {
+        if (
+          this.depart.new_require.name &&
+          this.depart.new_require.amount &&
+          this.depart.new_require.amount > 0
+        ) {
+          var name = document.getElementById("username").innerHTML;
+
+          departmentsCollection
+            .doc(this.depart.depart_name)
+            .collection("Requirement")
+            .doc(this.depart.new_require.name)
+            .get()
+            .then((snapshot) => {
+              const document = snapshot.data();
+              var amountLeft =
+                parseInt(document.amount) -
+                parseInt(this.depart.new_require.amount);
+
+              if (document.amount >= this.depart.new_require.amount) {
+                //-----------------------บริจาคครบ--------------------------
+                if (amountLeft <= 0) {
+                  departmentsCollection
+                    .doc(this.depart.depart_name)
+                    .collection("Requirement")
+                    .doc(this.depart.new_require.name)
+                    .update({
+                      amount: amountLeft,
+                      enough: true,
+                    });
+
+                  userLogCollection
+                    .doc(name)
+                    .collection("donate_log")
+                    .doc()
+                    .set({
+                      name: this.depart.new_require.name,
+                      amount: parseInt(this.depart.new_require.amount),
+                      department: this.depart.depart_name,
+                      donateDate: new Date(),
+                      status: false,
+                    });
+
+                  storeCollection
+                    .doc(this.depart.depart_name)
+                    .collection("RequireStore")
+                    .doc(this.depart.new_require.name)
+                    .set({
+                      name: this.depart.new_require.name,
+                      amount: parseInt(this.depart.new_require.amount),
+                      enough: true,
+                      donateDate: new Date(),
+                      status: false,
+                    });
+                  this.depart.new_require.name = "";
+                  this.depart.new_require.amount = "";
+                  this.$fire({
+                    title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+                    type: "success",
+                    timer: 9000,
                   });
+                  //-----------------------บริจาคไม่ครบ--------------------------
+                } else if (amountLeft > 0) {
+                  departmentsCollection
+                    .doc(this.depart.depart_name)
+                    .collection("Requirement")
+                    .doc(this.depart.new_require.name)
+                    .update({
+                      amount: amountLeft,
+                    });
+
+                  userLogCollection
+                    .doc(name)
+                    .collection("donate_log")
+                    .doc()
+                    .set({
+                      name: this.depart.new_require.name,
+                      amount: parseInt(this.depart.new_require.amount),
+                      department: this.depart.depart_name,
+                      donateDate: new Date(),
+                      status: false,
+                    });
+
+                  for (
+                    var x = 0;
+                    x <= this.customStorage.requireId.length;
+                    x++
+                  ) {
+                    if (
+                      this.depart.new_require.name ==
+                      this.customStorage.requireId[x]
+                    ) {
+                      this.customDonate.customCount = 1;
+                      break;
+                    } else {
+                      this.customDonate.customCount = 0;
+                    }
+                  }
+                  if (this.customDonate.customCount > 0) {
+                    storeCollection
+                      .doc(this.depart.depart_name)
+                      .collection("RequireStore")
+                      .doc(this.depart.new_require.name)
+                      .get()
+                      .then((snapshot) => {
+                        const documentData = snapshot.data();
+                        var amounted =
+                          parseInt(documentData.amount) +
+                          parseInt(this.depart.new_require.amount);
+                        storeCollection
+                          .doc(this.depart.depart_name)
+                          .collection("RequireStore")
+                          .doc(this.depart.new_require.name)
+                          .set({
+                            name: this.depart.new_require.name,
+                            amount: parseInt(amounted),
+                            enough: true,
+                            donateDate: new Date(),
+                            status: false,
+                          });
+                      });
+                    this.depart.new_require.name = "";
+                    this.depart.new_require.amount = "";
+                    this.$fire({
+                      title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+                      type: "success",
+                      timer: 9000,
+                    });
+                  } else {
+                    storeCollection
+                      .doc(this.depart.depart_name)
+                      .collection("RequireStore")
+                      .doc(this.depart.new_require.name)
+                      .set({
+                        name: this.depart.new_require.name,
+                        amount: parseInt(this.depart.new_require.amount),
+                        enough: true,
+                        donateDate: new Date(),
+                        status: false,
+                      });
+                    this.depart.new_require.name = "";
+                    this.depart.new_require.amount = "";
+                    this.$fire({
+                      title: "บริจาคสำเร็จ ขอขอบพระคุณเป็นอย่างสูง",
+                      type: "success",
+                      timer: 9000,
+                    });
+                  }
+                }
+                //-----------------------บริจาคเกิน--------------------------
               } else {
-                departmentsCollection
-                  .doc(this.depart.depart_name)
-                  .collection("Requirement")
-                  .doc(this.depart.new_require.name)
-                  .update({
-                    amount: amountLeft,
-                  });
+                this.depart.new_require.name = "";
+                this.depart.new_require.amount = "";
+
+                this.$fire({
+                  title: "โปรดทราบ",
+                  text:
+                    "คุณบริจาคเกินความต้องการของหน่วยงาน กรุณาป้อนข้อมูลใหม่",
+                  type: "error",
+                  timer: 9000,
+                });
               }
-            }
+            });
+        } else {
+          this.depart.new_require.name = "";
+          this.depart.new_require.amount = "";
+          this.$fire({
+            title: "โปรดทราบ",
+            text: "โปรดกรอกข้อมูลให้ครบถ้วน",
+            type: "error",
+            timer: 9000,
           });
+        }
       }
     },
   },
@@ -493,18 +676,18 @@ export default {
 </script>
 
 <style>
-.Donatepage {
+.DonatePage {
   background-color: #fffff0;
   margin: 0;
 }
 
-.Donatepage .bg-light {
+.DonatePage .bg-light {
   background-color: #b0c4de !important;
 }
 .container {
   margin-top: 20px;
 }
-.Donatepage .table {
+.DonatePage .table {
   background-color: white;
   margin: 0;
 }
@@ -536,17 +719,17 @@ export default {
   color: black;
 }
 @media (min-width: 1200px) {
-  .Donatepage .container,
-  .Donatepage .container-sm,
-  .Donatepage .container-md,
-  .Donatepage .container-lg,
-  .Donatepage .container-xl {
+  .DonatePage .container,
+  .DonatePage .container-sm,
+  .DonatePage .container-md,
+  .DonatePage .container-lg,
+  .DonatePage .container-xl {
     max-width: 100%;
   }
 }
 
 @media (min-width: 768px) {
-  .Donatepage .col-md-8 {
+  .DonatePage .col-md-8 {
     -ms-flex: 0 0 65%;
     -webkit-box-flex: 0;
     flex: 0 0 65%;
@@ -555,7 +738,7 @@ export default {
 }
 
 @media (min-width: 768px) {
-  .Donatepage .col-md-4 {
+  .DonatePage .col-md-4 {
     -ms-flex: 0 0 35%;
     -webkit-box-flex: 0;
     flex: 0 0 35%;
@@ -569,14 +752,14 @@ export default {
   margin-top: 30px;
   font-size: 25px;
 }
-.Donatepage input[type="text"] {
+.DonatePage input[type="text"] {
   padding: 1.5rem 1px;
   margin: 8px 0;
   box-sizing: border-box;
   font-size: 20px;
 }
 
-.Donatepage input[type="number"] {
+.DonatePage input[type="number"] {
   padding: 1.5rem 1px;
   margin: 8px 0;
   box-sizing: border-box;
@@ -609,8 +792,8 @@ export default {
 }
 
 @media (min-width: 768px) {
-  .Donatepage .mb-md-5,
-  .Donatepage .my-md-5 {
+  .DonatePage .mb-md-5,
+  .DonatePage .my-md-5 {
     margin-bottom: 0 !important;
   }
 }

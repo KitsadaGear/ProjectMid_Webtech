@@ -12,7 +12,6 @@ import { store } from "./stores";
 import VueSimpleAlert from "vue-simple-alert";
 
 Vue.use(VueSimpleAlert);
-
 Vue.use(firestorePlugin);
 
 Vue.config.productionTip = false;
