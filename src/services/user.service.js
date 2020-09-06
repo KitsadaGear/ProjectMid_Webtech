@@ -29,5 +29,5 @@ function register(user) {
 export const userService = {
   login,
   logout,
-  register
-};
+  register,
+}
