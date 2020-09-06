@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="Contact font-Kanit">
+    <div class="Contact font-Kanit shadow-lg p-3 mb-5 rounded">
       <menu-bar></menu-bar>
       <div class="container">
         <h1>ติดต่อเรา<i class="fas fa-phone-square-alt"></i></h1>

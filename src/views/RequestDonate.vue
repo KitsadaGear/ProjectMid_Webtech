@@ -5,28 +5,137 @@
       style="background-color: #fffff0;"
     >
       <menu-bar></menu-bar>
+      <div>
+        <div class="container">
+          <div class="container mt-4">
+            <label>โปรดกรอกชื่อหน่วยงานของคุณ</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="โปรดกรอกชื่อหน่วยงานของคุณ"
+              v-model="addDepartment.department_name"
+            />
+            <label> โปรดกรอกชื่อสิ่งของที่ต้องรับบริจาค</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="โปรดกรอกชื่อสิ่งของที่ต้องรับบริจาค"
+              v-model="addDepartment.require_name"
+            />
+            <label>โปรดกรอกจำนวนที่ต้องการรับบริจาค</label>
+            <input
+              type="number"
+              class="form-control"
+              placeholder="โปรดกรอกจำนวนที่ต้องการรับบริจาค"
+              v-model="addDepartment.require_amount"
+            />
+            <div style="text-align:center;">
+              <button
+                type="submit"
+                class="btn btn-outline-primary submit_btn"
+                @click="AddRequirement()"
+              >
+                ยืนยัน
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <footer-bar></footer-bar>
   </div>
 </template>
 
 <script>
+import { departmentsCollection } from "../firebase.js";
+import { firestore } from "firebase";
 import MenuBar from "../components/Menubar.vue";
 import { mapState, mapActions } from "vuex";
 import FooterBar from "../components/Footer.vue";
 export default {
-  data() {
+  firestore() {
     return {
-      slide: 0,
-      sliding: null
+      departments: departmentsCollection
     };
   },
+  data() {
+    return {
+      requirements: [],
+      addDepartment: {
+        department_name: "",
+        require_name: "",
+        require_amount: ""
+      },
+      Count: "",
+      checkCount: "",
+      requireDonateId: [],
+      requireSameId: []
+    };
+  },
+
   methods: {
-    onSlideStart(slide) {
-      this.sliding = true;
-    },
-    onSlideEnd(slide) {
-      this.sliding = false;
+    AddRequirement() {
+      departmentsCollection.onSnapshot(querySnapshot => {
+        let dataId = [];
+        querySnapshot.forEach(doc => {
+          dataId.push(doc.id);
+        });
+        this.requireDonateId = dataId;
+
+        if (
+          !this.addDepartment.department_name ||
+          !this.addDepartment.require_name ||
+          !this.addDepartment.require_amount ||
+          this.addDepartment.require_amount == 0
+        ) {
+          this.$fire({
+            title: "ข้อมูลไม่ถูกต้อง",
+            text: "โปรดกรอกข้อมูลให้ครบถ้วนถูกต้อง",
+            type: "error",
+            timer: 9000
+          });
+        } else {
+          // มีหน่วยงานเก่าอยู่หรือไม่
+          for (var i = 0; i <= this.requireDonateId.length; i++) {
+            if (this.addDepartment.department_name == this.requireDonateId[i]) {
+              this.checkCount = 1;
+              break;
+            } else {
+              this.checkCount = 0;
+            }
+          }
+          if (this.checkCount == 1) {
+            departmentsCollection
+              .doc(this.addDepartment.department_name)
+              .collection("Requirement")
+              .doc(this.addDepartment.require_name)
+              .update({
+                amount: parseInt(this.addDepartment.require_amount)
+              });
+            this.$fire({
+              title: "ร้องขอความต้องการสำเร็จ",
+              type: "success",
+              timer: 9000
+            });
+          } else {
+            departmentsCollection
+              .doc(this.addDepartment.department_name)
+              .collection("Requirement")
+              .doc(this.addDepartment.require_name)
+              .set({
+                name: this.addDepartment.require_name,
+                amount: this.addDepartment.require_amount,
+                enough: false,
+                status: false
+              });
+            this.$fire({
+              title: "ร้องขอความต้องการสำเร็จ",
+              type: "success",
+              timer: 9000
+            });
+          }
+        }
+      });
     }
   },
   components: {
@@ -53,5 +162,29 @@ export default {
 .mb-5,
 .my-5 {
   margin-bottom: 0 !important;
+}
+
+.container label {
+  font-size: 30px;
+}
+.Requestpage input[type="number"] {
+  padding: 1.5rem 1px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 20px;
+  text-align: center;
+}
+.Requestpage input[type="text"] {
+  padding: 1.5rem 1px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  font-size: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.Requestpage .submit_btn {
+  margin-top: 50px;
+  margin-bottom: 25px;
 }
 </style>
