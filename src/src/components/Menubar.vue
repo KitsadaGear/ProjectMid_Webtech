@@ -2,7 +2,7 @@
   <div class="menubar font-Kanit">
     <div>
       <b-navbar toggleable="lg" type="dark" variant="info" class="bg-light">
-        <b-navbar-brand href="#" class="icon_name">NavBar</b-navbar-brand>
+        <b-navbar-brand href="#" class="icon_name">PunFun</b-navbar-brand>
 
         <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
